@@ -4,16 +4,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import {RouterLink} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
     AppComponent
   ],
-  imports: [
-    BrowserModule,
-    RouterLink,
-    HttpClientModule,
-  ],
+    imports: [
+        BrowserModule,
+        RouterLink,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        MatButtonModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
