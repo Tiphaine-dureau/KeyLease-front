@@ -2,6 +2,8 @@
 
 Les changements notables du projet sont notés dans ce fichier.  
 Nomenclature :
+
+- Unreleased : pour les fonctionnalités non publiées sur main
 - Added : pour les nouvelles fonctionnalités
 - Changed : pour les changements de fonctionnalités existantes
 - Deprecated : pour les fonctionnalités qui seront bientôt supprimées
@@ -10,6 +12,17 @@ Nomenclature :
 - Security : en cas de vulnérabilités
 - Numéro de version : major.minor.patch
 
-### [0.0.1] - 2023-01-16
+### Unreleased
+
+### [0.0.2] - 2023-01-24
+
 #### Added
+
+- Feature Form Login
+- JWT authentication
+
+### [0.0.1] - 2023-01-16
+
+#### Added
+
 - Feature Configure apiURL (ReceivedHelloWorldFromBack)

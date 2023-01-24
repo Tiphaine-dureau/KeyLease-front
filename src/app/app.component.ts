@@ -1,25 +1,20 @@
-import {Component, OnInit} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {environment} from "../environments/environment";
+import {Component, OnDestroy} from '@angular/core';
+import {LoginService} from "./features/login/services/login.service";
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.sass']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnDestroy {
   title = 'key-lease-front';
 
-  constructor(
-    private http: HttpClient
-  ) {
+  constructor(private loginService: LoginService) {
   }
 
-  getHelloWorld(){
-    return this.http.get(`${environment.apiUrl}/helloworld`)
+  public ngOnDestroy(): void {
+    this.loginService.removeSession();
   }
 
-  ngOnInit(): void {
-    this.getHelloWorld().subscribe((data)=> console.log(data))
-  }
 }
