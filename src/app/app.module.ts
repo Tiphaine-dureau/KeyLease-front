@@ -2,9 +2,10 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
 import {RouterLink} from "@angular/router";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {LoginModule} from "./features/login/login.module";
+import {AuthInterceptor} from "./common/interceptors/auth.interceptor";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,11 @@ import {LoginModule} from "./features/login/login.module";
     BrowserAnimationsModule,
     LoginModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -3,6 +3,8 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {HttpClient} from "@angular/common/http";
 import {LoginService} from "../services/login.service";
 import {FormLoginModel} from "./form-login.model";
+import {UserService} from "../../../common/services/user.service";
+import {UserBusinessModel} from "../../../common/business-models/user.business-model";
 
 
 @Component({
@@ -15,7 +17,8 @@ export class FormLoginComponent {
 
   constructor(
     private http: HttpClient,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private userService: UserService
   ) {
   }
 
@@ -24,7 +27,17 @@ export class FormLoginComponent {
     password: new FormControl('', [Validators.required])
   })
 
+
   public onSubmit(): void {
-    this.loginService.postLogin(this.loginForm.value as FormLoginModel).subscribe()
+    this.loginService.postLogin(this.loginForm.value as FormLoginModel).subscribe(() => {
+      this.getUsers();
+    })
   }
+
+  private getUsers(): void {
+    this.userService.getUsers().subscribe((users: UserBusinessModel[]) => {
+      console.warn(users);
+    })
+  }
+
 }
