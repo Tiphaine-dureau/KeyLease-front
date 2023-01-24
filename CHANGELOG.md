@@ -14,9 +14,12 @@ Nomenclature :
 
 ### Unreleased
 
+### [0.0.2] - 2023-01-24
+
 #### Added
 
 - Feature Form Login
+- JWT authentication
 
 ### [0.0.1] - 2023-01-16
 
