@@ -1,4 +1,4 @@
-export interface FormLoginModel {
+export interface LoginFormModel {
   email: string;
   password: string;
 }

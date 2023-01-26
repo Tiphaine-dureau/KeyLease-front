@@ -1,0 +1,51 @@
+@import "src/styles/variables";
+@import "src/styles/mixins";
+
+.login-form-container {
+  @include flex-center;
+}
+
+.login-form-group {
+  @include padding-margin-20px;
+  background: $forms-background;
+  border-radius: 4px;
+}
+
+.login-form-input {
+  min-width: 100%;
+}
+
+.login-button-form {
+  @include flex-end;
+}
+
+
+@media (max-width: $layout-breakpoint-small) {
+  .login-form-group {
+    min-width: 65vw;
+  }
+}
+
+@media (min-width: 577px) and (max-width: $layout-breakpoint-medium) {
+  .login-form-group {
+    min-width: 55vw;
+  }
+}
+
+@media (min-width: 769px) and (max-width: $layout-breakpoint-large) {
+  .login-form-group {
+    min-width: 50vw;
+  }
+}
+
+@media (min-width: 993px) and (max-width: $layout-breakpoint-extra-extra-large) {
+  .login-form-group {
+    min-width: 40vw;
+  }
+}
+
+@media (min-width: 1401px) {
+  .login-form-group {
+    min-width: 30vw;
+  }
+}
