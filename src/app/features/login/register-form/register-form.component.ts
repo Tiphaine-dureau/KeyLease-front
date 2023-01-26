@@ -12,6 +12,8 @@ import {RegisterFormModel} from "./register-form.model";
 export class RegisterFormComponent {
 
   public hide = true;
+  public isLoading = false;
+  public formSubmitted = false;
 
   constructor(
     private http: HttpClient,
@@ -29,7 +31,13 @@ export class RegisterFormComponent {
   })
 
   public onSubmit(): void {
-    // TODO dans le subscribe boolean a true si succès qui affiche le bouton et le message de succès
-    this.registerService.postRegister(this.registerForm.value as RegisterFormModel).subscribe()
+    this.formSubmitted = true;
+    this.isLoading = true;
+    const formData = this.registerForm.value as RegisterFormModel;
+    this.registerService.postRegister(formData).subscribe(() => {
+        this.formSubmitted = false;
+        this.isLoading = false;
+      },
+    );
   }
 }

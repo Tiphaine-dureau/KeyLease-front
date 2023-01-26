@@ -25,7 +25,15 @@
       </button>
     </mat-form-field>
     <div class="register-form-button">
-      <button mat-raised-button color="primary" type="submit" [disabled]="!registerForm.valid">S'enregistrer</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!registerForm.valid || formSubmitted">
+        S'enregistrer
+      </button>
     </div>
   </form>
 </div>
+<ng-container *ngIf="isLoading">
+  <app-spinner></app-spinner>
+</ng-container>
+
+
+

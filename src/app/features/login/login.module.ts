@@ -9,6 +9,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {HttpClientModule} from "@angular/common/http";
 import {RegisterFormComponent} from "./register-form/register-form.component";
 import {RouterLink} from "@angular/router";
+import {ComponentsModule} from "../../common/components/components.module";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {RouterLink} from "@angular/router";
     MatButtonModule,
     MatIconModule,
     HttpClientModule,
-    RouterLink
+    RouterLink,
+    ComponentsModule
   ],
   providers: [],
 })

@@ -7,6 +7,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {LoginModule} from "./features/login/login.module";
 import {AuthInterceptor} from "./common/interceptors/auth.interceptor";
 import {AppRoutingModule} from "./app-routing.module";
+import {ComponentsModule} from "./common/components/components.module";
+
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import {AppRoutingModule} from "./app-routing.module";
     HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    LoginModule
+    LoginModule,
+    ComponentsModule
   ],
   providers: [
     {
