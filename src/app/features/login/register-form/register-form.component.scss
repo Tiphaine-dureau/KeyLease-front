@@ -1,0 +1,56 @@
+@import "src/styles/variables";
+@import "src/styles/mixins";
+
+.register-form-container {
+  @include flex-center;
+}
+
+.register-form-group {
+  @include padding-margin-20px;
+  background: $forms-background;
+  border-radius: 4px;
+}
+
+.register-form-input {
+  min-width: 100%;
+}
+
+.register-form-button {
+  @include flex-end;
+}
+
+@media (max-width: $layout-breakpoint-small) {
+  .register-form-group {
+    min-width: 65vw;
+  }
+}
+
+@media (min-width: 577px) and (max-width: $layout-breakpoint-medium) {
+  .register-form-group {
+    min-width: 55vw;
+  }
+}
+
+@media (min-width: 769px) and (max-width: $layout-breakpoint-large) {
+  .register-form-group {
+    min-width: 50vw;
+  }
+}
+
+@media (min-width: 993px) and (max-width: $layout-breakpoint-extra-extra-large) {
+  .register-form-group {
+    min-width: 40vw;
+  }
+}
+
+@media (min-width: 1401px) {
+  .register-form-group {
+    min-width: 30vw;
+  }
+}
+
+
+
+
+
+
