@@ -1,0 +1,5 @@
+@import "src/styles/mixins";
+
+.spinner-container {
+  @include flex-center;
+}

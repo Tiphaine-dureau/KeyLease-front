@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpContext} from '@angular/common/http';
 import {environment} from "../../../../environments/environment";
 import {map, Observable} from "rxjs";
-import {FormLoginModel} from "../form-login/form-login.model";
-import {LoginBusinessModel} from "../form-login/login-business.model";
+import {LoginFormModel} from "../login-form/login-form.model";
+import {LoginBusinessModel} from "../login-form/login-business.model";
 import {SKIP_AUTH_BEARER} from "../../../common/interceptors/auth.interceptor";
 
 export const TOKEN_KEY = 'keylease_token'
@@ -16,7 +16,7 @@ export class LoginService {
   constructor(private http: HttpClient) {
   }
 
-  public postLogin(formLoginModel: FormLoginModel): Observable<LoginBusinessModel> {
+  public postLogin(formLoginModel: LoginFormModel): Observable<LoginBusinessModel> {
     return this.http.post<LoginBusinessModel>(`${environment.apiUrl}/login`, formLoginModel,
       {context: new HttpContext().set(SKIP_AUTH_BEARER, true)})
       .pipe(

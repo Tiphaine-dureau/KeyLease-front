@@ -6,6 +6,9 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {LoginModule} from "./features/login/login.module";
 import {AuthInterceptor} from "./common/interceptors/auth.interceptor";
+import {AppRoutingModule} from "./app-routing.module";
+import {ComponentsModule} from "./common/components/components.module";
+
 
 @NgModule({
   declarations: [
@@ -16,7 +19,9 @@ import {AuthInterceptor} from "./common/interceptors/auth.interceptor";
     RouterLink,
     HttpClientModule,
     BrowserAnimationsModule,
-    LoginModule
+    AppRoutingModule,
+    LoginModule,
+    ComponentsModule
   ],
   providers: [
     {
