@@ -15,10 +15,13 @@
       </button>
     </mat-form-field>
     <div class="login-button-form">
-      <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">Valider</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid || formSubmitted">Connexion
+      </button>
     </div>
   </form>
   <button mat-raised-button color="primary" routerLink="/register">Go to register</button>
 </div>
-
+<ng-container *ngIf="isLoading">
+  <app-spinner></app-spinner>
+</ng-container>
 
