@@ -31,7 +31,8 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     HttpClientModule,
     RouterLink,
     ComponentsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatIconModule
   ],
   providers: [],
 })

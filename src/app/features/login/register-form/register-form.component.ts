@@ -41,20 +41,17 @@ export class RegisterFormComponent {
     this.registerService.postRegister(formData).subscribe(() => {
         this.formSubmitted = false;
         this.isLoading = false;
-        this.snackBar.open("Vous êtes bien enregistré! ", "✅", {
+        this.snackBar.open("Enregistrement validé ! ", "✅", {
           duration: 3000,
         });
         this.router.navigateByUrl('/login');
       },
       error => {
-        this.isLoading = true;
+        this.isLoading = false;
+        this.formSubmitted = false;
         this.snackBar.open("Une erreur est survenue, réessayez plus tard.", "⚠️", {
           duration: 3000,
         });
-        setTimeout(() => {
-          this.formSubmitted = false;
-          this.isLoading = false;
-        }, 3000);
       }
     );
   }

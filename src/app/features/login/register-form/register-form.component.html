@@ -24,8 +24,25 @@
         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
     </mat-form-field>
-    <div class="register-form-button">
-      <button mat-raised-button color="primary" type="submit" [disabled]="!registerForm.valid || formSubmitted">
+    <p class="password-rules">
+      <mat-icon color="primary" class="icon-list">vpn_key</mat-icon>
+      Contient entre 8 et 20 caractères
+    </p>
+    <p class="password-rules">
+      <mat-icon color="primary" class="icon-list">vpn_key</mat-icon>
+      Contient minimum un chiffre
+    </p>
+    <p class="password-rules">
+      <mat-icon color="primary" class="icon-list">vpn_key</mat-icon>
+      Peut contenir des caractères spéciaux
+    </p>
+    <p class="password-rules">
+      <mat-icon color="primary" class="icon-list">vpn_key</mat-icon>
+      Ne doit ni commencer par un chiffre ni par un caractère spécial
+    </p>
+    <div class="button-container">
+      <button mat-raised-button color="primary" type="submit" [disabled]="!registerForm.valid || formSubmitted"
+              class="button">
         S'enregistrer
       </button>
     </div>

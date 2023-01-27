@@ -15,8 +15,25 @@
   min-width: 100%;
 }
 
-.register-form-button {
+.password-rules {
+  margin: 0;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.icon-list {
+  margin-right: 4px;
+}
+
+.button-container {
   @include flex-end;
+  margin-top: 20px;
+}
+
+.button {
+  font-size: 1rem;
+  font-family: Nunito, "Helvetica Neue", sans-serif;
 }
 
 @media (max-width: $layout-breakpoint-small) {
