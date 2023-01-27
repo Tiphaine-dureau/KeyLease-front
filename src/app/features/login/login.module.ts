@@ -10,6 +10,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {RegisterFormComponent} from "./register-form/register-form.component";
 import {RouterLink} from "@angular/router";
 import {ComponentsModule} from "../../common/components/components.module";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {ComponentsModule} from "../../common/components/components.module";
     MatIconModule,
     HttpClientModule,
     RouterLink,
-    ComponentsModule
+    ComponentsModule,
+    MatSnackBarModule
   ],
   providers: [],
 })

@@ -3,6 +3,8 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {RegisterFormService} from "../services/register-form.service";
 import {RegisterFormModel} from "./register-form.model";
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-register-form',
@@ -17,7 +19,9 @@ export class RegisterFormComponent {
 
   constructor(
     private http: HttpClient,
-    private registerService: RegisterFormService
+    private registerService: RegisterFormService,
+    private snackBar: MatSnackBar,
+    private router: Router,
   ) {
   }
 
@@ -37,7 +41,21 @@ export class RegisterFormComponent {
     this.registerService.postRegister(formData).subscribe(() => {
         this.formSubmitted = false;
         this.isLoading = false;
+        this.snackBar.open("Vous êtes bien enregistré! ", "✅", {
+          duration: 3000,
+        });
+        this.router.navigateByUrl('/login');
       },
+      error => {
+        this.isLoading = true;
+        this.snackBar.open("Une erreur est survenue, réessayez plus tard.", "⚠️", {
+          duration: 3000,
+        });
+        setTimeout(() => {
+          this.formSubmitted = false;
+          this.isLoading = false;
+        }, 3000);
+      }
     );
   }
 }
