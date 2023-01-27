@@ -14,6 +14,12 @@ Nomenclature :
 
 ### Unreleased
 
+### [0.0.4] - 2023-01-27
+
+#### Added
+
+- Update LoginForm : spinner and snackbar
+
 ### [0.0.3] - 2023-01-27
 
 #### Added
