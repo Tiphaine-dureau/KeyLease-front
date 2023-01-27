@@ -11,7 +11,7 @@ export const TOKEN_KEY = 'keylease_token'
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class LoginFormService {
 
   constructor(private http: HttpClient) {
   }
@@ -21,7 +21,7 @@ export class LoginService {
       {context: new HttpContext().set(SKIP_AUTH_BEARER, true)})
       .pipe(
         map((loginBusinessModel: LoginBusinessModel) => {
-          LoginService.setSession(loginBusinessModel);
+          LoginFormService.setSession(loginBusinessModel);
           return loginBusinessModel;
         })
       );
