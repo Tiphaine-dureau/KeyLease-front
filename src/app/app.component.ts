@@ -1,5 +1,5 @@
 import {Component, OnDestroy} from '@angular/core';
-import {LoginService} from "./features/login/services/login.service";
+import {LoginFormService} from "./features/login/services/login-form.service";
 
 
 @Component({
@@ -10,7 +10,7 @@ import {LoginService} from "./features/login/services/login.service";
 export class AppComponent implements OnDestroy {
   title = 'key-lease-front';
 
-  constructor(private loginService: LoginService) {
+  constructor(private loginService: LoginFormService) {
   }
 
   public ngOnDestroy(): void {

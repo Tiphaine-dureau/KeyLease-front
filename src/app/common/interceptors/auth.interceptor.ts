@@ -1,7 +1,7 @@
 import {HttpContextToken, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from "@angular/common/http";
 import {Injectable} from "@angular/core";
 import {Observable} from "rxjs";
-import {TOKEN_KEY} from "../../features/login/services/login.service";
+import {TOKEN_KEY} from "../../features/login/services/login-form.service";
 
 export const SKIP_AUTH_BEARER = new HttpContextToken(() => false);
 

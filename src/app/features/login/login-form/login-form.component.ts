@@ -1,36 +1,59 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {HttpClient} from "@angular/common/http";
-import {LoginService} from "../services/login.service";
+import {LoginFormService} from "../services/login-form.service";
 import {LoginFormModel} from "./login-form.model";
 import {UserService} from "../../../common/services/user.service";
 import {UserBusinessModel} from "../../../common/business-models/user.business-model";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-form-login',
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.scss']
 })
-export class LoginFormComponent {
+export class LoginFormComponent implements OnInit {
   public hide = true;
+  public isLoading = false;
+  public loginForm!: FormGroup;
+  public formSubmitted = false;
 
   constructor(
     private http: HttpClient,
-    private loginService: LoginService,
-    private userService: UserService
+    private loginService: LoginFormService,
+    private userService: UserService,
+    private snackBar: MatSnackBar,
   ) {
   }
 
-  public loginForm: FormGroup = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required])
-  })
-
+  ngOnInit(): void {
+    this.loginForm = new FormGroup({
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required])
+    })
+  }
 
   public onSubmit(): void {
-    this.loginService.postLogin(this.loginForm.value as LoginFormModel).subscribe(() => {
-      this.getUsers();
+    this.isLoading = true;
+    this.formSubmitted = true;
+    const formData = this.loginForm.value as LoginFormModel;
+    this.loginService.postLogin(formData).subscribe({
+      next: () => {
+        this.onPostLoginResponse("Connexion réussie", "✅");
+        this.getUsers();
+      },
+      error: () => {
+        this.onPostLoginResponse("Une erreur est survenue, réessayez plus tard", "️⚠️");
+      }
     })
+  }
+
+  private onPostLoginResponse(snackBarMessage: string, snackBarAction: string): void {
+    this.formSubmitted = false;
+    this.isLoading = false;
+    this.snackBar.open(snackBarMessage, snackBarAction, {
+      duration: 3000,
+    });
   }
 
   private getUsers(): void {
@@ -39,3 +62,6 @@ export class LoginFormComponent {
     })
   }
 }
+
+
+
