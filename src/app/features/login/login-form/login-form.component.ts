@@ -2,17 +2,16 @@ import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {HttpClient} from "@angular/common/http";
 import {LoginService} from "../services/login.service";
-import {FormLoginModel} from "./form-login.model";
+import {LoginFormModel} from "./login-form.model";
 import {UserService} from "../../../common/services/user.service";
 import {UserBusinessModel} from "../../../common/business-models/user.business-model";
 
-
 @Component({
   selector: 'app-form-login',
-  templateUrl: './form-login.component.html',
-  styleUrls: ['./form-login.component.sass']
+  templateUrl: './login-form.component.html',
+  styleUrls: ['./login-form.component.scss']
 })
-export class FormLoginComponent {
+export class LoginFormComponent {
   public hide = true;
 
   constructor(
@@ -29,7 +28,7 @@ export class FormLoginComponent {
 
 
   public onSubmit(): void {
-    this.loginService.postLogin(this.loginForm.value as FormLoginModel).subscribe(() => {
+    this.loginService.postLogin(this.loginForm.value as LoginFormModel).subscribe(() => {
       this.getUsers();
     })
   }
@@ -39,5 +38,4 @@ export class FormLoginComponent {
       console.warn(users);
     })
   }
-
 }

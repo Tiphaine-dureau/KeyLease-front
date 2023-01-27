@@ -14,6 +14,12 @@ Nomenclature :
 
 ### Unreleased
 
+### [0.0.3] - 2023-01-27
+
+#### Added
+
+- Feature RegisterForm
+
 ### [0.0.2] - 2023-01-24
 
 #### Added

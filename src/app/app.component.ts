@@ -5,7 +5,7 @@ import {LoginService} from "./features/login/services/login.service";
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.sass']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnDestroy {
   title = 'key-lease-front';
