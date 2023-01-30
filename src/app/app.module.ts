@@ -8,11 +8,13 @@ import {LoginModule} from "./features/login/login.module";
 import {AuthInterceptor} from "./common/interceptors/auth.interceptor";
 import {AppRoutingModule} from "./app-routing.module";
 import {ComponentsModule} from "./common/components/components.module";
+import {HeaderComponent} from './features/header/header.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

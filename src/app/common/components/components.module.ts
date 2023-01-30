@@ -8,16 +8,20 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {MatMenuModule} from "@angular/material/menu";
 import {RouterLink} from "@angular/router";
+import {TabsComponent} from './tabs/tabs.component';
+import {MatTabsModule} from "@angular/material/tabs";
 
 
 @NgModule({
   declarations: [
     SpinnerComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    TabsComponent
   ],
   exports: [
     SpinnerComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    TabsComponent
   ],
   imports: [
     CommonModule,
@@ -27,6 +31,7 @@ import {RouterLink} from "@angular/router";
     MatButtonModule,
     MatMenuModule,
     RouterLink,
+    MatTabsModule,
   ]
 })
 export class ComponentsModule {
