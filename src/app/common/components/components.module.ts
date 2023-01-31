@@ -10,18 +10,22 @@ import {MatMenuModule} from "@angular/material/menu";
 import {RouterLink} from "@angular/router";
 import {TabsComponent} from './tabs/tabs.component';
 import {MatTabsModule} from "@angular/material/tabs";
+import {MatCardModule} from "@angular/material/card";
+import {CardComponent} from './card/card.component';
 
 
 @NgModule({
   declarations: [
     SpinnerComponent,
     ToolbarComponent,
-    TabsComponent
+    TabsComponent,
+    CardComponent
   ],
   exports: [
     SpinnerComponent,
     ToolbarComponent,
-    TabsComponent
+    TabsComponent,
+    CardComponent
   ],
   imports: [
     CommonModule,
@@ -32,6 +36,7 @@ import {MatTabsModule} from "@angular/material/tabs";
     MatMenuModule,
     RouterLink,
     MatTabsModule,
+    MatCardModule,
   ]
 })
 export class ComponentsModule {

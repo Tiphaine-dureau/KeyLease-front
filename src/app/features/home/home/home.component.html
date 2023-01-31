@@ -1,0 +1,4 @@
+<div class="cards-container">
+  <app-card *ngFor="let card of cardList" [title]="card.title" [img]="card.img" [alt]="card.alt"
+            [route]="card.route"></app-card>
+</div>

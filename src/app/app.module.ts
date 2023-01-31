@@ -9,6 +9,7 @@ import {AuthInterceptor} from "./common/interceptors/auth.interceptor";
 import {AppRoutingModule} from "./app-routing.module";
 import {ComponentsModule} from "./common/components/components.module";
 import {HeaderComponent} from './features/header/header.component';
+import {HomeModule} from "./features/home/home.module";
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {HeaderComponent} from './features/header/header.component';
     BrowserAnimationsModule,
     AppRoutingModule,
     LoginModule,
-    ComponentsModule
+    HomeModule,
+    ComponentsModule,
   ],
   providers: [
     {
