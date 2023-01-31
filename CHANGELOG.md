@@ -14,6 +14,11 @@ Nomenclature :
 
 ### Unreleased
 
+#### Added
+
+- Navbar Navigation
+- Card Component
+
 ### [0.0.4] - 2023-01-27
 
 #### Added

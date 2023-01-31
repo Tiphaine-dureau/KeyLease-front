@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <button mat-button class="title-toolbar" routerLink="/">KeyLease</button>
+    <a class="title-toolbar" routerLink="/">KeyLease</a>
     <span class="spacer"></span>
     <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="menu icon">
       <mat-icon>menu</mat-icon>
@@ -19,6 +19,13 @@
         <span>Register (provisoire)</span>
       </button>
     </mat-menu>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+    <a class="link-toolbar" routerLink="/" routerLinkActive="link-active"
+       [routerLinkActiveOptions]="{exact:true}">Accueil</a>
+    <a class="link-toolbar" routerLink="/property" routerLinkActive="link-active">Biens</a>
+    <a class="link-toolbar" routerLink="/owner" routerLinkActive="link-active">Propriétaire</a>
+    <a class="link-toolbar" routerLink="/tenant" routerLinkActive="link-active">Locataires</a>
   </mat-toolbar-row>
 </mat-toolbar>
 

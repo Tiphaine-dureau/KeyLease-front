@@ -10,12 +10,18 @@ import {AppRoutingModule} from "./app-routing.module";
 import {ComponentsModule} from "./common/components/components.module";
 import {HeaderComponent} from './features/header/header.component';
 import {HomeModule} from "./features/home/home.module";
+import { PropertyComponent } from './features/property/property.component';
+import { OwnerComponent } from './features/owner/owner.component';
+import { TenantComponent } from './features/tenant/tenant.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    PropertyComponent,
+    OwnerComponent,
+    TenantComponent,
   ],
   imports: [
     BrowserModule,
