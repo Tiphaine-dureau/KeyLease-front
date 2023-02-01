@@ -18,6 +18,7 @@ Nomenclature :
 
 - Navbar Navigation
 - Card Component
+- Navigation architecture : CRUD : "property - owner - tenant"
 
 ### [0.0.4] - 2023-01-27
 
