@@ -3,9 +3,9 @@ import {NgModule} from "@angular/core";
 import {HomeRoutingModule} from "./features/home/home-routing.module";
 import {LoginFormComponent} from "./features/login/login-form/login-form.component";
 import {RegisterFormComponent} from "./features/login/register-form/register-form.component";
-import {PropertyComponent} from "./features/property/property.component";
-import {OwnerComponent} from "./features/owner/owner.component";
-import {TenantComponent} from "./features/tenant/tenant.component";
+import {PropertyRoutingModule} from "./features/property/property-routing.module";
+import {OwnerRoutingModule} from "./features/owner/owner-routing.module";
+import {TenantRoutingModule} from "./features/tenant/tenant-routing.module";
 
 const routes: Routes = [
   {
@@ -24,17 +24,17 @@ const routes: Routes = [
         component: RegisterFormComponent
       },
       {
-        path: 'property',
-        component: PropertyComponent
+        path: 'logements',
+        loadChildren: () => PropertyRoutingModule,
       },
       {
-        path: 'owner',
-        component: OwnerComponent
+        path: 'proprietaires',
+        loadChildren: () => OwnerRoutingModule,
       },
       {
-        path: 'tenant',
-        component: TenantComponent
-      }
+        path: 'locataires',
+        loadChildren: () => TenantRoutingModule,
+      },
     ]
   }
 ];

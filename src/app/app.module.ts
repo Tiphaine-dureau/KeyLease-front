@@ -8,20 +8,14 @@ import {LoginModule} from "./features/login/login.module";
 import {AuthInterceptor} from "./common/interceptors/auth.interceptor";
 import {AppRoutingModule} from "./app-routing.module";
 import {ComponentsModule} from "./common/components/components.module";
-import {HeaderComponent} from './features/header/header.component';
 import {HomeModule} from "./features/home/home.module";
-import { PropertyComponent } from './features/property/property.component';
-import { OwnerComponent } from './features/owner/owner.component';
-import { TenantComponent } from './features/tenant/tenant.component';
-
+import {PropertyModule} from "./features/property/property.module";
+import {OwnerModule} from "./features/owner/owner.module";
+import {TenantModule} from "./features/tenant/tenant.module";
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    PropertyComponent,
-    OwnerComponent,
-    TenantComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +26,9 @@ import { TenantComponent } from './features/tenant/tenant.component';
     LoginModule,
     HomeModule,
     ComponentsModule,
+    PropertyModule,
+    OwnerModule,
+    TenantModule
   ],
   providers: [
     {

@@ -11,17 +11,20 @@ import {RouterLink, RouterLinkActive} from "@angular/router";
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatCardModule} from "@angular/material/card";
 import {CardComponent} from './card/card.component';
+import {HeaderComponent} from "./header/header.component";
 
 @NgModule({
   declarations: [
     SpinnerComponent,
     ToolbarComponent,
-    CardComponent
+    CardComponent,
+    HeaderComponent
   ],
   exports: [
     SpinnerComponent,
     ToolbarComponent,
-    CardComponent
+    CardComponent,
+    HeaderComponent
   ],
   imports: [
     CommonModule,
