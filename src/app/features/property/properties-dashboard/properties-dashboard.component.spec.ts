@@ -1,18 +1,18 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {PropertyDashboardComponent} from './property-dashboard.component';
+import {PropertiesDashboardComponent} from './properties-dashboard.component';
 
 describe('PropertyComponent', () => {
-  let component: PropertyDashboardComponent;
-  let fixture: ComponentFixture<PropertyDashboardComponent>;
+  let component: PropertiesDashboardComponent;
+  let fixture: ComponentFixture<PropertiesDashboardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PropertyDashboardComponent]
+      declarations: [PropertiesDashboardComponent]
     })
       .compileComponents();
 
-    fixture = TestBed.createComponent(PropertyDashboardComponent);
+    fixture = TestBed.createComponent(PropertiesDashboardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

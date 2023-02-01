@@ -24,7 +24,7 @@ const routes: Routes = [
         component: RegisterFormComponent
       },
       {
-        path: 'logements',
+        path: 'biens',
         loadChildren: () => PropertyRoutingModule,
       },
       {

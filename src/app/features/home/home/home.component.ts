@@ -18,7 +18,7 @@ export class HomeComponent {
       title: "Ajouter un bien",
       img: "assets/add-property.svg",
       alt: "Image d'une maison",
-      route: "logements/creation"
+      route: "biens/creation"
     },
     {
       title: "Ajouter un propriétaire",

@@ -1,11 +1,32 @@
 import {RouterModule, Routes} from "@angular/router";
 import {NgModule} from "@angular/core";
-import {PropertyDashboardComponent} from "./property-dashboard/property-dashboard.component";
+import {PropertiesDashboardComponent} from "./properties-dashboard/properties-dashboard.component";
 import {CreatePropertyComponent} from "./create-property/create-property.component";
+import {UpdatePropertyComponent} from "./update-property/update-property.component";
+import {PropertyDetailComponent} from "./property-detail/property-detail.component";
 
 const routes: Routes = [
-  {path: '', component: PropertyDashboardComponent},
-  {path: 'creation', component: CreatePropertyComponent},
+  {
+    path: '',
+    component: PropertiesDashboardComponent
+  },
+  {
+    path: 'creation',
+    component: CreatePropertyComponent
+  },
+  {
+    path: ':id_property',
+    children: [
+      {
+        path: '',
+        component: PropertyDetailComponent
+      },
+      {
+        path: 'modification',
+        component: UpdatePropertyComponent
+      }
+    ]
+  },
 ];
 
 @NgModule({
