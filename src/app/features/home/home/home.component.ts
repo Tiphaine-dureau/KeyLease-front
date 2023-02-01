@@ -16,6 +16,6 @@ export class HomeComponent {
   cardList = [
     {title: "Ajouter un bien", img: "assets/add-property.svg", alt: "Image d'une maison", route: ""},
     {title: "Ajouter un propriétaire", img: "assets/add-user.svg", alt: "Image d'un propriétaire", route: ""},
-    {title: "Ajouter un bien", img: "assets/add-user.svg", alt: "Image d'un locataire", route: ""}
+    {title: "Ajouter un locataire", img: "assets/add-user.svg", alt: "Image d'un locataire", route: ""}
   ];
 }
