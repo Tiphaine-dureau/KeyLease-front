@@ -1,0 +1,31 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <a class="title-toolbar" routerLink="/">KeyLease</a>
+    <span class="spacer"></span>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>settings</mat-icon>
+        <span>Compte</span>
+      </button>
+      <button mat-menu-item routerLink="/login">
+        <mat-icon>login</mat-icon>
+        <span>Login (provisoire)</span>
+      </button>
+      <button mat-menu-item routerLink="/register">
+        <mat-icon>person_add</mat-icon>
+        <span>Register (provisoire)</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+    <a class="link-toolbar" routerLink="/" routerLinkActive="link-active"
+       [routerLinkActiveOptions]="{exact:true}">Accueil</a>
+    <a class="link-toolbar" routerLink="/biens" routerLinkActive="link-active">Biens</a>
+    <a class="link-toolbar" routerLink="/proprietaires" routerLinkActive="link-active">Propriétaires</a>
+    <a class="link-toolbar" routerLink="/locataires" routerLinkActive="link-active">Locataires</a>
+  </mat-toolbar-row>
+</mat-toolbar>
+

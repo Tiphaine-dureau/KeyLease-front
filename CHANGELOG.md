@@ -14,6 +14,14 @@ Nomenclature :
 
 ### Unreleased
 
+### [0.0.5] - 2023-02-01
+
+#### Added
+
+- Navbar Navigation
+- Card Component
+- Navigation architecture : CRUD : "property - owner - tenant"
+
 ### [0.0.4] - 2023-01-27
 
 #### Added

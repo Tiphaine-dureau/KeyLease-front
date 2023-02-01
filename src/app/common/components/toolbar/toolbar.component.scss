@@ -1,0 +1,29 @@
+@import "src/styles/variables";
+
+.title-toolbar, .link-toolbar {
+  font-family: Nunito, "Helvetica Neue", sans-serif;
+  color: #FFFFFF;
+  letter-spacing: 0.09em;
+  text-decoration: none;
+}
+
+.link-toolbar {
+  padding-right: 2rem;
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.link-toolbar:hover, .link-active {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 1rem;
+}
+
+.link-toolbar:hover {
+  text-decoration-color: $pink;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+

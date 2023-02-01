@@ -1,0 +1,19 @@
+@import "src/styles/variables";
+
+.cards-container {
+  justify-content: center;
+  display: grid;
+}
+
+@media screen and (min-width: $layout-breakpoint-small) {
+  .cards-container {
+    grid-template-columns: repeat(2, 300px);
+  }
+}
+
+@media screen and (min-width: $layout-breakpoint-large) {
+  .cards-container {
+    grid-template-columns: repeat(3, 300px);
+  }
+}
+

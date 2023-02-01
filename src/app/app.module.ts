@@ -8,7 +8,10 @@ import {LoginModule} from "./features/login/login.module";
 import {AuthInterceptor} from "./common/interceptors/auth.interceptor";
 import {AppRoutingModule} from "./app-routing.module";
 import {ComponentsModule} from "./common/components/components.module";
-
+import {HomeModule} from "./features/home/home.module";
+import {PropertyModule} from "./features/property/property.module";
+import {OwnerModule} from "./features/owner/owner.module";
+import {TenantModule} from "./features/tenant/tenant.module";
 
 @NgModule({
   declarations: [
@@ -21,7 +24,11 @@ import {ComponentsModule} from "./common/components/components.module";
     BrowserAnimationsModule,
     AppRoutingModule,
     LoginModule,
-    ComponentsModule
+    HomeModule,
+    ComponentsModule,
+    PropertyModule,
+    OwnerModule,
+    TenantModule
   ],
   providers: [
     {

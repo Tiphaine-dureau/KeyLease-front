@@ -8,7 +8,6 @@ import {LoginFormService} from "./features/login/services/login-form.service";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnDestroy {
-  title = 'key-lease-front';
 
   constructor(private loginService: LoginFormService) {
   }
@@ -16,5 +15,4 @@ export class AppComponent implements OnDestroy {
   public ngOnDestroy(): void {
     this.loginService.removeSession();
   }
-
 }
