@@ -7,24 +7,20 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {MatMenuModule} from "@angular/material/menu";
-import {RouterLink} from "@angular/router";
-import {TabsComponent} from './tabs/tabs.component';
+import {RouterLink, RouterLinkActive} from "@angular/router";
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatCardModule} from "@angular/material/card";
 import {CardComponent} from './card/card.component';
-
 
 @NgModule({
   declarations: [
     SpinnerComponent,
     ToolbarComponent,
-    TabsComponent,
     CardComponent
   ],
   exports: [
     SpinnerComponent,
     ToolbarComponent,
-    TabsComponent,
     CardComponent
   ],
   imports: [
@@ -37,6 +33,7 @@ import {CardComponent} from './card/card.component';
     RouterLink,
     MatTabsModule,
     MatCardModule,
+    RouterLinkActive,
   ]
 })
 export class ComponentsModule {
