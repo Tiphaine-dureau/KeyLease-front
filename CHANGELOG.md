@@ -14,6 +14,8 @@ Nomenclature :
 
 ### Unreleased
 
+### [0.0.5] - 2023-02-01
+
 #### Added
 
 - Navbar Navigation
