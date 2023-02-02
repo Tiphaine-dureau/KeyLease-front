@@ -14,6 +14,12 @@ Nomenclature :
 
 ### Unreleased
 
+### [0.0.6] - 2023-02-02
+
+#### Added
+
+- /GET clients on tenants-dashboard
+
 ### [0.0.5] - 2023-02-01
 
 #### Added
