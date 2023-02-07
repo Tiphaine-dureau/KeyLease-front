@@ -1,6 +1,6 @@
-<p>create-tenant works!</p>
-
-<button mat-raised-button color="primary" routerLink="/locataires">Dashboard locataires</button>
+<button mat-raised-button color="primary" routerLink="/locataires" xmlns="http://www.w3.org/1999/html">Dashboard
+  locataires
+</button>
 
 <ng-container [ngSwitch]="stepperOrientation | async">
   <div *ngSwitchCase="'horizontal'"></div>
@@ -24,7 +24,7 @@
         </div>
         <mat-form-field appearance="fill">
           <mat-label>Date de naissance</mat-label>
-          <input matInput type="text" formControlName="date" [matDatepicker]="picker">
+          <input matInput type="text" formControlName="birthday" [matDatepicker]="picker">
           <mat-hint>jour/mois/année</mat-hint>
           <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
@@ -87,11 +87,32 @@
     <!--LAST STEP-->
     <mat-step>
       <ng-template matStepLabel>Récapitulatif et validation</ng-template>
-      <!--TODO terminer la dernière étape-->
-      <p>{{identityFormGroup.value.firstName}}</p>
       <div>
-        <button mat-button matStepperPrevious>Retour</button>
-        <button mat-button matStepperPrevious (click)="submit()">Valider</button>
+        <h3>Identité du locataire</h3>
+        <p>Nom : <span class="result-form">{{identityFormGroup.value.firstName}}</span></p>
+        <p>Prénom : <span class="result-form">{{identityFormGroup.value.lastName}}</span></p>
+        <p>Date de naissance : <span class="result-form">{{identityFormGroup.value.birthday | date:'dd/MM/yyyy'}}</span>
+        </p>
+      </div>
+      <mat-divider></mat-divider>
+      <div>
+        <h3>Adresse postale</h3>
+        <p>Numéro et nom de rue : <span class="result-form">{{postalAddressFormGroup.value.road}}</span></p>
+        <p>Complément d'adresse : <span class="result-form">{{postalAddressFormGroup.value.additionalAddress}}</span>
+        </p>
+        <p>Code postal : <span class="result-form">{{postalAddressFormGroup.value.zip}}</span></p>
+        <p>Ville: <span class="result-form">{{postalAddressFormGroup.value.town}}</span></p>
+      </div>
+      <mat-divider></mat-divider>
+      <div>
+        <h3>Coordonnées</h3>
+        <p>Téléphone : <span class="result-form">{{contactDetailsFormGroup.value.phone}}</span></p>
+        <p>Email : <span class="result-form">{{contactDetailsFormGroup.value.email}}</span></p>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="form-group-buttons">
+        <button mat-raised-button matStepperPrevious>Modifier</button>
+        <button mat-raised-button color="primary" matStepperPrevious (click)="submit()">Valider</button>
       </div>
     </mat-step>
   </mat-stepper>

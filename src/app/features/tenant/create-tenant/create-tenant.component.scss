@@ -1,4 +1,5 @@
 @import "src/styles/mixins";
+@import "src/styles/variables";
 
 .stepper-container {
   @include flex-center;
@@ -21,8 +22,15 @@
 .form-group-buttons {
   display: flex;
   justify-content: space-between;
+  padding-top: 2rem;
 }
 
 .mat-mdc-form-field {
   margin-top: 16px;
+}
+
+.result-form {
+  font-weight: bold;
+  font-style: italic;
+  color: $pink;
 }

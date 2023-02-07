@@ -14,7 +14,7 @@ export class CreateTenantComponent implements OnInit {
   identityFormGroup = this._formBuilder.group({
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
-    date: [''],
+    birthday: [''],
   });
   postalAddressFormGroup = this._formBuilder.group({
     road: [''],
@@ -47,7 +47,7 @@ export class CreateTenantComponent implements OnInit {
     const identityFormData = this.identityFormGroup.value;
     const postalAddressFormData = this.postalAddressFormGroup.value;
     const contactDetailsFormData = this.contactDetailsFormGroup.value;
-    const birthday = identityFormData['date'];
+    const birthday = identityFormData['birthday'];
     console.warn(moment(birthday).format('YYYY-MM-DD'));
   }
 }
