@@ -30,7 +30,7 @@ export class RegisterFormComponent implements OnInit {
     this.registerForm = new FormGroup({
       lastName: new FormControl('', [Validators.required]),
       firstName: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required, Validators.email]),
+      email: new FormControl('', [Validators.required, Validators.pattern('^[\\w-]+(?:\\.[\\w-]+)*@(?:[\\w-]+\\.)+[a-zA-Z]{2,7}$')]),
       // Restrict passwords to a length of 8 to 20 aplhanumeric characters and select special characters.
       // The password also can not start with a digit, underscore or special character and must contain at least one digit.
       password: new FormControl('', [Validators.required, Validators.pattern('^(?=[^\\d_].*?\\d)\\w(\\w|[!@#$%]){7,20}')]),

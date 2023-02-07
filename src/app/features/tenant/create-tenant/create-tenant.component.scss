@@ -1,0 +1,28 @@
+@import "src/styles/mixins";
+
+.stepper-container {
+  @include flex-center;
+}
+
+.tenant-stepper {
+  margin-top: 8px;
+}
+
+.form-group-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group-button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.form-group-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mat-mdc-form-field {
+  margin-top: 16px;
+}
