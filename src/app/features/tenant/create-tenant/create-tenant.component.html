@@ -41,20 +41,20 @@
         <div class="form-group-container">
           <mat-form-field appearance="fill">
             <mat-label>Numéro et nom de rue</mat-label>
-            <input matInput type="text" formControlName="road" placeholder="Numéro et nom de rue">
+            <input matInput type="text" formControlName="road" placeholder="Numéro et nom de rue" required>
           </mat-form-field>
           <mat-form-field appearance="fill">
             <mat-label>Complément d'adresse</mat-label>
             <input matInput type="text" formControlName="additionalAddress"
-                   placeholder=" Résidence - Batiment - N°Appartement ">
+                   placeholder=" Résidence - Bâtiment - N°Appartement ">
           </mat-form-field>
           <mat-form-field appearance="fill">
             <mat-label>Code Postal</mat-label>
-            <input matInput type="number" formControlName="zip" placeholder="Code postal">
+            <input matInput type="text" formControlName="zip" placeholder="Code postal" required>
           </mat-form-field>
           <mat-form-field appearance="fill">
             <mat-label>Ville</mat-label>
-            <input matInput type="text" formControlName="town" placeholder="Ville">
+            <input matInput type="text" formControlName="town" placeholder="Ville" required>
           </mat-form-field>
         </div>
         <div class="form-group-buttons">
