@@ -17,9 +17,9 @@ export class CreateTenantComponent implements OnInit {
     birthday: [''],
   });
   postalAddressFormGroup = this._formBuilder.group({
-    road: [''],
+    road: ['', Validators.required],
     additionalAddress: [''],
-    town: [''],
+    town: ['', Validators.required],
     // Matches 5 numeric digits, such as a zip code :
     zip: ['', [Validators.pattern('^\\d{5}$')]],
   });

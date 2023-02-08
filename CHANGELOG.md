@@ -14,6 +14,12 @@ Nomenclature :
 
 ### Unreleased
 
+### [0.0.6] - 2023-02-08
+
+#### Added 
+
+- Tenant form (stepper - without /POST)
+
 ### [0.0.6] - 2023-02-02
 
 #### Added
