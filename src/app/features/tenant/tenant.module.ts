@@ -6,6 +6,12 @@ import {MatButtonModule} from "@angular/material/button";
 import {RouterLink} from "@angular/router";
 import {UpdateTenantComponent} from './update-tenant/update-tenant.component';
 import {TenantDetailComponent} from './tenant-detail/tenant-detail.component';
+import {MatStepperModule} from "@angular/material/stepper";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatInputModule} from "@angular/material/input";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatListModule} from "@angular/material/list";
 
 @NgModule({
   declarations: [
@@ -17,7 +23,13 @@ import {TenantDetailComponent} from './tenant-detail/tenant-detail.component';
   imports: [
     CommonModule,
     MatButtonModule,
-    RouterLink
+    RouterLink,
+    MatStepperModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatListModule,
   ]
 })
 export class TenantModule {
