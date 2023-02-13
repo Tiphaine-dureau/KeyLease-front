@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {ClientService} from "../../../common/services/client.service";
-import {ClientBusinessModel} from "../../../common/business-models/client.business-model";
+import {TenantBusinessModel} from "../../../common/business-models/tenant.business-model";
+import {TenantService} from "../../../common/services/tenant.service";
 
 @Component({
   selector: 'app-tenant',
@@ -8,22 +8,21 @@ import {ClientBusinessModel} from "../../../common/business-models/client.busine
   styleUrls: ['./tenants-dashboard.component.scss']
 })
 export class TenantsDashboardComponent implements OnInit {
-
   tenantId: string = "98765"; // TODO get ID
-  clients?: ClientBusinessModel[];
+  tenants?: TenantBusinessModel[];
 
   constructor(
-    private clientService: ClientService,
+    private tenantService: TenantService,
   ) {
   }
 
   ngOnInit(): void {
-    this.getClient();
+    this.getTenants();
   }
 
-  private getClient(): void {
-    this.clientService.getClients().subscribe((clients: ClientBusinessModel[]) => {
-      this.clients = clients;
-    });
+  private getTenants(): void {
+    this.tenantService.getTenants().subscribe((tenants: TenantBusinessModel[]) => {
+      this.tenants = tenants;
+    })
   }
 }

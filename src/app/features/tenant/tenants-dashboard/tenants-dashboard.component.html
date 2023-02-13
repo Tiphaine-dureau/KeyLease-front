@@ -3,5 +3,11 @@
 <button mat-raised-button color="primary" routerLink="/locataires/creation">Ajouter un locataire</button>
 <button mat-raised-button color="primary" routerLink="/locataires/{{tenantId}}">Détail du locataire</button>
 <ul>
-  <li *ngFor="let client of clients">{{client.firstName}} {{client.lastName}}</li>
+  <li *ngFor="let tenant of tenants">
+    {{tenant.firstName}} {{tenant.lastName}} {{tenant.birthday}}
+    {{tenant.address.street}} {{tenant.address.additionalAddress}} {{tenant.address.zipCode}} {{tenant.address.town}}
+    {{tenant.email}} {{tenant.phoneNumber}}
+    {{tenant.partnerLastName}} {{tenant.partnerFirstName}} {{tenant.partnerPhoneNumber}}</li>
 </ul>
+
+
