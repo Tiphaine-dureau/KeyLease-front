@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {TenantBusinessModel} from "../../../common/business-models/tenant.business-model";
 import {TenantService} from "../../../common/services/tenant.service";
+import {MatTableDataSource} from "@angular/material/table";
 
 @Component({
   selector: 'app-tenant',
@@ -10,7 +11,9 @@ import {TenantService} from "../../../common/services/tenant.service";
 export class TenantsDashboardComponent implements OnInit {
   tenantId: string = "98765"; // TODO get ID
   tenants?: TenantBusinessModel[];
-  displayedColumns = ['lastName', 'firstName', 'phoneNumber', 'email', 'address'];
+  displayedColumns = ['lastName', 'firstName', 'phoneNumber', 'email'];
+  dataSource?: MatTableDataSource<TenantBusinessModel>;
+
 
   constructor(
     private tenantService: TenantService,
@@ -24,6 +27,14 @@ export class TenantsDashboardComponent implements OnInit {
   private getTenants(): void {
     this.tenantService.getTenants().subscribe((tenants: TenantBusinessModel[]) => {
       this.tenants = tenants;
+      this.dataSource = new MatTableDataSource(this.tenants);
     })
+  }
+
+  public applyFilter(event: Event): void {
+    const filterValue = (event.target as HTMLInputElement).value;
+    if (this.dataSource) {
+      this.dataSource.filter = filterValue.trim().toLowerCase();
+    }
   }
 }

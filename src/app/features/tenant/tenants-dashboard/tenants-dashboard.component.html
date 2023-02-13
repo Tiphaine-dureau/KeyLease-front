@@ -3,9 +3,13 @@
 <button mat-raised-button color="primary" routerLink="/locataires/creation">Ajouter un locataire</button>
 <button mat-raised-button color="primary" routerLink="/locataires/{{tenantId}}">Détail du locataire</button>
 
-<ng-container *ngIf="tenants">
+<ng-container *ngIf="dataSource">
   <section class="example-container mat-elevation-z8" tabindex="0">
-    <table mat-table [dataSource]="tenants">
+    <mat-form-field>
+      <mat-label>Rechercher un locataire</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+    </mat-form-field>
+    <table mat-table [dataSource]="dataSource">
       <ng-container matColumnDef="lastName">
         <th mat-header-cell *matHeaderCellDef>Nom</th>
         <td mat-cell *matCellDef="let element">{{element.lastName}} </td>
@@ -22,13 +26,11 @@
         <th mat-header-cell *matHeaderCellDef>Email</th>
         <td mat-cell *matCellDef="let element">{{element.email}} </td>
       </ng-container>
-      <ng-container matColumnDef="address">
-        <th mat-header-cell *matHeaderCellDef>Adresse</th>
-        <td mat-cell
-            *matCellDef="let element">{{element.address.street}} {{element.address.additionalAddress}} {{ element.address.zipCode}} {{ element.address.town}} </td>
-      </ng-container>
       <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">Aucune donnée sur ce filtre"{{input.value}}"</td>
+      </tr>
     </table>
   </section>
 </ng-container>
