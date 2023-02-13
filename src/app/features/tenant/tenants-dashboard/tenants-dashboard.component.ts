@@ -10,6 +10,7 @@ import {TenantService} from "../../../common/services/tenant.service";
 export class TenantsDashboardComponent implements OnInit {
   tenantId: string = "98765"; // TODO get ID
   tenants?: TenantBusinessModel[];
+  displayedColumns = ['lastName', 'firstName', 'phoneNumber', 'email', 'address'];
 
   constructor(
     private tenantService: TenantService,
