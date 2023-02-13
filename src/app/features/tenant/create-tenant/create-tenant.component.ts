@@ -26,7 +26,10 @@ export class CreateTenantComponent implements OnInit {
   contactDetailsFormGroup = this._formBuilder.group({
     // Matches 99.99% of e-mail addresses (excludes IP e-mails)
     email: ['', Validators.pattern('^[\\w-]+(?:\\.[\\w-]+)*@(?:[\\w-]+\\.)+[a-zA-Z]{2,7}$')],
-    phone: ['', Validators.required]
+    phone: ['', Validators.required],
+    partnerLastName: [''],
+    partnerFirstName: [''],
+    partnerPhone: ['']
   });
   stepperOrientation: Observable<StepperOrientation>;
 

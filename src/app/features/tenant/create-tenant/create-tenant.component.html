@@ -76,6 +76,20 @@
             <mat-label>Email</mat-label>
             <input matInput type="email" formControlName="email" placeholder="Email">
           </mat-form-field>
+
+          <mat-divider class="details-divider"></mat-divider>
+          <mat-form-field appearance="fill">
+            <mat-label>Nom du conjoint</mat-label>
+            <input matInput type="text" formControlName="partnerLastName" placeholder="Nom du conjoint">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Prénom du conjoint</mat-label>
+            <input matInput type="text" formControlName="partnerFirstName" placeholder="Prénom du conjoint">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Téléphone du conjoint</mat-label>
+            <input matInput type="tel" formControlName="partnerPhone" placeholder="Téléphone du conjoint">
+          </mat-form-field>
         </div>
         <div class="form-group-buttons">
           <button mat-raised-button matStepperPrevious>Retour</button>
@@ -108,6 +122,13 @@
         <h3>Coordonnées</h3>
         <p>Téléphone : <span class="result-form">{{contactDetailsFormGroup.value.phone}}</span></p>
         <p>Email : <span class="result-form">{{contactDetailsFormGroup.value.email}}</span></p>
+      </div>
+      <mat-divider></mat-divider>
+      <div>
+        <h3>Coordonnées du conjoint</h3>
+        <p>Nom : <span class="result-form">{{contactDetailsFormGroup.value.partnerLastName}}</span></p>
+        <p>Prénom : <span class="result-form">{{contactDetailsFormGroup.value.partnerFirstName}}</span></p>
+        <p>Téléphone : <span class="result-form">{{contactDetailsFormGroup.value.partnerPhone}}</span></p>
       </div>
       <mat-divider></mat-divider>
       <div class="form-group-buttons">
