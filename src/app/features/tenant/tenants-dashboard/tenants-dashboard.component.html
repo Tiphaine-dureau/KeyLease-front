@@ -4,11 +4,13 @@
 <button mat-raised-button color="primary" routerLink="/locataires/{{tenantId}}">Détail du locataire</button>
 
 <ng-container *ngIf="dataSource">
-  <section class="example-container mat-elevation-z8" tabindex="0">
-    <mat-form-field>
+  <section tabindex="0" class="table-container">
+    <!-- Filtre -->
+    <mat-form-field class="label-filter">
       <mat-label>Rechercher un locataire</mat-label>
       <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
     </mat-form-field>
+    <!--Table-->
     <table mat-table [dataSource]="dataSource">
       <ng-container matColumnDef="lastName">
         <th mat-header-cell *matHeaderCellDef>Nom</th>
