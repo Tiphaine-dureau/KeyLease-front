@@ -14,9 +14,15 @@ Nomenclature :
 
 ### Unreleased
 
+### [0.0.7] - 2023-02-21
+
+#### Added
+
+- /Get tenants and display it on dashboard (table)
+
 ### [0.0.6] - 2023-02-08
 
-#### Added 
+#### Added
 
 - Tenant form (stepper - without /POST)
 
