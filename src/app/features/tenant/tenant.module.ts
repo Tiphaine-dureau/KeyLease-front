@@ -12,6 +12,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatListModule} from "@angular/material/list";
+import {MatTableModule} from "@angular/material/table";
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import {MatListModule} from "@angular/material/list";
     MatInputModule,
     MatDatepickerModule,
     MatListModule,
+    MatTableModule,
   ]
 })
 export class TenantModule {

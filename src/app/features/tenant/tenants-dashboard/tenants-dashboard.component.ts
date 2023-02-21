@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {ClientService} from "../../../common/services/client.service";
-import {ClientBusinessModel} from "../../../common/business-models/client.business-model";
+import {TenantBusinessModel} from "../../../common/business-models/tenant.business-model";
+import {TenantService} from "../../../common/services/tenant.service";
+import {MatTableDataSource} from "@angular/material/table";
 
 @Component({
   selector: 'app-tenant',
@@ -8,22 +9,32 @@ import {ClientBusinessModel} from "../../../common/business-models/client.busine
   styleUrls: ['./tenants-dashboard.component.scss']
 })
 export class TenantsDashboardComponent implements OnInit {
-
   tenantId: string = "98765"; // TODO get ID
-  clients?: ClientBusinessModel[];
+  tenants?: TenantBusinessModel[];
+  displayedColumns = ['lastName', 'firstName', 'phoneNumber', 'email'];
+  dataSource?: MatTableDataSource<TenantBusinessModel>;
+
 
   constructor(
-    private clientService: ClientService,
+    private tenantService: TenantService,
   ) {
   }
 
   ngOnInit(): void {
-    this.getClient();
+    this.getTenants();
   }
 
-  private getClient(): void {
-    this.clientService.getClients().subscribe((clients: ClientBusinessModel[]) => {
-      this.clients = clients;
-    });
+  private getTenants(): void {
+    this.tenantService.getTenants().subscribe((tenants: TenantBusinessModel[]) => {
+      this.tenants = tenants;
+      this.dataSource = new MatTableDataSource(this.tenants);
+    })
+  }
+
+  public applyFilter(event: Event): void {
+    const filterValue = (event.target as HTMLInputElement).value;
+    if (this.dataSource) {
+      this.dataSource.filter = filterValue.trim().toLowerCase();
+    }
   }
 }
