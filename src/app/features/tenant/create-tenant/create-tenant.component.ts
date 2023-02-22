@@ -3,7 +3,6 @@ import {FormBuilder, Validators} from "@angular/forms";
 import {BreakpointObserver} from "@angular/cdk/layout";
 import {map, Observable} from "rxjs";
 import {StepperOrientation} from "@angular/material/stepper";
-import * as moment from 'moment';
 
 @Component({
   selector: 'app-create-tenant',
@@ -51,6 +50,6 @@ export class CreateTenantComponent implements OnInit {
     const postalAddressFormData = this.postalAddressFormGroup.value;
     const contactDetailsFormData = this.contactDetailsFormGroup.value;
     const birthday = identityFormData['birthday'];
-    console.warn(moment(birthday).format('YYYY-MM-DD'));
+    console.warn(birthday);
   }
 }
