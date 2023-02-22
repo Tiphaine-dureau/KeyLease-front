@@ -14,6 +14,12 @@ Nomenclature :
 
 ### Unreleased
 
+### [0.0.8] - 2023-02-21
+
+#### Fixed
+
+- removed and replaced Moment because module not found on deploy
+
 ### [0.0.7] - 2023-02-21
 
 #### Added
