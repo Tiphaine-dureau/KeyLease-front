@@ -10,6 +10,7 @@ import {TenantBusinessModel} from "../../../common/business-models/tenant.busine
 })
 export class UpdateTenantComponent implements OnInit {
   public tenantId!: string;
+  public tenant?: TenantBusinessModel;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -19,8 +20,17 @@ export class UpdateTenantComponent implements OnInit {
 
   ngOnInit(): void {
     this.tenantId = this.activatedRoute.snapshot.params['id_tenant'];
-    this.tenantService.getTenant(this.tenantId).subscribe((data: TenantBusinessModel) => {
-      console.warn(data);
+    this.tenantService.getTenant(this.tenantId).subscribe({
+      next: (tenant: TenantBusinessModel) => {
+        this.tenant = tenant;
+      },
+      error: () => {
+        // TODO handle error
+      }
     });
+  }
+
+  public onSubmit($event: TenantBusinessModel): void {
+    this.tenantService.putTenant($event, this.tenantId).subscribe();
   }
 }
