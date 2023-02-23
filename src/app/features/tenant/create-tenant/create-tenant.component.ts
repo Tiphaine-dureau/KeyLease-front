@@ -5,7 +5,6 @@ import {map, Observable} from "rxjs";
 import {StepperOrientation} from "@angular/material/stepper";
 import {TenantService} from "../services/tenant.service";
 import {TenantBusinessModel} from "../../../common/business-models/tenant.business-model";
-import {AddressBusinessModel} from "../../../common/business-models/address.business-model";
 
 @Component({
   selector: 'app-create-tenant',
@@ -49,33 +48,7 @@ export class CreateTenantComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public onSubmit(): void {
-    const identityFormData = this.identityFormGroup.value;
-    const postalAddressFormData = this.postalAddressFormGroup.value;
-    const contactDetailsFormData = this.contactDetailsFormGroup.value;
-    const formBirthdate: string = this.identityFormGroup.value['birthday'] || "";
-    const birthdate: Date = new Date(formBirthdate);
-
-
-    const addressFormData = {
-      street: postalAddressFormData.street,
-      additionalAddress: postalAddressFormData.additionalAddress,
-      zipCode: postalAddressFormData.zipCode,
-      town: postalAddressFormData.town
-    } as AddressBusinessModel;
-
-    const tenantFormData = {
-      firstName: identityFormData.firstName,
-      lastName: identityFormData.lastName,
-      birthday: birthdate,
-      phoneNumber: contactDetailsFormData.phone,
-      email: contactDetailsFormData.email,
-      partnerFirstName: contactDetailsFormData.partnerFirstName,
-      partnerLastName: contactDetailsFormData.partnerLastName,
-      partnerPhoneNumber: contactDetailsFormData.partnerPhone,
-      address: addressFormData
-    } as TenantBusinessModel;
-
-    this.tenantService.postTenant(tenantFormData).subscribe()
+  public onSubmit($event: TenantBusinessModel): void {
+    this.tenantService.postTenant($event).subscribe();
   }
 }

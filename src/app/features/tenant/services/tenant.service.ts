@@ -13,10 +13,18 @@ export class TenantService {
   }
 
   public getTenants(): Observable<TenantBusinessModel[]> {
-    return this.http.get<TenantBusinessModel[]>(`${environment.apiUrl}/tenants`)
+    return this.http.get<TenantBusinessModel[]>(`${environment.apiUrl}/tenants`);
+  }
+
+  public getTenant(tenantId: string): Observable<TenantBusinessModel> {
+    return this.http.get<TenantBusinessModel>(`${environment.apiUrl}/tenants/${tenantId}`);
   }
 
   public postTenant(tenantBusinessModel: TenantBusinessModel): Observable<TenantBusinessModel> {
-    return this.http.post<TenantBusinessModel>(`${environment.apiUrl}/tenants`, tenantBusinessModel)
+    return this.http.post<TenantBusinessModel>(`${environment.apiUrl}/tenants`, tenantBusinessModel);
+  }
+
+  public putTenant(tenantBusinessModel: TenantBusinessModel, tenantId: string): Observable<TenantBusinessModel> {
+    return this.http.put<TenantBusinessModel>(`${environment.apiUrl}/tenants/${tenantId}`, tenantBusinessModel);
   }
 }
