@@ -19,4 +19,8 @@ export class TenantService {
   public postTenant(tenantBusinessModel: TenantBusinessModel): Observable<TenantBusinessModel> {
     return this.http.post<TenantBusinessModel>(`${environment.apiUrl}/tenants`, tenantBusinessModel)
   }
+
+  public getTenant(tenantId: string): Observable<TenantBusinessModel> {
+    return this.http.get<TenantBusinessModel>(`${environment.apiUrl}/tenants/${tenantId}`);
+  }
 }

@@ -13,13 +13,15 @@ import {MatInputModule} from "@angular/material/input";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatListModule} from "@angular/material/list";
 import {MatTableModule} from "@angular/material/table";
+import { TenantFormComponent } from './tenant-form/tenant-form.component';
 
 @NgModule({
   declarations: [
     TenantsDashboardComponent,
     CreateTenantComponent,
     UpdateTenantComponent,
-    TenantDetailComponent
+    TenantDetailComponent,
+    TenantFormComponent
   ],
   imports: [
     CommonModule,

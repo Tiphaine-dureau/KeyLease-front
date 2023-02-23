@@ -17,6 +17,7 @@ Nomenclature :
 #### Added
 
 - POST /tenants
+- PUT /tenants
 
 ### [0.0.8] - 2023-02-21
 
