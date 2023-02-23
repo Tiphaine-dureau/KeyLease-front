@@ -11,7 +11,7 @@ import {MatTableDataSource} from "@angular/material/table";
 export class TenantsDashboardComponent implements OnInit {
   tenantId: string = "98765"; // TODO get ID
   tenants?: TenantBusinessModel[];
-  displayedColumns = ['lastName', 'firstName', 'phoneNumber', 'email'];
+  displayedColumns = ['lastName', 'firstName', 'phoneNumber', 'email', 'actions'];
   dataSource?: MatTableDataSource<TenantBusinessModel>;
 
 

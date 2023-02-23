@@ -13,7 +13,8 @@ import {MatInputModule} from "@angular/material/input";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatListModule} from "@angular/material/list";
 import {MatTableModule} from "@angular/material/table";
-import { TenantFormComponent } from './tenant-form/tenant-form.component';
+import {TenantFormComponent} from './tenant-form/tenant-form.component';
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { TenantFormComponent } from './tenant-form/tenant-form.component';
     MatDatepickerModule,
     MatListModule,
     MatTableModule,
+    MatIconModule,
   ]
 })
 export class TenantModule {
