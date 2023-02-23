@@ -14,6 +14,10 @@ Nomenclature :
 
 ### Unreleased
 
+#### Added
+
+- POST /tenants
+
 ### [0.0.8] - 2023-02-21
 
 #### Fixed
@@ -24,19 +28,19 @@ Nomenclature :
 
 #### Added
 
-- /Get tenants and display it on dashboard (table)
+- GET /tenants and display it on dashboard (table)
 
 ### [0.0.6] - 2023-02-08
 
 #### Added
 
-- Tenant form (stepper - without /POST)
+- Tenant form (stepper - without POST)
 
 ### [0.0.6] - 2023-02-02
 
 #### Added
 
-- /GET clients on tenants-dashboard
+- GET /clients on tenants-dashboard
 
 ### [0.0.5] - 2023-02-01
 

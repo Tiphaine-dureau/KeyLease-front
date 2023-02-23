@@ -41,7 +41,7 @@
         <div class="form-group-container">
           <mat-form-field appearance="fill">
             <mat-label>Numéro et nom de rue</mat-label>
-            <input matInput type="text" formControlName="road" placeholder="Numéro et nom de rue" required>
+            <input matInput type="text" formControlName="street" placeholder="Numéro et nom de rue" required>
           </mat-form-field>
           <mat-form-field appearance="fill">
             <mat-label>Complément d'adresse</mat-label>
@@ -50,7 +50,7 @@
           </mat-form-field>
           <mat-form-field appearance="fill">
             <mat-label>Code Postal</mat-label>
-            <input matInput type="text" formControlName="zip" placeholder="Code postal" required>
+            <input matInput type="text" formControlName="zipCode" placeholder="Code postal" required>
           </mat-form-field>
           <mat-form-field appearance="fill">
             <mat-label>Ville</mat-label>
@@ -111,10 +111,10 @@
       <mat-divider></mat-divider>
       <div>
         <h3>Adresse postale</h3>
-        <p>Numéro et nom de rue : <span class="result-form">{{postalAddressFormGroup.value.road}}</span></p>
+        <p>Numéro et nom de rue : <span class="result-form">{{postalAddressFormGroup.value.street}}</span></p>
         <p>Complément d'adresse : <span class="result-form">{{postalAddressFormGroup.value.additionalAddress}}</span>
         </p>
-        <p>Code postal : <span class="result-form">{{postalAddressFormGroup.value.zip}}</span></p>
+        <p>Code postal : <span class="result-form">{{postalAddressFormGroup.value.zipCode}}</span></p>
         <p>Ville: <span class="result-form">{{postalAddressFormGroup.value.town}}</span></p>
       </div>
       <mat-divider></mat-divider>
@@ -133,7 +133,7 @@
       <mat-divider></mat-divider>
       <div class="form-group-buttons">
         <button mat-raised-button matStepperPrevious>Modifier</button>
-        <button mat-raised-button color="primary" matStepperPrevious (click)="submit()">Valider</button>
+        <button mat-raised-button color="primary" matStepperPrevious (click)="onSubmit()">Valider</button>
       </div>
     </mat-step>
   </mat-stepper>
