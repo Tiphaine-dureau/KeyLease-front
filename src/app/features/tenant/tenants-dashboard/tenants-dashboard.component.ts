@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {TenantBusinessModel} from "../../../common/business-models/tenant.business-model";
-import {TenantService} from "../../../common/services/tenant.service";
+import {TenantService} from "../services/tenant.service";
 import {MatTableDataSource} from "@angular/material/table";
 
 @Component({
@@ -11,7 +11,7 @@ import {MatTableDataSource} from "@angular/material/table";
 export class TenantsDashboardComponent implements OnInit {
   tenantId: string = "98765"; // TODO get ID
   tenants?: TenantBusinessModel[];
-  displayedColumns = ['lastName', 'firstName', 'phoneNumber', 'email'];
+  displayedColumns = ['lastName', 'firstName', 'phoneNumber', 'email', 'actions'];
   dataSource?: MatTableDataSource<TenantBusinessModel>;
 
 
