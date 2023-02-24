@@ -2,3 +2,11 @@
 
 <button mat-raised-button color="primary" routerLink="/proprietaires/creation">Ajouter un propriétaire</button>
 <button mat-raised-button color="primary" routerLink="/proprietaires/{{ownerId}}">Détail du propriétaire</button>
+<ul>
+  <li *ngFor="let owner of owners">
+    {{owner.firstName}} {{owner.lastName}} {{owner.birthday}}
+    {{owner.address.street}} {{owner.address.additionalAddress}} {{owner.address.zipCode}} {{owner.address.town}}
+    {{owner.email}} {{owner.phoneNumber}}
+    {{owner.rib}}
+  </li>
+</ul>
