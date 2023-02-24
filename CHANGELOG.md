@@ -18,6 +18,7 @@ Nomenclature :
 
 - POST /tenants
 - PUT /tenants
+- DELETE /tenants
 
 ### [0.0.8] - 2023-02-21
 
