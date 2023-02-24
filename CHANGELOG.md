@@ -14,11 +14,13 @@ Nomenclature :
 
 ### Unreleased
 
+### [0.0.9] - 2023-02-24
+
 #### Added
 
 - POST /tenants
-- PUT /tenants
-- DELETE /tenants
+- PUT /tenants by id
+- DELETE /tenants by id
 
 ### [0.0.8] - 2023-02-21
 
