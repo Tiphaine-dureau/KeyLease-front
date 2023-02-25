@@ -6,6 +6,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {RouterLink} from "@angular/router";
 import {UpdateOwnerComponent} from './update-owner/update-owner.component';
 import {OwnerDetailComponent} from './owner-detail/owner-detail.component';
+import {ComponentsModule} from "../../common/components/components.module";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {OwnerDetailComponent} from './owner-detail/owner-detail.component';
   imports: [
     CommonModule,
     MatButtonModule,
-    RouterLink
+    RouterLink,
+    ComponentsModule
   ]
 })
 export class OwnerModule {

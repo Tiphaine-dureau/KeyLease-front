@@ -12,19 +12,25 @@ import {MatTabsModule} from "@angular/material/tabs";
 import {MatCardModule} from "@angular/material/card";
 import {CardComponent} from './card/card.component';
 import {HeaderComponent} from "./header/header.component";
+import {ClientListComponent} from './client-list/client-list.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatTableModule} from "@angular/material/table";
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
   declarations: [
     SpinnerComponent,
     ToolbarComponent,
     CardComponent,
-    HeaderComponent
+    HeaderComponent,
+    ClientListComponent
   ],
   exports: [
     SpinnerComponent,
     ToolbarComponent,
     CardComponent,
-    HeaderComponent
+    HeaderComponent,
+    ClientListComponent
   ],
   imports: [
     CommonModule,
@@ -37,6 +43,9 @@ import {HeaderComponent} from "./header/header.component";
     MatTabsModule,
     MatCardModule,
     RouterLinkActive,
+    MatFormFieldModule,
+    MatTableModule,
+    MatInputModule,
   ]
 })
 export class ComponentsModule {

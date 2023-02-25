@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {OwnerBusinessModel} from "../../../common/business-models/owner.business-model";
 import {OwnerService} from "../services/owner.service";
+import {ClientListModel} from "../../../common/components/client-list/client-list.model";
 
 @Component({
   selector: 'app-owner',
@@ -8,10 +9,10 @@ import {OwnerService} from "../services/owner.service";
   styleUrls: ['./owners-dashboard.component.scss']
 })
 export class OwnersDashboardComponent implements OnInit {
-  owners?: OwnerBusinessModel[];
-  ownerId: string = "6789"; // TODO get ID
+  clientModels?: ClientListModel[];
 
-  constructor(private ownerService: OwnerService) {
+  constructor(
+    private ownerService: OwnerService) {
   }
 
   ngOnInit(): void {
@@ -20,8 +21,15 @@ export class OwnersDashboardComponent implements OnInit {
 
   private getOwners(): void {
     this.ownerService.getOwners().subscribe((owners: OwnerBusinessModel[]) => {
-      this.owners = owners;
+      this.clientModels = owners.map((owner: OwnerBusinessModel) => {
+        return {
+          id: owner.id,
+          firstName: owner.firstName,
+          lastName: owner.lastName,
+          email: owner.email,
+          phoneNumber: owner.phoneNumber
+        } as ClientListModel
+      });
     })
   }
-
 }
