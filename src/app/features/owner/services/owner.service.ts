@@ -16,7 +16,15 @@ export class OwnerService {
     return this.http.get<OwnerBusinessModel[]>(`${environment.apiUrl}/owners`);
   }
 
+  public getOwner(ownerId: string): Observable<OwnerBusinessModel> {
+    return this.http.get<OwnerBusinessModel>(`${environment.apiUrl}/owners/${ownerId}`)
+  }
+
   public postOwner(ownerBusinessModel: OwnerBusinessModel): Observable<OwnerBusinessModel> {
     return this.http.post<OwnerBusinessModel>(`${environment.apiUrl}/owners`, ownerBusinessModel);
+  }
+
+  public putOwner(ownerBusinessModel: OwnerBusinessModel, ownerId: string): Observable<OwnerBusinessModel> {
+    return this.http.put<OwnerBusinessModel>(`${environment.apiUrl}/owners/${ownerId}`, ownerBusinessModel)
   }
 }

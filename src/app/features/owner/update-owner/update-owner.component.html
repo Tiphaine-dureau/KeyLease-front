@@ -1,3 +1,5 @@
-<p>update-owner works!</p>
-
 <button mat-raised-button color="primary" routerLink="/proprietaires">Dashboard propriétaires</button>
+
+<ng-container *ngIf="owner">
+  <app-owner-form [owner]="owner" (onFormSubmit)="onSubmit($event)"></app-owner-form>
+</ng-container>
