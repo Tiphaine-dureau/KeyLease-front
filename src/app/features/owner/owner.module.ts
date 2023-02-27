@@ -7,19 +7,33 @@ import {RouterLink} from "@angular/router";
 import {UpdateOwnerComponent} from './update-owner/update-owner.component';
 import {OwnerDetailComponent} from './owner-detail/owner-detail.component';
 import {ComponentsModule} from "../../common/components/components.module";
+import {OwnerFormComponent} from './owner-form/owner-form.component';
+import {MatStepperModule} from "@angular/material/stepper";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatDividerModule} from "@angular/material/divider";
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
   declarations: [
     OwnersDashboardComponent,
     CreateOwnerComponent,
     UpdateOwnerComponent,
-    OwnerDetailComponent
+    OwnerDetailComponent,
+    OwnerFormComponent
   ],
   imports: [
     CommonModule,
     MatButtonModule,
     RouterLink,
-    ComponentsModule
+    ComponentsModule,
+    MatStepperModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatDividerModule,
+    MatInputModule
   ]
 })
 export class OwnerModule {

@@ -15,4 +15,8 @@ export class OwnerService {
   public getOwners(): Observable<OwnerBusinessModel[]> {
     return this.http.get<OwnerBusinessModel[]>(`${environment.apiUrl}/owners`);
   }
+
+  public postOwner(ownerBusinessModel: OwnerBusinessModel): Observable<OwnerBusinessModel> {
+    return this.http.post<OwnerBusinessModel>(`${environment.apiUrl}/owners`, ownerBusinessModel);
+  }
 }
