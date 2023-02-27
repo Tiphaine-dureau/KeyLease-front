@@ -45,7 +45,7 @@ export class OwnerFormComponent {
       // Matches 99.99% of e-mail addresses (excludes IP e-mails)
       email: [this.owner?.email, Validators.pattern('^[\\w-]+(?:\\.[\\w-]+)*@(?:[\\w-]+\\.)+[a-zA-Z]{2,7}$')],
       phone: [this.owner?.phoneNumber, Validators.required],
-      rib: [this.owner?.rib]
+      iban: [this.owner?.iban]
     });
   }
 
@@ -69,7 +69,7 @@ export class OwnerFormComponent {
       birthday: birthdate,
       phoneNumber: contactDetailsFormData.phone,
       email: contactDetailsFormData.email,
-      rib: contactDetailsFormData.rib,
+      iban: contactDetailsFormData.iban,
       address: addressFormData
     } as OwnerBusinessModel;
     this.onFormSubmit.emit(ownerFormData);

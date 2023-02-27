@@ -28,7 +28,7 @@ export class CreateOwnerComponent implements OnInit {
     // Matches 99.99% of e-mail addresses (excludes IP e-mails)
     email: ['', Validators.pattern('^[\\w-]+(?:\\.[\\w-]+)*@(?:[\\w-]+\\.)+[a-zA-Z]{2,7}$')],
     phone: ['', Validators.required],
-    rib: ['']
+    iban: ['']
   });
   stepperOrientation: Observable<StepperOrientation>;
 
