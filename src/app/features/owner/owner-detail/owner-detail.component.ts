@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
+import {OwnerService} from "../services/owner.service";
 
 @Component({
   selector: 'app-owner-details',
@@ -11,7 +12,9 @@ export class OwnerDetailComponent implements OnInit {
   public ownerId!: string;
 
   constructor(
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private ownerService: OwnerService,
+    private router: Router
   ) {
   }
 
@@ -19,4 +22,14 @@ export class OwnerDetailComponent implements OnInit {
     this.ownerId = this.activatedRoute.snapshot.params['id_owner']
   }
 
+  public deleteOwner(): void {
+    this.ownerService.deleteOwner(this.ownerId).subscribe({
+      next: () => {
+        this.router.navigate(["/proprietaires"]);
+      },
+      error: () => {
+        // TODO add Toast
+      }
+    })
+  }
 }
