@@ -6,6 +6,7 @@ import {LoginFormModel} from "./login-form.model";
 import {UserService} from "../../../common/services/user.service";
 import {UserBusinessModel} from "../../../common/business-models/user.business-model";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-form-login',
@@ -23,6 +24,7 @@ export class LoginFormComponent implements OnInit {
     private loginService: LoginFormService,
     private userService: UserService,
     private snackBar: MatSnackBar,
+    private router: Router
   ) {
   }
 
@@ -40,6 +42,7 @@ export class LoginFormComponent implements OnInit {
     this.loginService.postLogin(formData).subscribe({
       next: () => {
         this.onPostLoginResponse("Connexion réussie", "✅");
+        this.router.navigateByUrl('/')
         this.getUsers();
       },
       error: () => {

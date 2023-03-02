@@ -14,6 +14,12 @@ Nomenclature :
 
 ### Unreleased
 
+### [0.1.1] - 2023-03-02
+
+#### Added
+
+- spinner and redirection on post - put and delete tenant and on submit login
+
 ### [0.1.0] - 2023-03-02
 
 #### Added

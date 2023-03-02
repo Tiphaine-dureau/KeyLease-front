@@ -5,6 +5,7 @@ import {map, Observable} from "rxjs";
 import {StepperOrientation} from "@angular/material/stepper";
 import {TenantService} from "../services/tenant.service";
 import {TenantBusinessModel} from "../../../common/business-models/tenant.business-model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-create-tenant',
@@ -12,6 +13,7 @@ import {TenantBusinessModel} from "../../../common/business-models/tenant.busine
   styleUrls: ['./create-tenant.component.scss']
 })
 export class CreateTenantComponent implements OnInit {
+  public isLoading = false;
   identityFormGroup = this._formBuilder.group({
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
@@ -37,6 +39,7 @@ export class CreateTenantComponent implements OnInit {
   constructor(
     private _formBuilder: FormBuilder,
     private tenantService: TenantService,
+    private router: Router,
     breakpointObserver: BreakpointObserver,
   ) {
     this.stepperOrientation = breakpointObserver
@@ -49,6 +52,15 @@ export class CreateTenantComponent implements OnInit {
   }
 
   public onSubmit($event: TenantBusinessModel): void {
-    this.tenantService.postTenant($event).subscribe();
+    this.isLoading = true;
+    this.tenantService.postTenant($event).subscribe({
+      next: () => {
+        this.isLoading = false;
+        this.router.navigateByUrl('/locataires')
+      },
+      error: () => {
+        // Todo handle error
+      }
+    });
   }
 }

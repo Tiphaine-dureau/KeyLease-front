@@ -3,3 +3,6 @@
 <ng-container *ngIf="tenant">
   <app-tenant-form [tenant]="tenant" (onFormSubmit)="onSubmit($event)"></app-tenant-form>
 </ng-container>
+<ng-container *ngIf="isLoading">
+  <app-spinner></app-spinner>
+</ng-container>

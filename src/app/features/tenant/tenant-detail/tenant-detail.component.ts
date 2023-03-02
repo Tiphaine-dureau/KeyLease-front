@@ -10,10 +10,13 @@ import {TenantService} from "../services/tenant.service";
 export class TenantDetailComponent implements OnInit {
 
   public tenantID!: string;
+  public isLoading = false;
 
-  constructor(private activatedRoute: ActivatedRoute,
-              private router: Router,
-              private tenantService: TenantService) {
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private tenantService: TenantService,
+  ) {
   }
 
   ngOnInit(): void {
@@ -21,8 +24,10 @@ export class TenantDetailComponent implements OnInit {
   }
 
   public delete(): void {
+    this.isLoading = true;
     this.tenantService.deleteTenant(this.tenantID).subscribe({
       next: () => {
+        this.isLoading = false;
         this.router.navigate(["/locataires"]);
       },
       error: () => {
