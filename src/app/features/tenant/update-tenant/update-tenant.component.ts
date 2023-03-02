@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {TenantService} from "../services/tenant.service";
 import {TenantBusinessModel} from "../../../common/business-models/tenant.business-model";
 
@@ -11,10 +11,12 @@ import {TenantBusinessModel} from "../../../common/business-models/tenant.busine
 export class UpdateTenantComponent implements OnInit {
   public tenantId!: string;
   public tenant?: TenantBusinessModel;
+  public isLoading = false;
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private tenantService: TenantService
+    private tenantService: TenantService,
+    private router: Router
   ) {
   }
 
@@ -31,6 +33,15 @@ export class UpdateTenantComponent implements OnInit {
   }
 
   public onSubmit($event: TenantBusinessModel): void {
-    this.tenantService.putTenant($event, this.tenantId).subscribe();
+    this.isLoading = true;
+    this.tenantService.putTenant($event, this.tenantId).subscribe({
+      next: () => {
+        this.isLoading = false;
+        this.router.navigateByUrl('/locataires')
+      },
+      error: () => {
+        // TODO handle error
+      }
+    });
   }
 }
