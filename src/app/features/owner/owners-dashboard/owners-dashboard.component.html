@@ -1,4 +1,3 @@
-<p>owners-dashboard works!</p>
-
 <button mat-raised-button color="primary" routerLink="/proprietaires/creation">Ajouter un propriétaire</button>
-<button mat-raised-button color="primary" routerLink="/proprietaires/{{ownerId}}">Détail du propriétaire</button>
+
+<app-client-list *ngIf="clientModels" [data]="clientModels"></app-client-list>

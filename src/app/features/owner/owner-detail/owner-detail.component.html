@@ -1,5 +1,10 @@
 <p>owner-detail works!</p>
 
 <button mat-raised-button color="primary" routerLink="/proprietaires">Dashboard propriétaires</button>
-<button mat-raised-button color="primary" routerLink="/proprietaires/{{ownerId}}/modification">Modification propriétaire
+<button mat-raised-button color="primary" routerLink="/proprietaires/{{ownerId}}/modification">Modification
+  propriétaire
 </button>
+<button mat-raised-button color="accent" (click)="deleteOwner()">Supprimer</button>
+<ng-container *ngIf="isLoading">
+  <app-spinner></app-spinner>
+</ng-container>

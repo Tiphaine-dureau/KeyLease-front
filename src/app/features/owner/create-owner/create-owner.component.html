@@ -1,3 +1,7 @@
-<p>create-owner works!</p>
-
 <button mat-raised-button color="primary" routerLink="/proprietaires">Dashboard propriétaires</button>
+
+<app-owner-form (onFormSubmit)="onSubmit($event)"></app-owner-form>
+<ng-container *ngIf="isLoading">
+  <app-spinner></app-spinner>
+</ng-container>
+

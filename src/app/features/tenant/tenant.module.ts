@@ -15,6 +15,7 @@ import {MatListModule} from "@angular/material/list";
 import {MatTableModule} from "@angular/material/table";
 import {TenantFormComponent} from './tenant-form/tenant-form.component';
 import {MatIconModule} from "@angular/material/icon";
+import {ComponentsModule} from "../../common/components/components.module";
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import {MatIconModule} from "@angular/material/icon";
     MatListModule,
     MatTableModule,
     MatIconModule,
+    ComponentsModule,
   ]
 })
 export class TenantModule {
