@@ -14,6 +14,17 @@ Nomenclature :
 
 ### Unreleased
 
+### [0.1.0] - 2023-03-02
+
+#### Added
+
+- GET /owners
+- POST /owners
+- GET /owners/:id
+- PUT /owners/:id
+- DELETE /owners/:id
+- Spinner and redirection on post - put and delete
+
 ### [0.0.9] - 2023-02-24
 
 #### Added
