@@ -2,4 +2,6 @@
 <button mat-raised-button color="primary" routerLink="/locataires/{{tenantID}}/modification">Modification locataire
 </button>
 <button mat-raised-button color="warn" (click)="delete()">Supprimer</button>
-
+<ng-container *ngIf="isLoading">
+  <app-spinner></app-spinner>
+</ng-container>
