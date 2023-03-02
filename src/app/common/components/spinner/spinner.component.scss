@@ -1,5 +1,8 @@
 @import "src/styles/mixins";
 
 .spinner-container {
-  @include flex-center;
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
+  z-index: auto;
 }

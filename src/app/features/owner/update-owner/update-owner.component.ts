@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {OwnerBusinessModel} from "../../../common/business-models/owner.business-model";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {OwnerService} from "../services/owner.service";
 
 @Component({
@@ -12,10 +12,12 @@ export class UpdateOwnerComponent implements OnInit {
 
   public ownerId!: string;
   public owner?: OwnerBusinessModel;
+  public isLoading = false;
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private ownerService: OwnerService
+    private ownerService: OwnerService,
+    private router: Router,
   ) {
   }
 
@@ -32,6 +34,15 @@ export class UpdateOwnerComponent implements OnInit {
   }
 
   public onSubmit($event: OwnerBusinessModel): void {
-    this.ownerService.putOwner($event, this.ownerId).subscribe();
+    this.isLoading = true;
+    this.ownerService.putOwner($event, this.ownerId).subscribe({
+      next: () => {
+        this.isLoading = false;
+        this.router.navigateByUrl('/proprietaires');
+      },
+      error: () => {
+        // TODO handle error
+      }
+    });
   }
 }

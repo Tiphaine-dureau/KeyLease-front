@@ -8,8 +8,8 @@ import {OwnerService} from "../services/owner.service";
   styleUrls: ['./owner-detail.component.scss']
 })
 export class OwnerDetailComponent implements OnInit {
-
   public ownerId!: string;
+  public isLoading = false;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -23,8 +23,10 @@ export class OwnerDetailComponent implements OnInit {
   }
 
   public deleteOwner(): void {
+    this.isLoading = true;
     this.ownerService.deleteOwner(this.ownerId).subscribe({
       next: () => {
+        this.isLoading = false;
         this.router.navigate(["/proprietaires"]);
       },
       error: () => {

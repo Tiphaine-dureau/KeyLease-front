@@ -5,3 +5,6 @@
   propriétaire
 </button>
 <button mat-raised-button color="accent" (click)="deleteOwner()">Supprimer</button>
+<ng-container *ngIf="isLoading">
+  <app-spinner></app-spinner>
+</ng-container>
