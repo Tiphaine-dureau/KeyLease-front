@@ -1,21 +1,21 @@
 import {TestBed} from '@angular/core/testing';
 
-import {LoginFormService} from './login-form.service';
+import {AuthService} from './auth.service';
 import {HttpClientTestingModule, HttpTestingController} from "@angular/common/http/testing";
 import {LoginFormModel} from "../login-form/login-form.model";
 import {LoginBusinessModel} from "../login-form/login-business.model";
 import {environment} from "../../../../environments/environment";
 
 describe('LoginFormService', () => {
-  let service: LoginFormService;
+  let service: AuthService;
   let httpMock: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [LoginFormService]
+      providers: [AuthService]
     });
-    service = TestBed.inject(LoginFormService);
+    service = TestBed.inject(AuthService);
     httpMock = TestBed.inject(HttpTestingController);
   });
 
@@ -29,7 +29,7 @@ describe('LoginFormService', () => {
       password: 'azerty123'
     };
 
-    service.postLogin(user).subscribe((data: LoginBusinessModel) => {
+    service.login(user).subscribe((data: LoginBusinessModel) => {
       expect(data.token).toEqual('qsd123');
     })
     const req = httpMock.expectOne(`${environment.apiUrl}/login`);

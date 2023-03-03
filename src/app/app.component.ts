@@ -1,5 +1,7 @@
-import {Component, OnDestroy} from '@angular/core';
-import {LoginFormService} from "./features/login/services/login-form.service";
+import {Component, OnInit} from '@angular/core';
+import {Actions, ofActionDispatched} from "@ngxs/store";
+import {Router} from "@angular/router";
+import {Logout} from "./common/auth/logout";
 
 
 @Component({
@@ -7,12 +9,15 @@ import {LoginFormService} from "./features/login/services/login-form.service";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnDestroy {
+export class AppComponent implements OnInit {
 
-  constructor(private loginService: LoginFormService) {
+  constructor(private actions: Actions, private router: Router) {
   }
 
-  public ngOnDestroy(): void {
-    this.loginService.removeSession();
+  ngOnInit(): void {
+    this.actions.pipe(ofActionDispatched(Logout)).subscribe(() => {
+      this.router.navigate(['/login']);
+    })
   }
+
 }

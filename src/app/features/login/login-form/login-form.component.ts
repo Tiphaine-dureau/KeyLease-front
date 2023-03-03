@@ -1,12 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {HttpClient} from "@angular/common/http";
-import {LoginFormService} from "../services/login-form.service";
+import {AuthService} from "../services/auth.service";
 import {LoginFormModel} from "./login-form.model";
 import {UserService} from "../../../common/services/user.service";
-import {UserBusinessModel} from "../../../common/business-models/user.business-model";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Router} from "@angular/router";
+import {Store} from "@ngxs/store";
+import {Login} from "../../../common/auth/login";
+import {catchError, map, of} from "rxjs";
 
 @Component({
   selector: 'app-form-login',
@@ -21,10 +23,11 @@ export class LoginFormComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private loginService: LoginFormService,
+    private loginService: AuthService,
     private userService: UserService,
     private snackBar: MatSnackBar,
-    private router: Router
+    private router: Router,
+    private store: Store
   ) {
   }
 
@@ -39,16 +42,16 @@ export class LoginFormComponent implements OnInit {
     this.isLoading = true;
     this.formSubmitted = true;
     const formData = this.loginForm.value as LoginFormModel;
-    this.loginService.postLogin(formData).subscribe({
-      next: () => {
-        this.onPostLoginResponse("Connexion réussie", "✅");
-        this.router.navigateByUrl('/')
-        this.getUsers();
-      },
-      error: () => {
-        this.onPostLoginResponse("Une erreur est survenue, réessayez plus tard", "️⚠️");
-      }
-    })
+    this.store.dispatch(new Login(formData))
+      .pipe(
+        map(() => {
+          this.onPostLoginResponse("Connexion réussie", "✅");
+        }),
+        catchError(err => {
+          this.onPostLoginResponse("Une erreur est survenue, réessayez plus tard", "️⚠️")
+          return of('')
+        })
+      ).subscribe();
   }
 
   private onPostLoginResponse(snackBarMessage: string, snackBarAction: string): void {
@@ -57,12 +60,6 @@ export class LoginFormComponent implements OnInit {
     this.snackBar.open(snackBarMessage, snackBarAction, {
       duration: 3000,
     });
-  }
-
-  private getUsers(): void {
-    this.userService.getUsers().subscribe((users: UserBusinessModel[]) => {
-      console.warn(users);
-    })
   }
 }
 
