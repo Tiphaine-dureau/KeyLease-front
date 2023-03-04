@@ -63,6 +63,14 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
+            },
+            "staging": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
             }
           },
           "defaultConfiguration": "production"
@@ -74,7 +82,12 @@
               "browserTarget": "key-lease-front:build:production"
             },
             "development": {
-              "browserTarget": "key-lease-front:build:development"
+              "browserTarget": "key-lease-front:build:development",
+              "proxyConfig": "test/api/proxy.conf-dev.json"
+            },
+            "staging": {
+              "browserTarget": "key-lease-front:build:staging",
+              "proxyConfig": "test/api/proxy.conf-staging.json"
             }
           },
           "defaultConfiguration": "development"

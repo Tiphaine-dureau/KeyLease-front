@@ -1,0 +1,100 @@
+{
+  "login": {
+    "token": "token_value"
+  },
+  "register": {
+  },
+  "me": {
+    "id": "uuid",
+    "lastName": "Doe",
+    "firstName": "John",
+    "email": "email@example.com",
+    "authorities": [
+      "ADMIN",
+      "USER"
+    ]
+  },
+  "tenants": [
+    {
+      "id": "1",
+      "lastName": "Rey",
+      "firstName": "Véronique",
+      "birthday": null,
+      "phoneNumber": "0987654321",
+      "email": "veronique@example.com",
+      "address": {
+        "street": "2 rue Victor Hugo",
+        "additionalAddress": "Bat B Apt 31",
+        "zipCode": "33130",
+        "town": "Bègles"
+      },
+      "partnerLastName": "Doe",
+      "partnerFirstName": "John",
+      "partnerPhoneNumber": "0912345678"
+    },
+    {
+      "id": "2",
+      "lastName": "Cazals",
+      "firstName": "Jean-Jacques",
+      "birthday": null,
+      "phoneNumber": "0123456789",
+      "email": "jean-jacques@example.com",
+      "address": {
+        "street": "1 rue Emile Zola",
+        "additionalAddress": "",
+        "zipCode": "64100",
+        "town": "Bayonne"
+      },
+      "partnerLastName": "",
+      "partnerFirstName": "",
+      "partnerPhoneNumber": ""
+    }
+  ],
+  "owners": [
+    {
+      "id": "1",
+      "lastName": "Madur",
+      "firstName": "Virginie",
+      "birthday": null,
+      "phoneNumber": "0687687321",
+      "email": "virginie@example.com",
+      "address": {
+        "street": "1 rue des Tulipes",
+        "additionalAddress": "B1 apt 11",
+        "zipCode": "64500",
+        "town": "Saint-Jean-de-Luz"
+      },
+      "iban": "FR76 0000 9999 8888 7777 6666 555"
+    },
+    {
+      "id": "2",
+      "lastName": "Texeira",
+      "firstName": "Yannick",
+      "birthday": null,
+      "phoneNumber": "0587239054",
+      "email": "yannick@example.com",
+      "address": {
+        "street": "6 rue des noyers",
+        "additionalAddress": null,
+        "zipCode": "33600",
+        "town": "Pessac"
+      },
+      "iban": "FR76 1111 1111 1111 1111 1111 112"
+    },
+    {
+      "id": "3",
+      "lastName": "Wang",
+      "firstName": "Yifan",
+      "birthday": null,
+      "phoneNumber": "0643568921",
+      "email": "yifan@example.com",
+      "address": {
+        "street": "5 rue des Noyers",
+        "additionalAddress": null,
+        "zipCode": "33600",
+        "town": "Pessac"
+      },
+      "iban": "FR76 9999 9999 9999 9999 9999 999"
+    }
+  ]
+}
