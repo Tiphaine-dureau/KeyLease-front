@@ -1,16 +1,20 @@
 import {HttpContextToken, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from "@angular/common/http";
 import {Injectable} from "@angular/core";
 import {Observable} from "rxjs";
-import {TOKEN_KEY} from "../../features/login/services/login-form.service";
+import {Store} from "@ngxs/store";
+import {AuthState} from "../auth/auth-state";
 
 export const SKIP_AUTH_BEARER = new HttpContextToken(() => false);
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
+
+  constructor(private store: Store) {
+  }
+
   intercept(req: HttpRequest<any>,
             next: HttpHandler): Observable<HttpEvent<any>> {
-    // Get the token from the local storage
-    const idToken = localStorage.getItem(TOKEN_KEY);
+    const idToken = this.store.selectSnapshot(AuthState.token);
     if (req.context.get(SKIP_AUTH_BEARER) || !idToken) {
       return next.handle(req);
     }

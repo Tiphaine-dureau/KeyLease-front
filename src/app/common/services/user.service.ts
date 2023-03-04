@@ -15,4 +15,8 @@ export class UserService {
   public getUsers(): Observable<UserBusinessModel[]> {
     return this.http.get<UserBusinessModel[]>(`${environment.apiUrl}/users`);
   }
+
+  public getMe(): Observable<UserBusinessModel> {
+    return this.http.get<UserBusinessModel>(`${environment.apiUrl}/me`)
+  }
 }

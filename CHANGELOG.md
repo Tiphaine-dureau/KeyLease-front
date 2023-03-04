@@ -14,6 +14,8 @@ Nomenclature :
 
 ### Unreleased
 
+- Added ngxs for authentication (reactive programmation) : store and storage
+
 ### [0.1.1] - 2023-03-02
 
 #### Added

@@ -6,22 +6,16 @@ import {RegisterFormComponent} from "./features/login/register-form/register-for
 import {PropertyRoutingModule} from "./features/property/property-routing.module";
 import {OwnerRoutingModule} from "./features/owner/owner-routing.module";
 import {TenantRoutingModule} from "./features/tenant/tenant-routing.module";
+import {AuthGuard} from "./common/auth/auth-guard";
 
 const routes: Routes = [
   {
     path: '',
+    canActivate: [AuthGuard],
     children: [
       {
         path: '',
         loadChildren: () => HomeRoutingModule,
-      },
-      {
-        path: 'login',
-        component: LoginFormComponent,
-      },
-      {
-        path: 'register',
-        component: RegisterFormComponent
       },
       {
         path: 'biens',
@@ -36,7 +30,15 @@ const routes: Routes = [
         loadChildren: () => TenantRoutingModule,
       },
     ]
-  }
+  },
+  {
+    path: 'login',
+    component: LoginFormComponent,
+  },
+  {
+    path: 'register',
+    component: RegisterFormComponent
+  },
 ];
 
 @NgModule({
