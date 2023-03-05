@@ -6,9 +6,10 @@ import {LoginFormModel} from "./login-form.model";
 import {UserService} from "../../../common/services/user.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Router} from "@angular/router";
-import {Store} from "@ngxs/store";
+import {Select, Store} from "@ngxs/store";
 import {Login} from "../../../common/auth/login";
-import {catchError, map, of} from "rxjs";
+import {catchError, map, Observable, of} from "rxjs";
+import {AuthState} from "../../../common/auth/auth-state";
 
 @Component({
   selector: 'app-form-login',
@@ -16,10 +17,9 @@ import {catchError, map, of} from "rxjs";
   styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
-  public hide = true;
-  public isLoading = false;
+  public hidePassword = true;
   public loginForm!: FormGroup;
-  public formSubmitted = false;
+  @Select(AuthState.isLoading) isLoading$!: Observable<boolean>;
 
   constructor(
     private http: HttpClient,
@@ -39,8 +39,6 @@ export class LoginFormComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    this.isLoading = true;
-    this.formSubmitted = true;
     const formData = this.loginForm.value as LoginFormModel;
     this.store.dispatch(new Login(formData))
       .pipe(
@@ -55,11 +53,43 @@ export class LoginFormComponent implements OnInit {
   }
 
   private onPostLoginResponse(snackBarMessage: string, snackBarAction: string): void {
-    this.formSubmitted = false;
-    this.isLoading = false;
     this.snackBar.open(snackBarMessage, snackBarAction, {
       duration: 3000,
     });
+  }
+
+  public adminLoginDemo() {
+    const formData = {
+      email: "admin@keylease.com",
+      password: "adminkeylease"
+    } as LoginFormModel;
+    this.store.dispatch(new Login(formData))
+      .pipe(
+        map(() => {
+          this.onPostLoginResponse("Connexion réussie", "✅");
+        }),
+        catchError(err => {
+          this.onPostLoginResponse("Une erreur est survenue, réessayez plus tard", "️⚠️")
+          return of('')
+        })
+      ).subscribe();
+  }
+
+  public userLoginDemo() {
+    const formData = {
+      email: "agent@keylease.com",
+      password: "agentkeylease"
+    } as LoginFormModel;
+    this.store.dispatch(new Login(formData))
+      .pipe(
+        map(() => {
+          this.onPostLoginResponse("Connexion réussie", "✅");
+        }),
+        catchError(err => {
+          this.onPostLoginResponse("Une erreur est survenue, réessayez plus tard", "️⚠️")
+          return of('')
+        })
+      ).subscribe();
   }
 }
 

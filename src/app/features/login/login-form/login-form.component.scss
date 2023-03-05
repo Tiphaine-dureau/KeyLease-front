@@ -19,6 +19,27 @@
   @include flex-end;
 }
 
+.demo-card-container {
+  @include flex-center;
+}
+
+::ng-deep .mat-mdc-card {
+  box-shadow: revert;
+}
+
+.demo-card-title {
+  margin: 1rem;
+}
+
+.demo-button-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.demo-button {
+  margin-bottom: 1rem;
+  width: 90%;
+}
 
 @media (max-width: $layout-breakpoint-small) {
   .login-form-group {
@@ -39,7 +60,7 @@
 }
 
 @media (min-width: 993px) and (max-width: $layout-breakpoint-extra-extra-large) {
-  .login-form-group {
+  .login-form-group, {
     min-width: 40vw;
   }
 }
