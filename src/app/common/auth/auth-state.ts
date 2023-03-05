@@ -2,7 +2,7 @@ import {Injectable, NgZone} from "@angular/core";
 import {Action, Selector, State, StateContext} from "@ngxs/store";
 import {AuthStateModel} from "./auth-state-model";
 import {Login} from "./login";
-import {tap} from "rxjs";
+import {catchError, tap} from "rxjs";
 import {Logout} from "./logout";
 import {Router} from "@angular/router";
 import {AuthService} from "../../features/login/services/auth.service";
@@ -12,7 +12,9 @@ import {LoginBusinessModel} from "../../features/login/login-form/login-business
   name: 'auth',
   defaults: {
     token: null,
-    username: null
+    username: null,
+    isLoading: false,
+    hasError: false,
   }
 })
 @Injectable()
@@ -28,21 +30,48 @@ export class AuthState {
     return !!state.token;
   }
 
-  constructor(private authService: AuthService, private router: Router, private ngZone: NgZone) {
+  @Selector()
+  static isLoading(state: AuthStateModel): boolean {
+    return state.isLoading;
+  }
+
+  @Selector()
+  static hasError(state: AuthStateModel): boolean {
+    return state.hasError;
+  }
+
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private ngZone: NgZone
+  ) {
   }
 
   @Action(Login)
   login(ctx: StateContext<AuthStateModel>, action: Login) {
+    ctx.patchState({
+      isLoading: true,
+      hasError: false
+    })
     return this.authService.login(action.payload).pipe(
       tap((result: LoginBusinessModel) => {
         console.warn("patch state");
         ctx.patchState({
           token: result.token,
-          username: action.payload.email
+          username: action.payload.email,
+          isLoading: true, // keep loading before routing to home
+          hasError: false
         });
         this.ngZone.run(() => {
           this.router.navigate(['']);
         });
+      }),
+      catchError((err) => {
+        ctx.patchState({
+          isLoading: false,
+          hasError: true
+        })
+        throw err;
       })
     );
   }
@@ -53,7 +82,9 @@ export class AuthState {
       tap(() => {
         ctx.setState({
           token: null,
-          username: null
+          username: null,
+          isLoading: false,
+          hasError: false
         });
       })
     );

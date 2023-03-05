@@ -1,26 +1,46 @@
-<div class="login-form-container">
-  <form [formGroup]="loginForm" class="login-form-group" (ngSubmit)="onSubmit()">
-    <p>Email</p>
-    <mat-form-field class="login-form-input">
-      <mat-label>Email</mat-label>
-      <input matInput type="email" formControlName="email">
-    </mat-form-field>
-    <p>Mot de passe</p>
-    <mat-form-field class="login-form-input">
-      <mat-label>Mot de passe</mat-label>
-      <input matInput formControlName="password" [type]="hide ? 'password': 'text'">
-      <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-              [attr.aria-pressed]="hide">
-        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-      </button>
-    </mat-form-field>
-    <div class="login-button-form">
-      <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid || formSubmitted">Connexion
-      </button>
-    </div>
-  </form>
-</div>
-<ng-container *ngIf="isLoading">
+<ng-container *ngIf="!(isLoading$ | async)">
+  <!--Connexion with login-->
+  <div class="login-form-container">
+    <form [formGroup]="loginForm" class="login-form-group" (ngSubmit)="onSubmit()">
+      <p>Email</p>
+      <mat-form-field class="login-form-input">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email">
+      </mat-form-field>
+      <p>Mot de passe</p>
+      <mat-form-field class="login-form-input">
+        <mat-label>Mot de passe</mat-label>
+        <input matInput formControlName="password" [type]="hidePassword ? 'password': 'text'">
+        <button type="button" mat-icon-button matSuffix (click)="hidePassword = !hidePassword"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hidePassword">
+          <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+      <div class="login-button-form">
+        <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">Connexion
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!--Connexion with demo profil-->
+  <div class="demo-card-container">
+    <mat-card class="demo-card">
+      <mat-card-title class="demo-card-title">
+        Connectez-vous avec un compte de démo
+      </mat-card-title>
+      <mat-card-actions class="demo-button-container">
+        <button mat-stroked-button color="accent" class="demo-button" (click)="adminLoginDemo()">Responsable d'agence
+        </button>
+        <button mat-stroked-button color="accent" class="demo-button" (click)="userLoginDemo()">Gestionnaire locatif
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="isLoading$ | async">
   <app-spinner></app-spinner>
 </ng-container>
 

@@ -18,6 +18,7 @@ Nomenclature :
 
 - Added ngxs for authentication (reactive programmation) : store and storage
 - Added Json Server to mock api and start project more quickly
+- Updated Login : added buttons for auto login - updated loading (spinner) : moved it to the auth-state
 
 ### [0.1.1] - 2023-03-02
 
