@@ -2,9 +2,12 @@
   <mat-toolbar-row>
     <a class="title-toolbar" routerLink="/">KeyLease</a>
     <span class="spacer"></span>
-    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="menu icon">
-      <mat-icon>menu</mat-icon>
-    </button>
+
+    <ng-container *ngIf="isAuthenticated$ | async">
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </ng-container>
     <mat-menu #menu="matMenu">
       <button mat-menu-item>
         <mat-icon>settings</mat-icon>
@@ -24,12 +27,17 @@
       </button>
     </mat-menu>
   </mat-toolbar-row>
-  <mat-toolbar-row>
-    <a class="link-toolbar" routerLink="/" routerLinkActive="link-active"
-       [routerLinkActiveOptions]="{exact:true}">Accueil</a>
-    <a class="link-toolbar" routerLink="/biens" routerLinkActive="link-active">Biens</a>
-    <a class="link-toolbar" routerLink="/proprietaires" routerLinkActive="link-active">Propriétaires</a>
-    <a class="link-toolbar" routerLink="/locataires" routerLinkActive="link-active">Locataires</a>
-  </mat-toolbar-row>
 </mat-toolbar>
+
+<ng-container *ngIf="isAuthenticated$ | async">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <a class="link-toolbar" routerLink="/" routerLinkActive="link-active"
+         [routerLinkActiveOptions]="{exact:true}">Accueil</a>
+      <a class="link-toolbar" routerLink="/biens" routerLinkActive="link-active">Biens</a>
+      <a class="link-toolbar" routerLink="/proprietaires" routerLinkActive="link-active">Propriétaires</a>
+      <a class="link-toolbar" routerLink="/locataires" routerLinkActive="link-active">Locataires</a>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</ng-container>
 
