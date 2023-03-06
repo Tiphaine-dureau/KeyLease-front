@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Logout} from "../../auth/logout";
-import {Actions, ofActionDispatched, Store} from "@ngxs/store";
+import {Actions, ofActionDispatched, Select, Store} from "@ngxs/store";
 import {Router} from "@angular/router";
+import {AuthState} from "../../auth/auth-state";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-toolbar',
@@ -9,6 +11,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent implements OnInit {
+  @Select(AuthState.isAuthenticated) isAuthenticated$!: Observable<boolean>;
 
   constructor(
     private store: Store,
