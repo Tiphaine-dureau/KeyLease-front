@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {CardComponent} from "../../../common/components/card/card.component";
+import {HomeCardComponent} from "../../../common/components/home-card/home-card.component";
 
 @Component({
   selector: 'app-home',
@@ -8,7 +8,7 @@ import {CardComponent} from "../../../common/components/card/card.component";
 })
 export class HomeComponent {
 
-  card: CardComponent | undefined;
+  card: HomeCardComponent | undefined;
 
   constructor() {
   }
