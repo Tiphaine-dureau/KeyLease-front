@@ -15,8 +15,9 @@
   min-width: 100%;
 }
 
-.login-button-form {
-  @include flex-end;
+.login-button-container {
+  display: flex;
+  justify-content: space-between;
 }
 
 .demo-card-container {

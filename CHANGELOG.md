@@ -20,6 +20,8 @@ Nomenclature :
 - Added Json Server to mock api and start project more quickly
 - Updated Login : added buttons for auto login - updated loading (spinner) : moved it to the auth-state
 - Updated toolbar : when user is not authenticated the links and the menu doesn't exist
+- Updated register : added button to go on register page from login and added button to go on login page from register -
+  removed temporary links on menu burger
 
 ### [0.1.1] - 2023-03-02
 
