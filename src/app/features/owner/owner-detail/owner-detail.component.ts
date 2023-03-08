@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {OwnerService} from "../services/owner.service";
+import {OwnerBusinessModel} from "../../../common/business-models/owner.business-model";
 
 @Component({
   selector: 'app-owner-details',
@@ -9,7 +10,9 @@ import {OwnerService} from "../services/owner.service";
 })
 export class OwnerDetailComponent implements OnInit {
   public ownerId!: string;
+  public owner?: OwnerBusinessModel;
   public isLoading = false;
+  public subtitle = "Propriétaire";
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -19,7 +22,19 @@ export class OwnerDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.ownerId = this.activatedRoute.snapshot.params['id_owner']
+    this.ownerId = this.activatedRoute.snapshot.params['id_owner'];
+    this.getOwner();
+  }
+
+  private getOwner(): void {
+    this.ownerService.getOwner(this.ownerId).subscribe({
+      next: (owner: OwnerBusinessModel) => {
+        this.owner = owner;
+      },
+      error: () => {
+        // Todo handle error
+      }
+    });
   }
 
   public deleteOwner(): void {

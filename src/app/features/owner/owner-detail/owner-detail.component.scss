@@ -1,0 +1,60 @@
+@import "src/styles/variables";
+
+.cards-details-container {
+  display: grid;
+  justify-content: space-around;
+  width: 100%;
+  margin: auto;
+}
+
+.iban-card {
+  margin: 20px;
+}
+
+.iban-span-title {
+  color: $black;
+  font-size: 1.125rem;
+}
+
+span {
+  margin-bottom: 10px;
+}
+
+.iban-span-container, .button-owner-detail-container {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.button-owner-detail-container {
+  align-items: flex-start;
+}
+
+.button-owner-detail {
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: $layout-breakpoint-medium) {
+  .cards-details-container {
+    grid-template-columns: repeat(1, 1fr 1fr);
+  }
+  .iban-card {
+    height: 35%;
+  }
+}
+
+@media screen and (min-width: $layout-breakpoint-large) {
+  .cards-details-container {
+    grid-template-columns: repeat(1, 1.5fr 1fr);
+  }
+}
+
+
+@media screen and (min-width: $layout-breakpoint-extra-large) {
+  .cards-details-container {
+    grid-template-columns: repeat(1, 2fr 1fr);
+    width: 80%;
+  }
+}
+

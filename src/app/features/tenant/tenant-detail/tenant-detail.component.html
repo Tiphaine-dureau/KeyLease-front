@@ -1,7 +1,38 @@
 <button mat-raised-button color="primary" routerLink="/locataires">Dashboard locataires</button>
-<button mat-raised-button color="primary" routerLink="/locataires/{{tenantID}}/modification">Modification locataire
-</button>
-<button mat-raised-button color="warn" (click)="delete()">Supprimer</button>
+<div class="cards-details-container">
+  <div class="component-identity-card">
+    <app-identity-card [data]="tenant" [subtitle]="subtitle"></app-identity-card>
+  </div>
+  <mat-card class="partner-card">
+    <mat-card-header>
+      <mat-card-title>Conjoint</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="partner-span-container">
+        <span class="partner-span-title">Nom</span>
+        <span>{{tenant?.partnerLastName}}</span>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="partner-span-container">
+        <span class="partner-span-title">Prénom</span>
+        <span>{{tenant?.partnerFirstName}}</span>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="partner-span-container">
+        <span class="partner-span-title">Téléphone</span>
+        <span>{{tenant?.partnerPhoneNumber}}</span>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <div class="button-tenant-detail-container">
+    <button mat-raised-button color="primary" routerLink="/locataires/{{tenantID}}/modification"
+            class="button-tenant-detail">Modifier
+    </button>
+    <button mat-raised-button color="warn" (click)="delete()" class="button-tenant-detail">Supprimer</button>
+  </div>
+</div>
+
 <ng-container *ngIf="isLoading">
   <app-spinner></app-spinner>
 </ng-container>
