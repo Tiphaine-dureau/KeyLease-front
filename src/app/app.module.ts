@@ -18,8 +18,7 @@ import {AuthState} from "./common/auth/auth-state";
 import {environment} from "../environments/environment";
 import {NgxsStoragePluginModule} from "@ngxs/storage-plugin";
 import {AuthGuard} from "./common/auth/auth-guard";
-import {UserState} from "./common/user/user-state";
-import {TOKEN_KEY} from "./features/login/services/auth.service";
+import {TOKEN_KEY} from "./features/login/services/login.service";
 
 @NgModule({
   declarations: [
@@ -38,7 +37,7 @@ import {TOKEN_KEY} from "./features/login/services/auth.service";
     OwnerModule,
     TenantModule,
     MatNativeDateModule,
-    NgxsModule.forRoot([AuthState, UserState], {
+    NgxsModule.forRoot([AuthState], {
       developmentMode: !environment.production
     }),
     NgxsStoragePluginModule.forRoot({

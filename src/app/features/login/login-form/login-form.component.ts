@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {HttpClient} from "@angular/common/http";
-import {AuthService} from "../services/auth.service";
+import {LoginService} from "../services/login.service";
 import {LoginFormModel} from "./login-form.model";
 import {UserService} from "../../../common/services/user.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
@@ -23,7 +23,7 @@ export class LoginFormComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private loginService: AuthService,
+    private loginService: LoginService,
     private userService: UserService,
     private snackBar: MatSnackBar,
     private router: Router,
