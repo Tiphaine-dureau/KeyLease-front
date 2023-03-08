@@ -16,7 +16,8 @@ import {ClientListComponent} from './client-list/client-list.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatTableModule} from "@angular/material/table";
 import {MatInputModule} from "@angular/material/input";
-import { IdentityCardComponent } from './identity-card/identity-card.component';
+import {IdentityCardComponent} from './identity-card/identity-card.component';
+import {MatDividerModule} from "@angular/material/divider";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { IdentityCardComponent } from './identity-card/identity-card.component';
     ToolbarComponent,
     HomeCardComponent,
     HeaderComponent,
-    ClientListComponent
+    ClientListComponent,
+    IdentityCardComponent
   ],
   imports: [
     CommonModule,
@@ -48,6 +50,7 @@ import { IdentityCardComponent } from './identity-card/identity-card.component';
     MatFormFieldModule,
     MatTableModule,
     MatInputModule,
+    MatDividerModule,
   ]
 })
 export class ComponentsModule {

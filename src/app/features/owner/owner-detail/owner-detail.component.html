@@ -1,10 +1,29 @@
-<p>owner-detail works!</p>
-
 <button mat-raised-button color="primary" routerLink="/proprietaires">Dashboard propriétaires</button>
-<button mat-raised-button color="primary" routerLink="/proprietaires/{{ownerId}}/modification">Modification
-  propriétaire
-</button>
-<button mat-raised-button color="accent" (click)="deleteOwner()">Supprimer</button>
+
+<div class="cards-details-container">
+  <div class="component-identity-card">
+    <app-identity-card [data]="owner" [subtitle]="subtitle"></app-identity-card>
+  </div>
+  <mat-card class="iban-card">
+    <mat-card-header>
+      <mat-card-title>Relevé d'identité bancaire</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="iban-span-container">
+        <span class="iban-span-title">IBAN</span>
+        <span>{{owner?.iban}}</span>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <div class="button-owner-detail-container">
+    <button mat-raised-button color="primary" routerLink="/proprietaires/{{ownerId}}/modification"
+            class="button-owner-detail">Modifier
+    </button>
+    <button mat-raised-button color="warn" (click)="deleteOwner()" class="button-owner-detail">Supprimer</button>
+  </div>
+</div>
+
 <ng-container *ngIf="isLoading">
   <app-spinner></app-spinner>
 </ng-container>

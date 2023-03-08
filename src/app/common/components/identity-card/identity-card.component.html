@@ -1,0 +1,29 @@
+<mat-card class="identity-card">
+  <mat-card-header>
+    <mat-card-title>{{data?.firstName}}&nbsp;{{data?.lastName}}</mat-card-title>
+    <mat-card-subtitle>{{subtitle}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="identity-span-container">
+      <span class="identity-span-title">Né(e) le </span>
+      <span>{{data?.birthday}}</span>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="identity-span-container">
+      <span class="identity-span-title">Adresse</span>
+      <span>{{data?.address?.street}}&nbsp;{{data?.address?.additionalAddress}}&nbsp;{{data?.address?.zipCode}}&nbsp;{{data?.address?.town}}</span>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="section-container">
+      <div class="identity-span-container">
+        <span class="identity-span-title">E-mail</span>
+        <span>{{data?.email}}</span>
+      </div>
+      <div class="identity-span-container">
+        <span class="identity-span-title">Téléphone</span>
+        <span>{{data?.phoneNumber}}</span>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+
