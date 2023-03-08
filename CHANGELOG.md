@@ -23,6 +23,7 @@ Nomenclature :
 - Updated register : added button to go on register page from login and added button to go on login page from register -
   removed temporary links on menu burger
 - Added display of tenant and owner detail
+- Fixed : When token was out of date, menu was display -> fixed : isAuthenticated is more restrictive
 
 ### [0.1.1] - 2023-03-02
 

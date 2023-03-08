@@ -5,12 +5,16 @@ import {Login} from "./login";
 import {catchError, tap} from "rxjs";
 import {Logout} from "./logout";
 import {Router} from "@angular/router";
-import {AuthService} from "../../features/login/services/auth.service";
+import {LoginService} from "../../features/login/services/login.service";
 import {LoginBusinessModel} from "../../features/login/login-form/login-business.model";
+import {UserBusinessModel} from "../business-models/user.business-model";
+import {UserService} from "../services/user.service";
+import {FetchUser} from "./fetch-user";
 
 @State<AuthStateModel>({
   name: 'auth',
   defaults: {
+    user: null,
     token: null,
     username: null,
     isLoading: false,
@@ -26,8 +30,23 @@ export class AuthState {
   }
 
   @Selector()
+  static user(state: AuthStateModel): UserBusinessModel | null {
+    return state.user;
+  }
+
+  @Selector()
   static isAuthenticated(state: AuthStateModel): boolean {
+    return !!state.username || !!state.user;
+  }
+
+  @Selector()
+  static hasToken(state: AuthStateModel): boolean {
     return !!state.token;
+  }
+
+  @Selector()
+  static username(state: AuthStateModel): string | null {
+    return state.username || (state.user !== null ? state.user.email : null);
   }
 
   @Selector()
@@ -41,7 +60,8 @@ export class AuthState {
   }
 
   constructor(
-    private authService: AuthService,
+    private authService: LoginService,
+    private userService: UserService,
     private router: Router,
     private ngZone: NgZone
   ) {
@@ -68,6 +88,9 @@ export class AuthState {
       }),
       catchError((err) => {
         ctx.patchState({
+          user: null,
+          token: null,
+          username: null,
           isLoading: false,
           hasError: true
         })
@@ -76,11 +99,38 @@ export class AuthState {
     );
   }
 
+  @Action(FetchUser)
+  fetchUser(ctx: StateContext<AuthStateModel>) {
+    ctx.patchState({
+      isLoading: true
+    });
+    return this.userService.getMe().pipe(
+      tap((user: UserBusinessModel) => {
+        ctx.patchState({
+          user,
+          username: user.email,
+          isLoading: false
+        })
+      }),
+      catchError((err) => {
+        ctx.setState({
+          user: null,
+          token: null,
+          username: null,
+          isLoading: false,
+          hasError: true
+        });
+        throw err;
+      })
+    )
+  }
+
   @Action(Logout)
   logout(ctx: StateContext<AuthStateModel>) {
     return this.authService.logout().pipe(
       tap(() => {
         ctx.setState({
+          user: null,
           token: null,
           username: null,
           isLoading: false,

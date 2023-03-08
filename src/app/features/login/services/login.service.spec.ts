@@ -1,21 +1,21 @@
 import {TestBed} from '@angular/core/testing';
 
-import {AuthService} from './auth.service';
+import {LoginService} from './login.service';
 import {HttpClientTestingModule, HttpTestingController} from "@angular/common/http/testing";
 import {LoginFormModel} from "../login-form/login-form.model";
 import {LoginBusinessModel} from "../login-form/login-business.model";
 import {environment} from "../../../../environments/environment";
 
 describe('LoginFormService', () => {
-  let service: AuthService;
+  let service: LoginService;
   let httpMock: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [AuthService]
+      providers: [LoginService]
     });
-    service = TestBed.inject(AuthService);
+    service = TestBed.inject(LoginService);
     httpMock = TestBed.inject(HttpTestingController);
   });
 
