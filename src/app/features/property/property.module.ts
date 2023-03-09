@@ -6,6 +6,10 @@ import {CreatePropertyComponent} from "./create-property/create-property.compone
 import {RouterLink} from "@angular/router";
 import {UpdatePropertyComponent} from './update-property/update-property.component';
 import {PropertyDetailComponent} from './property-detail/property-detail.component';
+import {MatTableModule} from "@angular/material/table";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -17,7 +21,11 @@ import {PropertyDetailComponent} from './property-detail/property-detail.compone
   imports: [
     CommonModule,
     MatButtonModule,
-    RouterLink
+    RouterLink,
+    MatTableModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule
   ]
 })
 export class PropertyModule {

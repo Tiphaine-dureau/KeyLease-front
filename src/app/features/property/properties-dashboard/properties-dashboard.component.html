@@ -1,4 +1,48 @@
-<p>properties-dashboard works!</p>
-
 <button mat-raised-button color="primary" routerLink="/biens/creation">Ajouter un bien</button>
-<button mat-raised-button color="primary" routerLink="/biens/{{propertyId}}">Détail du bien</button>
+
+<ng-container *ngIf="properties">
+  <section class="table-container" tabindex="0">
+    <!--Filtre -->
+    <mat-form-field class="label-filter">
+      <mat-label>Rechercher un bien</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
+    </mat-form-field>
+    <!--Table-->
+    <table mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef>Type de bien</th>
+        <td mat-cell *matCellDef="let element">{{element.type}} </td>
+      </ng-container>
+      <ng-container matColumnDef="area">
+        <th mat-header-cell *matHeaderCellDef>Surface</th>
+        <td mat-cell *matCellDef="let element">{{element.area}} m²</td>
+      </ng-container>
+      <ng-container matColumnDef="roomsNumber">
+        <th mat-header-cell *matHeaderCellDef>Nb pièces</th>
+        <td mat-cell *matCellDef="let element">{{element.roomsNumber}} </td>
+      </ng-container>
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef>Adresse</th>
+        <td mat-cell
+            *matCellDef="let element">{{element.address.street}}&nbsp;{{element.address.additionalAddress}}&nbsp;{{element.address.zipCode}}&nbsp;{{element.address.town}} </td>
+      </ng-container>
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let element">
+          <a routerLink="{{element.id}}">
+            <mat-icon aria-hidden="false" aria-label="voir en détails" fontIcon="zoom_in"></mat-icon>
+          </a>
+          <a routerLink="{{element.id}}/modification">
+            <mat-icon aria-hidden="false" aria-label="modifier" fontIcon="edit"></mat-icon>
+          </a>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <!--Affichage si le filtre ne marche pas-->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">Aucune donnée sur ce filtre"{{input.value}}"</td>
+      </tr>
+    </table>
+  </section>
+</ng-container>
