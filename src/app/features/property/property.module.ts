@@ -10,13 +10,20 @@ import {MatTableModule} from "@angular/material/table";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
+import {PropertyFormComponent} from './property-form/property-form.component';
+import {MatStepperModule} from "@angular/material/stepper";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatDividerModule} from "@angular/material/divider";
+import {MatRadioModule} from "@angular/material/radio";
+import {ComponentsModule} from "../../common/components/components.module";
 
 @NgModule({
   declarations: [
     PropertiesDashboardComponent,
     CreatePropertyComponent,
     UpdatePropertyComponent,
-    PropertyDetailComponent
+    PropertyDetailComponent,
+    PropertyFormComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +32,12 @@ import {MatIconModule} from "@angular/material/icon";
     MatTableModule,
     MatFormFieldModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    MatStepperModule,
+    ReactiveFormsModule,
+    MatDividerModule,
+    MatRadioModule,
+    ComponentsModule
   ]
 })
 export class PropertyModule {

@@ -26,6 +26,7 @@ Nomenclature :
 - Fixed : When token was out of date, menu was display -> fixed : isAuthenticated is more restrictive
 - Updated db.json with data to complete the simulated api with property data
 - Added GET /properties and display it on table with filter
+- Added POST /property (stepper - spinner - method in the service)
 
 ### [0.1.1] - 2023-03-02
 

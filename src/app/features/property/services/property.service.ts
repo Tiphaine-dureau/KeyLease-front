@@ -17,4 +17,8 @@ export class PropertyService {
   public getProperties(): Observable<PropertyBusinessModel[]> {
     return this.http.get<PropertyBusinessModel[]>(`${environment.apiUrl}/properties`)
   }
+
+  public postProperty(propertyBusinessModel: PropertyBusinessModel): Observable<PropertyBusinessModel> {
+    return this.http.post<PropertyBusinessModel>(`${environment.apiUrl}/properties`, propertyBusinessModel);
+  }
 }
