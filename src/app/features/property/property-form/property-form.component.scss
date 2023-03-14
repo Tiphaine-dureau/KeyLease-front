@@ -3,7 +3,7 @@
 
 .stepper-container {
   @include flex-center;
-  width: 80%;
+  max-width: 730px;
   margin: auto;
 }
 

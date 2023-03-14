@@ -15,10 +15,18 @@ export class PropertyService {
   }
 
   public getProperties(): Observable<PropertyBusinessModel[]> {
-    return this.http.get<PropertyBusinessModel[]>(`${environment.apiUrl}/properties`)
+    return this.http.get<PropertyBusinessModel[]>(`${environment.apiUrl}/properties`);
+  }
+
+  public getProperty(propertyId: string): Observable<PropertyBusinessModel> {
+    return this.http.get<PropertyBusinessModel>(`${environment.apiUrl}/properties/${propertyId}`);
   }
 
   public postProperty(propertyBusinessModel: PropertyBusinessModel): Observable<PropertyBusinessModel> {
     return this.http.post<PropertyBusinessModel>(`${environment.apiUrl}/properties`, propertyBusinessModel);
+  }
+
+  public modifyProperty(propertyBusinessModel: PropertyBusinessModel, propertyId: string): Observable<PropertyBusinessModel> {
+    return this.http.put<PropertyBusinessModel>(`${environment.apiUrl}/properties/${propertyId}`, propertyBusinessModel);
   }
 }

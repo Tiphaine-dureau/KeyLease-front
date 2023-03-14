@@ -13,9 +13,7 @@ import {AddressBusinessModel} from "../../../common/business-models/address.busi
 })
 export class PropertyFormComponent implements OnInit {
   @Input() property?: PropertyBusinessModel;
-
   @Output() onFormSubmit: EventEmitter<PropertyBusinessModel> = new EventEmitter<PropertyBusinessModel>();
-
   public descriptionFormGroup!: FormGroup;
   public postalAddressFormGroup!: FormGroup;
   public stepperOrientation!: Observable<StepperOrientation>;
