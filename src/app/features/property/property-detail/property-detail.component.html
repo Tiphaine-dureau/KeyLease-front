@@ -6,3 +6,7 @@
   </button>
   <button mat-raised-button color="warn" (click)="deleteProperty()" class="property-detail-button">Supprimer</button>
 </div>
+
+<ng-container *ngIf="isLoading">
+  <app-spinner></app-spinner>
+</ng-container>
