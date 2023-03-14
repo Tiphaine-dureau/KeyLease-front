@@ -29,4 +29,8 @@ export class PropertyService {
   public modifyProperty(propertyBusinessModel: PropertyBusinessModel, propertyId: string): Observable<PropertyBusinessModel> {
     return this.http.put<PropertyBusinessModel>(`${environment.apiUrl}/properties/${propertyId}`, propertyBusinessModel);
   }
+
+  public deleteProperty(propertyId: string): Observable<PropertyBusinessModel> {
+    return this.http.delete<PropertyBusinessModel>(`${environment.apiUrl}/properties/${propertyId}`);
+  }
 }

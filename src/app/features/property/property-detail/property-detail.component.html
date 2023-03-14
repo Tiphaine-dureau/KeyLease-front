@@ -1,4 +1,8 @@
-<p>property-detail works!</p>
-
 <button mat-raised-button color="primary" routerLink="/biens">Dashboard biens</button>
-<button mat-raised-button color="primary" routerLink="/biens/{{propertyId}}/modification">Modification bien</button>
+
+<div class="property-detail-button-container">
+  <button mat-raised-button color="primary" routerLink="/biens/{{propertyId}}/modification"
+          class="property-detail-button">Modifier
+  </button>
+  <button mat-raised-button color="warn" (click)="deleteProperty()" class="property-detail-button">Supprimer</button>
+</div>
