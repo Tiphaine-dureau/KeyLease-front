@@ -14,6 +14,31 @@ Nomenclature :
 
 ### Unreleased
 
+### [0.1.2] - 2023-03-15
+
+#### Added
+
+- Added ngxs for authentication (reactive programmation) : store and storage
+- Added Json Server to mock api and start project more quickly
+- Added display of tenant and owner detail
+- Added GET /properties and display it on table with filter
+- Added POST /property (stepper - spinner - method in the service)
+- Added GET /properties/:id and PUT /properties/:id
+- Added DELETE /properties/:id
+- Added property detail display
+
+#### Updated
+
+- Updated Login : added buttons for auto login - updated loading (spinner) : moved it to the auth-state
+- Updated toolbar : when user is not authenticated the links and the menu doesn't exist
+- Updated register : added button to go on register page from login and added button to go on login page from register -
+  removed temporary links on menu burger
+- Updated db.json with data to complete the simulated api with property data
+
+#### Fixed
+
+- Fixed : When token was out of date, menu was display -> fixed : isAuthenticated is more restrictive
+
 ### [0.1.1] - 2023-03-02
 
 #### Added

@@ -14,6 +14,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatDividerModule} from "@angular/material/divider";
 import {MatInputModule} from "@angular/material/input";
+import {MatCardModule} from "@angular/material/card";
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {MatInputModule} from "@angular/material/input";
     ReactiveFormsModule,
     MatDatepickerModule,
     MatDividerModule,
-    MatInputModule
+    MatInputModule,
+    MatCardModule
   ]
 })
 export class OwnerModule {

@@ -1,12 +1,15 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {HttpClient} from "@angular/common/http";
-import {LoginFormService} from "../services/login-form.service";
+import {LoginService} from "../services/login.service";
 import {LoginFormModel} from "./login-form.model";
 import {UserService} from "../../../common/services/user.service";
-import {UserBusinessModel} from "../../../common/business-models/user.business-model";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Router} from "@angular/router";
+import {Select, Store} from "@ngxs/store";
+import {Login} from "../../../common/auth/login";
+import {catchError, map, Observable, of} from "rxjs";
+import {AuthState} from "../../../common/auth/auth-state";
 
 @Component({
   selector: 'app-form-login',
@@ -14,17 +17,17 @@ import {Router} from "@angular/router";
   styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
-  public hide = true;
-  public isLoading = false;
+  public hidePassword = true;
   public loginForm!: FormGroup;
-  public formSubmitted = false;
+  @Select(AuthState.isLoading) isLoading$!: Observable<boolean>;
 
   constructor(
     private http: HttpClient,
-    private loginService: LoginFormService,
+    private loginService: LoginService,
     private userService: UserService,
     private snackBar: MatSnackBar,
-    private router: Router
+    private router: Router,
+    private store: Store
   ) {
   }
 
@@ -36,33 +39,57 @@ export class LoginFormComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    this.isLoading = true;
-    this.formSubmitted = true;
     const formData = this.loginForm.value as LoginFormModel;
-    this.loginService.postLogin(formData).subscribe({
-      next: () => {
-        this.onPostLoginResponse("Connexion réussie", "✅");
-        this.router.navigateByUrl('/')
-        this.getUsers();
-      },
-      error: () => {
-        this.onPostLoginResponse("Une erreur est survenue, réessayez plus tard", "️⚠️");
-      }
-    })
+    this.store.dispatch(new Login(formData))
+      .pipe(
+        map(() => {
+          this.onPostLoginResponse("Connexion réussie", "✅");
+        }),
+        catchError(err => {
+          this.onPostLoginResponse("Une erreur est survenue, réessayez plus tard", "️⚠️")
+          return of('')
+        })
+      ).subscribe();
   }
 
   private onPostLoginResponse(snackBarMessage: string, snackBarAction: string): void {
-    this.formSubmitted = false;
-    this.isLoading = false;
     this.snackBar.open(snackBarMessage, snackBarAction, {
       duration: 3000,
     });
   }
 
-  private getUsers(): void {
-    this.userService.getUsers().subscribe((users: UserBusinessModel[]) => {
-      console.warn(users);
-    })
+  public adminLoginDemo() {
+    const formData = {
+      email: "admin@keylease.com",
+      password: "adminkeylease"
+    } as LoginFormModel;
+    this.store.dispatch(new Login(formData))
+      .pipe(
+        map(() => {
+          this.onPostLoginResponse("Connexion réussie", "✅");
+        }),
+        catchError(err => {
+          this.onPostLoginResponse("Une erreur est survenue, réessayez plus tard", "️⚠️")
+          return of('')
+        })
+      ).subscribe();
+  }
+
+  public userLoginDemo() {
+    const formData = {
+      email: "agent@keylease.com",
+      password: "agentkeylease"
+    } as LoginFormModel;
+    this.store.dispatch(new Login(formData))
+      .pipe(
+        map(() => {
+          this.onPostLoginResponse("Connexion réussie", "✅");
+        }),
+        catchError(err => {
+          this.onPostLoginResponse("Une erreur est survenue, réessayez plus tard", "️⚠️")
+          return of('')
+        })
+      ).subscribe();
   }
 }
 

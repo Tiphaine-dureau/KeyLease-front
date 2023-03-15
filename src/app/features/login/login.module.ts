@@ -11,6 +11,7 @@ import {RegisterFormComponent} from "./register-form/register-form.component";
 import {RouterLink} from "@angular/router";
 import {ComponentsModule} from "../../common/components/components.module";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {MatCardModule} from "@angular/material/card";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     RouterLink,
     ComponentsModule,
     MatSnackBarModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule
   ],
   providers: [],
 })

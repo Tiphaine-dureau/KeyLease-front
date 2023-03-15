@@ -1,0 +1,24 @@
+@import "src/styles/variables";
+
+.identity-card, .identity-span-container {
+  margin: 20px;
+}
+
+.identity-span-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.identity-span-title {
+  color: $black;
+  font-size: 1.125rem;
+}
+
+span {
+  margin-bottom: 10px;
+}
+
+.section-container {
+  display: flex;
+  justify-content: space-between;
+}

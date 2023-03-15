@@ -13,6 +13,12 @@ import {PropertyModule} from "./features/property/property.module";
 import {OwnerModule} from "./features/owner/owner.module";
 import {TenantModule} from "./features/tenant/tenant.module";
 import {MAT_DATE_LOCALE, MatNativeDateModule} from "@angular/material/core";
+import {NgxsModule} from "@ngxs/store";
+import {AuthState} from "./common/auth/auth-state";
+import {environment} from "../environments/environment";
+import {NgxsStoragePluginModule} from "@ngxs/storage-plugin";
+import {AuthGuard} from "./common/auth/auth-guard";
+import {TOKEN_KEY} from "./features/login/services/login.service";
 
 @NgModule({
   declarations: [
@@ -30,9 +36,17 @@ import {MAT_DATE_LOCALE, MatNativeDateModule} from "@angular/material/core";
     PropertyModule,
     OwnerModule,
     TenantModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    NgxsModule.forRoot([AuthState], {
+      developmentMode: !environment.production
+    }),
+    NgxsStoragePluginModule.forRoot({
+      key: TOKEN_KEY
+    })
+
   ],
   providers: [
+    AuthGuard,
     {
       provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true
     },

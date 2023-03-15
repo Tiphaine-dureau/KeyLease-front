@@ -10,27 +10,31 @@ import {MatMenuModule} from "@angular/material/menu";
 import {RouterLink, RouterLinkActive} from "@angular/router";
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatCardModule} from "@angular/material/card";
-import {CardComponent} from './card/card.component';
+import {HomeCardComponent} from './home-card/home-card.component';
 import {HeaderComponent} from "./header/header.component";
 import {ClientListComponent} from './client-list/client-list.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatTableModule} from "@angular/material/table";
 import {MatInputModule} from "@angular/material/input";
+import {IdentityCardComponent} from './identity-card/identity-card.component';
+import {MatDividerModule} from "@angular/material/divider";
 
 @NgModule({
   declarations: [
     SpinnerComponent,
     ToolbarComponent,
-    CardComponent,
+    HomeCardComponent,
     HeaderComponent,
-    ClientListComponent
+    ClientListComponent,
+    IdentityCardComponent
   ],
   exports: [
     SpinnerComponent,
     ToolbarComponent,
-    CardComponent,
+    HomeCardComponent,
     HeaderComponent,
-    ClientListComponent
+    ClientListComponent,
+    IdentityCardComponent
   ],
   imports: [
     CommonModule,
@@ -46,6 +50,7 @@ import {MatInputModule} from "@angular/material/input";
     MatFormFieldModule,
     MatTableModule,
     MatInputModule,
+    MatDividerModule,
   ]
 })
 export class ComponentsModule {
