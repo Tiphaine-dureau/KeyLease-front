@@ -24,6 +24,12 @@ Nomenclature :
   removed temporary links on menu burger
 - Added display of tenant and owner detail
 - Fixed : When token was out of date, menu was display -> fixed : isAuthenticated is more restrictive
+- Updated db.json with data to complete the simulated api with property data
+- Added GET /properties and display it on table with filter
+- Added POST /property (stepper - spinner - method in the service)
+- Added GET /properties/:id and PUT /properties/:id
+- Added DELETE /properties/:id
+- Added property detail display
 
 ### [0.1.1] - 2023-03-02
 

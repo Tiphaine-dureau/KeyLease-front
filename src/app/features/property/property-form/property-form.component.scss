@@ -1,0 +1,59 @@
+@import "src/styles/mixins";
+@import "src/styles/variables";
+
+.stepper-container {
+  @include flex-center;
+  max-width: 730px;
+  margin: auto;
+}
+
+.property-stepper {
+  margin-top: 8px;
+}
+
+.form-group-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.label-radio-group {
+  font-size: 1.125rem;
+  color: $black;
+}
+
+.radio-group, .label-radio-group {
+  margin: 20px 0 20px 0;
+}
+
+.radio-button {
+  margin-right: 40px;
+}
+
+::ng-deep .mdc-form-field > label {
+  font-size: 16px;
+}
+
+.form-group-button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.form-group-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 2rem;
+}
+
+.mat-mdc-form-field {
+  margin-top: 16px;
+}
+
+.details-divider {
+  margin: 20px;
+}
+
+.result-form {
+  font-weight: bold;
+  font-style: italic;
+  color: $pink;
+}
