@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {PropertyService} from "../services/property.service";
+import {PropertyBusinessModel} from "../../../common/business-models/property.business-model";
 
 @Component({
   selector: 'app-property-detail',
@@ -10,6 +11,7 @@ import {PropertyService} from "../services/property.service";
 export class PropertyDetailComponent implements OnInit {
   public propertyId!: string;
   public isLoading = false;
+  public property?: PropertyBusinessModel;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -20,6 +22,18 @@ export class PropertyDetailComponent implements OnInit {
 
   public ngOnInit(): void {
     this.propertyId = this.activatedRoute.snapshot.params['id_property'];
+    this.getProperty();
+  }
+
+  private getProperty(): void {
+    this.propertyService.getProperty(this.propertyId).subscribe({
+      next: (property: PropertyBusinessModel) => {
+        this.property = property;
+      },
+      error: () => {
+        // Todo handle error
+      }
+    });
   }
 
   public deleteProperty(): void {

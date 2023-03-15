@@ -1,10 +1,66 @@
 <button mat-raised-button color="primary" routerLink="/biens">Dashboard biens</button>
 
-<div class="property-detail-button-container">
-  <button mat-raised-button color="primary" routerLink="/biens/{{propertyId}}/modification"
-          class="property-detail-button">Modifier
-  </button>
-  <button mat-raised-button color="warn" (click)="deleteProperty()" class="property-detail-button">Supprimer</button>
+<div class="property-cards-container">
+  <mat-card class="property-characteristics-card">
+    <mat-card-header>
+      <mat-card-title>Caractéristiques du bien</mat-card-title>
+      <mat-card-subtitle>{{property?.type}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="property-span-container">
+        <span class="property-span-title">Nombre de pièce</span>
+        <span>{{property?.roomsNumber}}</span>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="property-span-container">
+        <span class="property-span-title">Surface habitable</span>
+        <span>{{property?.area}}&nbsp;m²</span>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="property-span-container">
+        <span class="property-span-title">Description</span>
+        <span>{{property?.description}}</span>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="address-card">
+    <mat-card-header>
+      <mat-card-title>Adresse</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="property-span-container">
+        <span class="property-span-title">Numéro et nom de rue</span>
+        <span>{{property?.address?.street}}</span>
+      </div>
+      <mat-divider></mat-divider>
+      <ng-container *ngIf="property?.address?.additionalAddress">
+        <div class="property-span-container">
+          <span class="property-span-title">Complément d'adresse</span>
+          <span>{{property?.address?.additionalAddress}}</span>
+        </div>
+        <mat-divider></mat-divider>
+      </ng-container>
+      <div class="section-container">
+        <div class="property-span-container">
+          <span class="property-span-title">Code postal</span>
+          <span>{{property?.address?.zipCode}}</span>
+        </div>
+        <div class="property-span-container">
+          <span class="property-span-title">Ville</span>
+          <span>{{property?.address?.town}}</span>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+
+  <div class="property-detail-button-container">
+    <button mat-raised-button color="primary" routerLink="/biens/{{propertyId}}/modification"
+            class="property-detail-button">Modifier
+    </button>
+    <button mat-raised-button color="warn" (click)="deleteProperty()" class="property-detail-button">Supprimer</button>
+  </div>
 </div>
 
 <ng-container *ngIf="isLoading">

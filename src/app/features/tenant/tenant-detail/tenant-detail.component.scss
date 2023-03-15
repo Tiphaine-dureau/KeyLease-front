@@ -7,14 +7,13 @@
   margin: auto;
 }
 
-.partner-card {
+.partner-card, .partner-span-container, .button-tenant-detail-container {
   margin: 20px;
 }
 
 .partner-span-container, .button-tenant-detail-container {
   display: flex;
   flex-direction: column;
-  margin: 20px;
 }
 
 .partner-span-title {

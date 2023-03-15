@@ -16,6 +16,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatDividerModule} from "@angular/material/divider";
 import {MatRadioModule} from "@angular/material/radio";
 import {ComponentsModule} from "../../common/components/components.module";
+import {MatCardModule} from "@angular/material/card";
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {ComponentsModule} from "../../common/components/components.module";
     ReactiveFormsModule,
     MatDividerModule,
     MatRadioModule,
-    ComponentsModule
+    ComponentsModule,
+    MatCardModule
   ]
 })
 export class PropertyModule {

@@ -1,13 +1,12 @@
 @import "src/styles/variables";
 
-.identity-card {
+.identity-card, .identity-span-container {
   margin: 20px;
 }
 
 .identity-span-container {
   display: flex;
   flex-direction: column;
-  margin: 20px;
 }
 
 .identity-span-title {

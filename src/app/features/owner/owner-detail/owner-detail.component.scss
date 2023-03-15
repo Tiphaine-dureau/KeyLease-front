@@ -3,11 +3,12 @@
 .cards-details-container {
   display: grid;
   justify-content: space-around;
+  align-items: start;
   width: 100%;
   margin: auto;
 }
 
-.iban-card {
+.iban-card, .iban-span-container, .button-owner-detail-container {
   margin: 20px;
 }
 
@@ -23,7 +24,6 @@ span {
 .iban-span-container, .button-owner-detail-container {
   display: flex;
   flex-direction: column;
-  margin: 20px;
 }
 
 .button-owner-detail-container {
@@ -38,9 +38,6 @@ span {
 @media screen and (min-width: $layout-breakpoint-medium) {
   .cards-details-container {
     grid-template-columns: repeat(1, 1fr 1fr);
-  }
-  .iban-card {
-    height: 35%;
   }
 }
 
