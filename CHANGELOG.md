@@ -29,6 +29,7 @@ Nomenclature :
 - Added POST /property (stepper - spinner - method in the service)
 - Added GET /properties/:id and PUT /properties/:id
 - Added DELETE /properties/:id
+- Added property detail display
 
 ### [0.1.1] - 2023-03-02
 
