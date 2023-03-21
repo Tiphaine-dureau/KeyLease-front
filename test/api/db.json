@@ -109,7 +109,8 @@
         "zipCode": "33000",
         "town": "Bordeaux"
       },
-      "type": "Maison"
+      "type": "Maison",
+      "leaseContractId": "1"
     },
     {
       "id": "2",
@@ -123,6 +124,58 @@
         "town": "Ciboure"
       },
       "type": "Appartement"
+    }
+  ],
+  "lease-contracts": [
+    {
+      "id": "1",
+      "rentAmount": 1250.00,
+      "owner": {
+        "id": "1",
+        "lastName": "Madur",
+        "firstName": "Virginie",
+        "birthday": "1961-09-13",
+        "phoneNumber": "0687687321",
+        "email": "virginie@example.com",
+        "address": {
+          "street": "1 rue des Tulipes",
+          "additionalAddress": "B1 apt 11",
+          "zipCode": "64500",
+          "town": "Saint-Jean-de-Luz"
+        },
+        "iban": "FR76 0000 9999 8888 7777 6666 555"
+      },
+      "tenant": {
+        "id": "1",
+        "lastName": "Rey",
+        "firstName": "Véronique",
+        "birthday": "1965-06-23",
+        "phoneNumber": "0987654321",
+        "email": "veronique@example.com",
+        "address": {
+          "street": "2 rue Victor Hugo",
+          "additionalAddress": "Bat B Apt 31",
+          "zipCode": "33130",
+          "town": "Bègles"
+        },
+        "partnerLastName": "Doe",
+        "partnerFirstName": "John",
+        "partnerPhoneNumber": "0912345678"
+      },
+      "property": {
+        "id": "1",
+        "area": "110",
+        "roomsNumber": "5",
+        "description": "Maison de 5 pièces mesurant 110m2 située non loin du centre ville. Elle se compose de 3 chambres, d'une cuisine fermée, d'un double séjour, d'une salle de bain avec wc séparé, d'un garage et d'un jardin de 100m2",
+        "address": {
+          "street": "1 rue des Mimosas",
+          "additionalAddress": "",
+          "zipCode": "33000",
+          "town": "Bordeaux"
+        },
+        "type": "Maison",
+        "leaseContractId": "1"
+      }
     }
   ]
 }
