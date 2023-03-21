@@ -19,6 +19,7 @@ import {environment} from "../environments/environment";
 import {NgxsStoragePluginModule} from "@ngxs/storage-plugin";
 import {AuthGuard} from "./common/auth/auth-guard";
 import {TOKEN_KEY} from "./features/login/services/login.service";
+import {LeaseContractModule} from "./features/lease-contract/lease-contract.module";
 
 @NgModule({
   declarations: [
@@ -42,8 +43,8 @@ import {TOKEN_KEY} from "./features/login/services/login.service";
     }),
     NgxsStoragePluginModule.forRoot({
       key: TOKEN_KEY
-    })
-
+    }),
+    LeaseContractModule
   ],
   providers: [
     AuthGuard,
