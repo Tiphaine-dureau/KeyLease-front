@@ -1,0 +1,58 @@
+<button mat-raised-button color="primary" routerLink="/biens/{{leaseContract?.property?.id}}">Détail du bien
+</button>
+<mat-card class="lease-contract-card">
+  <mat-card-header>
+    <mat-card-title>Contrat de location</mat-card-title>
+    <mat-card-subtitle>Un contrat de location a été conclu entre les parties désignées ci-dessous concernant le bien
+      ci-après :
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-divider></mat-divider>
+    <div class="owner-detail-container">
+      <span class="detail-title">Propriétaire</span>
+      <p>Nom : <span class="detail">{{leaseContract?.owner?.lastName}}</span></p>
+      <p>Prénom : <span class="detail">{{leaseContract?.owner?.firstName}}</span></p>
+      <p>Date de naissance : <span class="detail">{{leaseContract?.owner?.birthday}}</span></p>
+      <p>Adresse: <span
+        class="detail">{{leaseContract?.owner?.address?.street}}&nbsp;{{leaseContract?.owner?.address?.additionalAddress}}&nbsp;{{leaseContract?.owner?.address?.zipCode}}&nbsp;{{leaseContract?.owner?.address?.town}}</span>
+      </p>
+      <p>Email : <span class="detail">{{leaseContract?.owner?.email}}</span></p>
+      <p>Téléphone : <span class="detail">{{leaseContract?.owner?.phoneNumber}}</span></p>
+      <p>Iban : <span class="detail">{{leaseContract?.owner?.iban}}</span></p>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="tenant-detail-container">
+      <span class="detail-title">Locataire</span>
+      <p>Nom : <span class="detail">{{leaseContract?.tenant?.lastName}}</span></p>
+      <p>Prénom : <span class="detail">{{leaseContract?.tenant?.firstName}}</span></p>
+      <p>Date de naissance : <span class="detail">{{leaseContract?.tenant?.birthday}}</span></p>
+      <p>Adresse : <span
+        class="detail">{{leaseContract?.tenant?.address?.street}}&nbsp;{{leaseContract?.tenant?.address?.additionalAddress}}&nbsp;{{leaseContract?.tenant?.address?.zipCode}}&nbsp;{{leaseContract?.tenant?.address?.town}}</span>
+      </p>
+      <p>Email : <span class="detail">{{leaseContract?.tenant?.email}}</span></p>
+      <p>Téléphone: <span class="detail">{{leaseContract?.tenant?.phoneNumber}}</span></p>
+      <p>Nom du Conjoint : <span class="detail">{{leaseContract?.tenant?.partnerLastName}}</span></p>
+      <p>Prénom du conjoint : <span class="detail">{{leaseContract?.tenant?.partnerFirstName}}</span></p>
+      <p>Téléphone du conjoint: <span class="detail">{{leaseContract?.tenant?.partnerPhoneNumber}}</span></p>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="property-detail-container">
+      <span class="detail-title">Caractéristiques du bien </span>
+      <p>Type de bien : <span class="detail">{{leaseContract?.property?.type}}</span></p>
+      <p>Surface habitable : <span class="detail">{{leaseContract?.property?.area}}&nbsp;m²</span></p>
+      <p>Nombre de pièces : <span class="detail">{{leaseContract?.property?.roomsNumber}}</span></p>
+      <p>Description : <span class="detail">{{leaseContract?.property?.description}}</span></p>
+      <p>Adresse : <span
+        class="detail">{{leaseContract?.property?.address?.street}}&nbsp;{{leaseContract?.property?.address?.additionalAddress}}&nbsp;{{leaseContract?.property?.address?.zipCode}}&nbsp;{{leaseContract?.property?.address?.town}}</span>
+      </p>
+      <mat-divider></mat-divider>
+      <div class="lease-detail-container">
+        <span class="detail-title">Détails du contrat de location  </span>
+        <p>Montant du loyer à régler chaque mois : <span class="detail">{{leaseContract?.rentAmount}}&nbsp;€</span></p>
+        <p>Date de signature du contrat de location (bail) : </p>
+        <p>Charges mensuelles (en plus du loyer) : </p>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
