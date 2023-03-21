@@ -1,13 +1,37 @@
+@import "src/styles/variables";
+
 .label-filter {
-  margin-top: 20px;
+  display: flex;
+  margin: auto;
+  max-width: 70%;
+  padding-top: 20px;
 }
 
 .table-container {
   max-width: 90%;
   margin: auto;
   padding: 20px;
+  overflow-x: auto;
 }
 
 ::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) {
   border-radius: revert;
+}
+
+@media screen and (min-width: $layout-breakpoint-medium) {
+  .label-filter {
+    max-width: 60%;
+  }
+}
+
+@media screen and (min-width: $layout-breakpoint-large) {
+  .label-filter {
+    max-width: 50%;
+  }
+}
+
+@media screen and (min-width: $layout-breakpoint-extra-large) {
+  .label-filter {
+    max-width: 40%;
+  }
 }
