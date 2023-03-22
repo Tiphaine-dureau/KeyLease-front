@@ -20,7 +20,7 @@ export class LeaseContractDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.leaseContractId = this.activatedRoute.snapshot.params['id_lease-contract']
+    this.leaseContractId = this.activatedRoute.snapshot.params['id_contrat-location']
     this.getLeaseContract();
   }
 

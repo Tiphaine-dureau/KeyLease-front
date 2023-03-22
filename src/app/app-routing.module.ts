@@ -31,7 +31,7 @@ const routes: Routes = [
         loadChildren: () => TenantRoutingModule,
       },
       {
-        path: 'lease-contracts',
+        path: 'contrats-location',
         loadChildren: () => LeaseContractRoutingModule,
       }
     ]

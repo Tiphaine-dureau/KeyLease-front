@@ -6,11 +6,11 @@ import {UpdateLeaseContractComponent} from "./update-lease-contract/update-lease
 
 const routes: Routes = [
   {
-    path: 'creation',
+    path: 'creation/:id_bien',
     component: CreateLeaseContractComponent
   },
   {
-    path: ':id_lease-contract',
+    path: ':id_contrat-location',
     children: [
       {
         path: '',
