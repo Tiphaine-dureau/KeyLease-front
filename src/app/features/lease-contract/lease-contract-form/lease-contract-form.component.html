@@ -1,0 +1,40 @@
+<mat-card class="lease-contract-card">
+  <mat-card-header>
+    <mat-card-title>Création du contrat de location</mat-card-title>
+    <mat-card-subtitle>Rappel du bien concerné :</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>Type de bien : <span class="property-detail">{{property?.type}}</span></p>
+    <p>Surface habitable : <span class="property-detail">{{property?.area}}</span></p>
+    <p>Nombre de pièces : <span class="property-detail">{{property?.roomsNumber}}</span></p>
+    <p>Adresse : <span class="property-detail">{{property?.address?.street}} {{property?.address?.additionalAddress}}&nbsp;
+      {{property?.address?.zipCode}} {{property?.address?.town}}</span></p>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="lease-contract-form-container">
+  <form [formGroup]="leaseContractFormGroup">
+    <mat-form-field appearance="fill" class="lease-contract-form-field">
+      <mat-label>Sélectionner un propriétaire pour ce bien</mat-label>
+      <mat-select formControlName="owner">
+        <mat-option *ngFor="let owner of (owners$ | async)"
+                    [value]="owner">{{owner.lastName}} {{owner.firstName}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="lease-contract-form-field">
+      <mat-label>Sélectionner un locataire pour ce bien</mat-label>
+      <mat-select formControlName="tenant">
+        <mat-option *ngFor="let tenant of (tenants$ | async)"
+                    [value]="tenant">{{tenant.lastName}} {{tenant.firstName}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="lease-contract-form-field">
+      <mat-label>Montant du loyer</mat-label>
+      <input matInput type="number" formControlName="rentAmount">
+    </mat-form-field>
+    <mat-card-actions align="end">
+      <button mat-raised-button color="primary" (click)="onSubmit()">Valider le contrat</button>
+    </mat-card-actions>
+  </form>
+</mat-card>
+

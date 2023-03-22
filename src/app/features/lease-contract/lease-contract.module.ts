@@ -7,20 +7,30 @@ import {MatCardModule} from "@angular/material/card";
 import {MatDividerModule} from "@angular/material/divider";
 import {MatButtonModule} from "@angular/material/button";
 import {RouterLink} from "@angular/router";
+import {MatInputModule} from "@angular/material/input";
+import {MatSelectModule} from "@angular/material/select";
+import {LeaseContractFormComponent} from './lease-contract-form/lease-contract-form.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import {ComponentsModule} from "../../common/components/components.module";
 
 
 @NgModule({
   declarations: [
     LeaseContractDetailComponent,
     CreateLeaseContractComponent,
-    UpdateLeaseContractComponent
+    UpdateLeaseContractComponent,
+    LeaseContractFormComponent
   ],
   imports: [
     CommonModule,
     MatCardModule,
     MatDividerModule,
     MatButtonModule,
-    RouterLink
+    RouterLink,
+    MatInputModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    ComponentsModule
   ]
 })
 export class LeaseContractModule {

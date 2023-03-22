@@ -1,1 +1,4 @@
-<p>create-lease-contract works!</p>
+<app-lease-contract-form (onFormSubmit)="onSubmit($event)"></app-lease-contract-form>
+<ng-container *ngIf="isLoading">
+  <app-spinner></app-spinner>
+</ng-container>
