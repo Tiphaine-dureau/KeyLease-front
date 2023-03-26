@@ -6,6 +6,8 @@ export interface LeaseContractBusinessModel {
   id: string;
   rentAmount: number;
   rentCharges: number;
+  requiredDeposit: number;
+  paidDeposit: number;
   dateContractSignature: Date;
   owner: OwnerBusinessModel;
   tenant: TenantBusinessModel;

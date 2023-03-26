@@ -50,10 +50,12 @@
       <div class="lease-detail-container">
         <span class="detail-title">Détails du contrat de location  </span>
         <p>Montant du loyer à régler chaque mois : <span class="detail">{{leaseContract?.rentAmount}}&nbsp;€</span></p>
-        <p>Date de signature du contrat de location : <span
-          class="detail">{{leaseContract?.dateContractSignature | date:'dd/MM/YYYY':'':'fr'}}</span></p>
         <p>Charges locatives inclues dans le loyer : <span class="detail">{{leaseContract?.rentCharges}}&nbsp;€</span>
         </p>
+        <p>Dépôt de garantie : <span class="detail">{{leaseContract?.paidDeposit}}/{{leaseContract?.requiredDeposit}}&nbsp;€</span>
+        </p>
+        <p>Date de signature du contrat de location : <span
+          class="detail">{{leaseContract?.dateContractSignature | date:'dd/MM/YYYY':'':'fr'}}</span></p>
       </div>
     </div>
   </mat-card-content>

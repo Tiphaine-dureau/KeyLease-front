@@ -40,6 +40,8 @@ export class LeaseContractFormComponent implements OnInit {
     this.getProperty();
     this.leaseContractFormGroup = this._formBuilder.group({
       rentAmount: [this.leaseContract?.rentAmount, Validators.required],
+      requiredDeposit: [this.leaseContract?.requiredDeposit, Validators.required],
+      paidDeposit: [this.leaseContract?.paidDeposit, Validators.required],
       tenant: [this.leaseContract?.tenant.id, Validators.required],
       owner: [this.leaseContract?.owner.id, Validators.required],
       rentCharges: [this.leaseContract?.rentCharges, Validators.required],
@@ -65,6 +67,8 @@ export class LeaseContractFormComponent implements OnInit {
       propertyId: this.propertyId,
       rentAmount: this.leaseContractFormGroup.value.rentAmount,
       rentCharges: this.leaseContractFormGroup.value.rentCharges,
+      requiredDeposit: this.leaseContractFormGroup.value.requiredDeposit,
+      paidDeposit: this.leaseContractFormGroup.value.paidDeposit,
       dateContractSignature: this.leaseContractFormGroup.value.dateContractSignature,
     } as PostLeaseContractModel;
     this.onFormSubmit.emit(contractFormData);

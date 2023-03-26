@@ -2,8 +2,7 @@
   "login": {
     "token": "token_value"
   },
-  "register": {
-  },
+  "register": {},
   "me": {
     "id": "uuid",
     "lastName": "Doe",
@@ -129,7 +128,11 @@
   "lease-contracts": [
     {
       "id": "1",
-      "rentAmount": 1250.00,
+      "rentAmount": 1250,
+      "rentCharges": 300,
+      "requiredDeposit": 3000,
+      "paidDeposit": 0,
+      "dateContractSignature": "2022-09-13",
       "owner": {
         "id": "1",
         "lastName": "Madur",
@@ -176,6 +179,26 @@
         "type": "Maison",
         "leaseContractId": "1"
       }
+    },
+    {
+      "tenantId": "2",
+      "ownerId": "1",
+      "propertyId": "2",
+      "rentAmount": 3000,
+      "rentCharges": 230,
+      "dateContractSignature": "2023-03-20T23:00:00.000Z",
+      "id": "ri_EWZu"
+    },
+    {
+      "tenantId": "1",
+      "ownerId": "2",
+      "propertyId": "2",
+      "rentAmount": 100,
+      "rentCharges": 200,
+      "requiredDeposit": 300,
+      "paidDeposit": 400,
+      "dateContractSignature": "2023-03-25T23:00:00.000Z",
+      "id": "0OnLk-_"
     }
   ]
 }
