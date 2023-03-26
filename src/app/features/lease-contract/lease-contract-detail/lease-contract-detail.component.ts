@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {LeaseContractService} from "../services/lease-contract.service";
 import {LeaseContractBusinessModel} from "../../../common/business-models/lease-contract.business-model";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-lease-contracts-dashboard',
@@ -14,6 +14,7 @@ export class LeaseContractDetailComponent implements OnInit {
   public leaseContract?: LeaseContractBusinessModel;
 
   constructor(
+    private router: Router,
     private leaseContractService: LeaseContractService,
     private activatedRoute: ActivatedRoute,
   ) {
@@ -36,5 +37,19 @@ export class LeaseContractDetailComponent implements OnInit {
     });
   }
 
+  public modify(): void {
+    this.router.navigate(['/contrats-location/' + this.leaseContractId + '/modification'])
+  }
+
+  public delete(): void {
+    this.leaseContractService.deleteLeaseContract(this.leaseContractId).subscribe({
+      next: () => {
+        this.router.navigate(['/biens/' + this.leaseContract?.property.id]);
+      },
+      error: () => {
+        // TODO handle error
+      }
+    })
+  }
 
 }

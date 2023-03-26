@@ -10,6 +10,7 @@ import {PropertyService} from "../../property/services/property.service";
 import {ActivatedRoute} from "@angular/router";
 import {OwnerService} from "../../owner/services/owner.service";
 import {PostLeaseContractModel} from "../services/post-lease-contract.model";
+import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-lease-contract-form',
@@ -32,11 +33,18 @@ export class LeaseContractFormComponent implements OnInit {
     private tenantService: TenantService,
     private ownerService: OwnerService,
     private propertyService: PropertyService,
+    private datePipe: DatePipe,
   ) {
   }
 
   ngOnInit(): void {
-    this.propertyId = this.activatedRoute.snapshot.params['id_bien'];
+    if (this.leaseContract?.property) {
+      // Modification
+      this.propertyId = this.leaseContract.property.id;
+    } else {
+      // Creation
+      this.propertyId = this.activatedRoute.snapshot.params['id_bien'];
+    }
     this.getProperty();
     this.leaseContractFormGroup = this._formBuilder.group({
       rentAmount: [this.leaseContract?.rentAmount, Validators.required],
@@ -61,16 +69,20 @@ export class LeaseContractFormComponent implements OnInit {
   }
 
   public onSubmit(): void {
+    console.warn(this.leaseContractFormGroup.value.dateContractSignature);
+    const formattedDate: string = this.datePipe.transform(this.leaseContractFormGroup.value.dateContractSignature, 'YYYY-MM-dd', '', '') || "";
+    console.warn(formattedDate);
     const contractFormData: PostLeaseContractModel = {
-      tenantId: this.leaseContractFormGroup.value.tenant.id,
-      ownerId: this.leaseContractFormGroup.value.owner.id,
+      tenantId: this.leaseContractFormGroup.value.tenant,
+      ownerId: this.leaseContractFormGroup.value.owner,
       propertyId: this.propertyId,
       rentAmount: this.leaseContractFormGroup.value.rentAmount,
       rentCharges: this.leaseContractFormGroup.value.rentCharges,
       requiredDeposit: this.leaseContractFormGroup.value.requiredDeposit,
       paidDeposit: this.leaseContractFormGroup.value.paidDeposit,
-      dateContractSignature: this.leaseContractFormGroup.value.dateContractSignature,
+      dateContractSignature: new Date(formattedDate),
     } as PostLeaseContractModel;
+    console.warn(contractFormData);
     this.onFormSubmit.emit(contractFormData);
   }
 }

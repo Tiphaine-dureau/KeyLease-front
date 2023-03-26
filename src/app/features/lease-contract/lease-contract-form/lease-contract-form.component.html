@@ -18,7 +18,7 @@
       <mat-label>Sélectionner un propriétaire pour ce bien</mat-label>
       <mat-select formControlName="owner">
         <mat-option *ngFor="let owner of (owners$ | async)"
-                    [value]="owner">{{owner.lastName}} {{owner.firstName}}</mat-option>
+                    [value]="owner.id">{{owner.lastName}} {{owner.firstName}}</mat-option>
       </mat-select>
     </mat-form-field>
 
@@ -26,7 +26,7 @@
       <mat-label>Sélectionner un locataire pour ce bien</mat-label>
       <mat-select formControlName="tenant">
         <mat-option *ngFor="let tenant of (tenants$ | async)"
-                    [value]="tenant">{{tenant.lastName}} {{tenant.firstName}}</mat-option>
+                    [value]="tenant.id">{{tenant.lastName}} {{tenant.firstName}}</mat-option>
       </mat-select>
     </mat-form-field>
 
@@ -42,14 +42,6 @@
     </mat-form-field>
 
     <mat-form-field appearance="fill" class="lease-contract-form-field">
-      <mat-label>Signature du contrat</mat-label>
-      <input matInput type="text" formControlName="dateContractSignature" [matDatepicker]="picker">
-      <mat-hint>jour/mois/année</mat-hint>
-      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-
-    <mat-form-field appearance="fill" class="lease-contract-form-field">
       <mat-label>Montant requis du dépôt de garantie</mat-label>
       <input matInput type="number" formControlName="requiredDeposit">
       <mat-hint align="start">Montant requis du dépôt de garantie</mat-hint>
@@ -58,6 +50,14 @@
       <mat-label>Montant payé du dépôt de garantie</mat-label>
       <input matInput type="number" formControlName="paidDeposit">
       <mat-hint align="start">Montant payé du dépôt de garantie</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="lease-contract-form-field">
+      <mat-label>Signature du contrat</mat-label>
+      <input matInput type="text" formControlName="dateContractSignature" [matDatepicker]="picker">
+      <mat-hint>jour/mois/année</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 
     <mat-card-actions align="end">

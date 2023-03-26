@@ -22,4 +22,12 @@ export class LeaseContractService {
   public postLeaseContract(model: PostLeaseContractModel): Observable<LeaseContractBusinessModel> {
     return this.http.post<LeaseContractBusinessModel>(`${environment.apiUrl}/lease-contracts`, model);
   }
+
+  public deleteLeaseContract(leaseContractId: string): Observable<void> {
+    return this.http.delete<void>(`${environment.apiUrl}/lease-contracts/${leaseContractId}`);
+  }
+
+  public modifyLeaseContract(leaseContractId: string, model: PostLeaseContractModel): Observable<LeaseContractBusinessModel> {
+    return this.http.put<LeaseContractBusinessModel>(`${environment.apiUrl}/lease-contracts/${leaseContractId}`, model);
+  }
 }
