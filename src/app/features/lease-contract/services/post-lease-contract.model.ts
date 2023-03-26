@@ -3,4 +3,6 @@ export interface PostLeaseContractModel {
   ownerId: string;
   propertyId: string;
   rentAmount: number;
+  rentCharges: number;
+  dateContractSignature: Date;
 }

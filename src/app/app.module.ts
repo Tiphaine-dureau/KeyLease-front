@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
 import {RouterLink} from "@angular/router";
@@ -48,6 +48,10 @@ import {LeaseContractModule} from "./features/lease-contract/lease-contract.modu
   ],
   providers: [
     AuthGuard,
+    {
+      provide: LOCALE_ID,
+      useValue: 'fr'
+    },
     {
       provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true
     },
