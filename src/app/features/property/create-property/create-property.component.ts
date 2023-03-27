@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {map, Observable} from "rxjs";
 import {StepperOrientation} from "@angular/material/stepper";
-import {FormBuilder} from "@angular/forms";
 import {Router} from "@angular/router";
 import {BreakpointObserver} from "@angular/cdk/layout";
 import {PropertyService} from "../services/property.service";
@@ -17,7 +16,6 @@ export class CreatePropertyComponent implements OnInit {
   stepperOrientation: Observable<StepperOrientation>;
 
   constructor(
-    private _formBuilder: FormBuilder,
     private propertyService: PropertyService,
     private router: Router,
     breakpointObserver: BreakpointObserver,

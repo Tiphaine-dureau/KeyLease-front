@@ -14,6 +14,16 @@ Nomenclature :
 
 ### Unreleased
 
+### [0.1.3] - 2023-02-27
+
+#### Added
+
+- Updated db.json with data to complete the simulated api with lease-contract data
+- Added GET /lease-contracts/:id and display it in a card
+- Added POST /lease-contracts (form)
+- Added PUT /lease-contracts/:id (form)
+- Added DELETE /lease-contracts/:id
+
 ### [0.1.2] - 2023-03-15
 
 #### Added

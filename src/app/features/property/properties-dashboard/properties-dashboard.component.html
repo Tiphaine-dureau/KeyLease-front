@@ -1,12 +1,12 @@
 <button mat-raised-button color="primary" routerLink="/biens/creation">Ajouter un bien</button>
 
 <ng-container *ngIf="properties">
+  <!--Filtre -->
+  <mat-form-field class="label-filter">
+    <mat-label>Rechercher un bien</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
+  </mat-form-field>
   <section class="table-container" tabindex="0">
-    <!--Filtre -->
-    <mat-form-field class="label-filter">
-      <mat-label>Rechercher un bien</mat-label>
-      <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
-    </mat-form-field>
     <!--Table-->
     <table mat-table [dataSource]="dataSource">
       <ng-container matColumnDef="type">

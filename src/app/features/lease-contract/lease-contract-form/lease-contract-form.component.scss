@@ -1,0 +1,38 @@
+@import "src/styles/variables.scss";
+
+.lease-contract-form-container, .lease-contract-card {
+  background-color: $white;
+  max-width: 70%;
+  margin: 20px auto 0;
+}
+
+.property-detail {
+  color: $pink;
+}
+
+
+.detail-title {
+  color: $black;
+  font-size: 1.125rem;
+}
+
+
+.lease-contract-form-field {
+  display: flex;
+  width: 80%;
+  padding-top: 20px;
+  margin: auto;
+}
+
+
+@media screen and (min-width: $layout-breakpoint-medium) {
+  .lease-contract-form-container, .lease-contract-card {
+    max-width: 60%;
+  }
+}
+
+@media screen and (min-width: $layout-breakpoint-extra-large) {
+  .lease-contract-form-container, .lease-contract-card {
+    max-width: 50%;
+  }
+}

@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
 import {RouterLink} from "@angular/router";
@@ -19,6 +19,7 @@ import {environment} from "../environments/environment";
 import {NgxsStoragePluginModule} from "@ngxs/storage-plugin";
 import {AuthGuard} from "./common/auth/auth-guard";
 import {TOKEN_KEY} from "./features/login/services/login.service";
+import {LeaseContractModule} from "./features/lease-contract/lease-contract.module";
 
 @NgModule({
   declarations: [
@@ -42,11 +43,15 @@ import {TOKEN_KEY} from "./features/login/services/login.service";
     }),
     NgxsStoragePluginModule.forRoot({
       key: TOKEN_KEY
-    })
-
+    }),
+    LeaseContractModule
   ],
   providers: [
     AuthGuard,
+    {
+      provide: LOCALE_ID,
+      useValue: 'fr'
+    },
     {
       provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true
     },
