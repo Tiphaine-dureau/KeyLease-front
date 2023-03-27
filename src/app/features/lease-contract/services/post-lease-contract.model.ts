@@ -4,5 +4,7 @@ export interface PostLeaseContractModel {
   propertyId: string;
   rentAmount: number;
   rentCharges: number;
+  requiredDeposit: number;
+  paidDeposit: number;
   dateContractSignature: Date;
 }
