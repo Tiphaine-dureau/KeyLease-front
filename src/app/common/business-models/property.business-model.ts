@@ -7,4 +7,5 @@ export interface PropertyBusinessModel {
   description: string;
   type: string;
   address: AddressBusinessModel;
+  leaseContractId: string;
 }

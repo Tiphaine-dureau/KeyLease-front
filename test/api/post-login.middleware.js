@@ -1,6 +1,4 @@
 module.exports = (req, res, next) => {
-  if (req.path === "/login") {
-    req.method = "GET";
-  }
+  if (req.method === 'POST' || req.method === 'PUT' || req.method === 'DELETE') req.method = 'GET';
   next();
 }

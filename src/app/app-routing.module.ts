@@ -7,6 +7,7 @@ import {PropertyRoutingModule} from "./features/property/property-routing.module
 import {OwnerRoutingModule} from "./features/owner/owner-routing.module";
 import {TenantRoutingModule} from "./features/tenant/tenant-routing.module";
 import {AuthGuard} from "./common/auth/auth-guard";
+import {LeaseContractRoutingModule} from "./features/lease-contract/lease-contract-routing.module";
 
 const routes: Routes = [
   {
@@ -29,6 +30,10 @@ const routes: Routes = [
         path: 'locataires',
         loadChildren: () => TenantRoutingModule,
       },
+      {
+        path: 'contrats-location',
+        loadChildren: () => LeaseContractRoutingModule,
+      }
     ]
   },
   {
