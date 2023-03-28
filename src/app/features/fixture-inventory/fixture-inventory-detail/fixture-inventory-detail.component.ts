@@ -20,7 +20,6 @@ export class FixtureInventoryDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.fixtureInventoryId = this.activatedRoute.snapshot.params['id_etat-des-lieux']
-    console.warn(this.fixtureInventoryId);
     this.getFixtureInventory();
   }
 

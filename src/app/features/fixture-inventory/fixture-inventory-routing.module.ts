@@ -6,7 +6,7 @@ import {UpdateFixtureInventoryComponent} from "./update-fixture-inventory/update
 
 const routes: Routes = [
   {
-    path: 'creation',
+    path: 'creation/:id_bien',
     component: CreateFixtureInventoryComponent
   },
   {

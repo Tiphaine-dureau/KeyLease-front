@@ -1,0 +1,25 @@
+@import "src/styles/variables.scss";
+
+.fixture-inventory-card {
+  max-width: 70%;
+  margin: 20px auto 0;
+}
+
+.fixture-inventory-form-field {
+  display: flex;
+  width: 80%;
+  padding-top: 20px;
+  margin: auto;
+}
+
+@media screen and (min-width: $layout-breakpoint-medium) {
+  .fixture-inventory-card {
+    max-width: 60%;
+  }
+}
+
+@media screen and (min-width: $layout-breakpoint-extra-large) {
+  .fixture-inventory-card {
+    max-width: 50%;
+  }
+}
