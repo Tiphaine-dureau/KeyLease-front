@@ -1,16 +1,7 @@
-<mat-card class="lease-contract-card">
-  <mat-card-header>
-    <mat-card-title>Création du contrat de location</mat-card-title>
-    <mat-card-subtitle>Rappel du bien concerné :</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-    <p>Type de bien : <span class="property-detail">{{property?.type}}</span></p>
-    <p>Surface habitable : <span class="property-detail">{{property?.area}}</span></p>
-    <p>Nombre de pièces : <span class="property-detail">{{property?.roomsNumber}}</span></p>
-    <p>Adresse : <span class="property-detail">{{property?.address?.street}} {{property?.address?.additionalAddress}}&nbsp;
-      {{property?.address?.zipCode}} {{property?.address?.town}}</span></p>
-  </mat-card-content>
-</mat-card>
+<app-property-card *ngIf="propertyId"
+                   [title]="title"
+                   [subtitle]="subtitle"
+                   [propertyId]="propertyId"></app-property-card>
 
 <mat-card class="lease-contract-form-container">
   <form [formGroup]="leaseContractFormGroup">
