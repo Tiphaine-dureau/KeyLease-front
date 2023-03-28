@@ -1,0 +1,15 @@
+@import "src/styles/variables.scss";
+
+.inventory-detail-container {
+  max-width: 70%;
+  margin: 20px auto 20px;
+}
+
+.inventory-detail {
+  color: $pink;
+}
+
+.subtitle {
+  color: $black;
+  font-size: 1.125rem;
+}
