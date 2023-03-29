@@ -11,7 +11,7 @@ import {MatTableDataSource} from "@angular/material/table";
 export class PropertiesDashboardComponent implements OnInit {
   properties?: PropertyBusinessModel[];
   dataSource!: MatTableDataSource<PropertyBusinessModel>;
-  public displayedColumns = ['type', 'area', 'roomsNumber', 'address', 'actions'];
+  public displayedColumns = ['type', 'area', 'roomsNumber', 'address', 'leaseContractId', 'fixtureInventoryId', 'actions'];
 
   constructor(
     private propertyService: PropertyService,

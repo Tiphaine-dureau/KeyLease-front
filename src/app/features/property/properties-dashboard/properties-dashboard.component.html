@@ -9,31 +9,64 @@
   <section class="table-container" tabindex="0">
     <!--Table-->
     <table mat-table [dataSource]="dataSource">
+      <!--Colonne type de bien-->
       <ng-container matColumnDef="type">
         <th mat-header-cell *matHeaderCellDef>Type de bien</th>
         <td mat-cell *matCellDef="let element">{{element.type}} </td>
       </ng-container>
+      <!--Colonne surface-->
       <ng-container matColumnDef="area">
         <th mat-header-cell *matHeaderCellDef>Surface</th>
         <td mat-cell *matCellDef="let element">{{element.area}} m²</td>
       </ng-container>
+      <!--Colonne nombre de pièces-->
       <ng-container matColumnDef="roomsNumber">
         <th mat-header-cell *matHeaderCellDef>Nb pièces</th>
         <td mat-cell *matCellDef="let element">{{element.roomsNumber}} </td>
       </ng-container>
+      <!--Colonne adresse-->
       <ng-container matColumnDef="address">
         <th mat-header-cell *matHeaderCellDef>Adresse</th>
         <td mat-cell
             *matCellDef="let element">{{element.address.street}}&nbsp;{{element.address.additionalAddress}}&nbsp;{{element.address.zipCode}}&nbsp;{{element.address.town}} </td>
       </ng-container>
+      <!--Colonne Contrat-->
+      <ng-container matColumnDef="leaseContractId">
+        <th mat-header-cell *matHeaderCellDef>Contrat</th>
+        <td mat-cell *matCellDef="let element">
+          <ng-container *ngIf="element.leaseContractId; else noContract">
+            <mat-icon aria-hidden="false" aria-label="présence d'un contrat" fontIcon="check"
+                      color="primary"></mat-icon>
+          </ng-container>
+          <ng-template #noContract>
+            <mat-icon aria-hidden="false" aria-label="absence de contrat" fontIcon="close"
+                      color="warn"></mat-icon>
+          </ng-template>
+        </td>
+      </ng-container>
+      <!--Colonne État des lieux-->
+      <ng-container matColumnDef="fixtureInventoryId">
+        <th mat-header-cell *matHeaderCellDef>État des lieux</th>
+        <td mat-cell *matCellDef="let element">
+          <ng-container *ngIf="element.fixtureInventoryId; else noFixtureInventory">
+            <mat-icon aria-hidden="false" aria-label="présence d'un état des lieux" fontIcon="check"
+                      color="primary"></mat-icon>
+          </ng-container>
+          <ng-template #noFixtureInventory>
+            <mat-icon aria-hidden="false" aria-label="absence d'état des lieux" fontIcon="close"
+                      color="warn"></mat-icon>
+          </ng-template>
+        </td>
+      </ng-container>
+      <!--Colonne actions-->
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef>Actions</th>
         <td mat-cell *matCellDef="let element">
-          <a routerLink="{{element.id}}">
-            <mat-icon aria-hidden="false" aria-label="voir en détails" fontIcon="zoom_in"></mat-icon>
+          <a routerLink="{{element.id}}" class="first-action-link">
+            <mat-icon aria-hidden="false" aria-label="voir en détails" fontIcon="zoom_in" color="primary"></mat-icon>
           </a>
           <a routerLink="{{element.id}}/modification">
-            <mat-icon aria-hidden="false" aria-label="modifier" fontIcon="edit"></mat-icon>
+            <mat-icon aria-hidden="false" aria-label="modifier" fontIcon="edit" color="primary"></mat-icon>
           </a>
         </td>
       </ng-container>
