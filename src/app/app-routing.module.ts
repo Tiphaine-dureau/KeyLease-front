@@ -8,6 +8,7 @@ import {OwnerRoutingModule} from "./features/owner/owner-routing.module";
 import {TenantRoutingModule} from "./features/tenant/tenant-routing.module";
 import {AuthGuard} from "./common/auth/auth-guard";
 import {LeaseContractRoutingModule} from "./features/lease-contract/lease-contract-routing.module";
+import {FixtureInventoryRoutingModule} from "./features/fixture-inventory/fixture-inventory-routing.module";
 
 const routes: Routes = [
   {
@@ -33,6 +34,10 @@ const routes: Routes = [
       {
         path: 'contrats-location',
         loadChildren: () => LeaseContractRoutingModule,
+      },
+      {
+        path: 'etats-des-lieux',
+        loadChildren: () => FixtureInventoryRoutingModule,
       }
     ]
   },

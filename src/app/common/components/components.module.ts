@@ -18,6 +18,7 @@ import {MatTableModule} from "@angular/material/table";
 import {MatInputModule} from "@angular/material/input";
 import {IdentityCardComponent} from './identity-card/identity-card.component';
 import {MatDividerModule} from "@angular/material/divider";
+import {PropertyCardComponent} from "./property-card/property-card.component";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {MatDividerModule} from "@angular/material/divider";
     HomeCardComponent,
     HeaderComponent,
     ClientListComponent,
-    IdentityCardComponent
+    IdentityCardComponent,
+    PropertyCardComponent
   ],
   exports: [
     SpinnerComponent,
@@ -34,7 +36,8 @@ import {MatDividerModule} from "@angular/material/divider";
     HomeCardComponent,
     HeaderComponent,
     ClientListComponent,
-    IdentityCardComponent
+    IdentityCardComponent,
+    PropertyCardComponent
   ],
   imports: [
     CommonModule,
