@@ -22,4 +22,12 @@ export class FixtureInventoryService {
   public addFixtureInventory(model: PostFixtureInventoryModel): Observable<FixtureInventoryBusinessModel> {
     return this.http.post<FixtureInventoryBusinessModel>(`${environment.apiUrl}/fixtures-inventory`, model);
   }
+
+  public updateFixtureInventory(fixtureInventoryId: string, model: PostFixtureInventoryModel): Observable<FixtureInventoryBusinessModel> {
+    return this.http.put<FixtureInventoryBusinessModel>(`${environment.apiUrl}/fixtures-inventory/${fixtureInventoryId}`, model);
+  }
+
+  public delete(fixtureInventoryId: string): Observable<void> {
+    return this.http.delete<void>(`${environment.apiUrl}/fixtures-inventory/${fixtureInventoryId}`);
+  }
 }

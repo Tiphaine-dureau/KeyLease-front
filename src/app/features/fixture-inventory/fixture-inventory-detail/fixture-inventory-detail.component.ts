@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FixtureInventoryBusinessModel} from "../../../common/business-models/fixture-inventory.business-model";
 import {FixtureInventoryService} from "../services/fixture-inventory.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-fixture-inventory-detail',
@@ -15,6 +15,7 @@ export class FixtureInventoryDetailComponent implements OnInit {
   constructor(
     private fixtureInventoryService: FixtureInventoryService,
     private activatedRoute: ActivatedRoute,
+    private router: Router,
   ) {
   }
 
@@ -32,5 +33,19 @@ export class FixtureInventoryDetailComponent implements OnInit {
         // TODO handle error
       }
     });
+  }
+
+  public goToModification() {
+    this.router.navigate(['/etats-des-lieux/' + this.fixtureInventoryId + '/modification'])
+  }
+
+  public delete() {
+    this.fixtureInventoryService.delete(this.fixtureInventoryId).subscribe({
+      next: () => {
+        this.router.navigate(['/biens/' + this.fixtureInventory?.property.id])
+      }, error: () => {
+        // TODO HANDLE ERROR
+      }
+    })
   }
 }

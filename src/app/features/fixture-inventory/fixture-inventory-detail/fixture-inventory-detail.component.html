@@ -1,6 +1,6 @@
 <button mat-raised-button color="primary" routerLink="/biens/{{fixtureInventory?.property?.id}}">Détail du bien
 </button>
-<!--REMINDER PROPERTY DETAIL-->
+
 <mat-card class="inventory-detail-container">
   <mat-card-header>
     <mat-card-title>État des lieux</mat-card-title>
@@ -30,5 +30,9 @@
       </p>
     </div>
   </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="goToModification()">Modifier</button>
+    <button mat-raised-button color="warn" (click)="delete()">Supprimer</button>
+  </mat-card-actions>
 </mat-card>
 

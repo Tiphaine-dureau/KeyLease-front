@@ -1,1 +1,9 @@
-<p>update-fixture-inventory works!</p>
+<button mat-raised-button color="primary" routerLink="/biens/{{fixtureInventory?.property?.id}}">Détail du bien</button>
+<ng-container *ngIf="fixtureInventory">
+  <app-fixture-inventory-form (onFormSubmit)="onSubmit($event)"
+                              [fixtureInventory]="fixtureInventory"></app-fixture-inventory-form>
+</ng-container>
+
+<ng-container *ngIf="isLoading">
+  <app-spinner></app-spinner>
+</ng-container>
