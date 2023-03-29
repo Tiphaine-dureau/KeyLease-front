@@ -16,6 +16,10 @@ Nomenclature :
 
 #### Added
 
+### [0.1.4] - 2023-02-29
+
+#### Added
+
 - Updated db.json with fixture-inventory data to complete the simulated api
 - Added GET /fixtures-inventory/:id and display it in a card
 - Added property-card to removed duplicated when we reminded property in fixture-detail
