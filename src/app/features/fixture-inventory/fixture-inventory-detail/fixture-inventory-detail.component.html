@@ -1,0 +1,38 @@
+<button mat-raised-button color="primary" routerLink="/biens/{{fixtureInventory?.property?.id}}">Détail du bien
+</button>
+
+<mat-card class="inventory-detail-container">
+  <mat-card-header>
+    <mat-card-title>État des lieux</mat-card-title>
+    <mat-card-subtitle>Rappel du bien concerné :</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div>
+      <p>Type de bien : <span class="inventory-detail">{{fixtureInventory?.property?.type}}</span></p>
+      <p>Surface habitable : <span class="inventory-detail">{{fixtureInventory?.property?.area}}</span></p>
+      <p>Nombre de pièces : <span class="inventory-detail">{{fixtureInventory?.property?.roomsNumber}}</span></p>
+      <p>Adresse : <span
+        class="inventory-detail">{{fixtureInventory?.property?.address?.street}} {{fixtureInventory?.property?.address?.additionalAddress}}&nbsp;
+        {{fixtureInventory?.property?.address?.zipCode}} {{fixtureInventory?.property?.address?.town}}</span></p>
+    </div>
+    <mat-divider></mat-divider>
+    <div>
+      <p class="subtitle">Détails des états des lieux : </p>
+      <p>Date de l'état des lieux d'entrée : <span
+        class="inventory-detail">{{fixtureInventory?.arrivalFixtureInventoryDate | date:'dd/MM/YYYY':'':'fr'}}</span>
+      </p>
+      <p>Observations : <span
+        class="inventory-detail">{{fixtureInventory?.arrivalComments}}</span></p>
+
+      <p>Date de l'état des lieux de sortie : <span
+        class="inventory-detail">{{fixtureInventory?.exitFixtureInventoryDate | date:'dd/MM/YYYY':'':'fr'}}</span></p>
+      <p>Observations : <span class="inventory-detail">{{fixtureInventory?.exitComments}}</span>
+      </p>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="goToModification()">Modifier</button>
+    <button mat-raised-button color="warn" (click)="delete()">Supprimer</button>
+  </mat-card-actions>
+</mat-card>
+

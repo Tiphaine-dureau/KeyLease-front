@@ -6,7 +6,6 @@ import {PropertyBusinessModel} from "../../../common/business-models/property.bu
 import {TenantService} from "../../tenant/services/tenant.service";
 import {Observable} from "rxjs";
 import {OwnerBusinessModel} from "../../../common/business-models/owner.business-model";
-import {PropertyService} from "../../property/services/property.service";
 import {ActivatedRoute} from "@angular/router";
 import {OwnerService} from "../../owner/services/owner.service";
 import {PostLeaseContractModel} from "../services/post-lease-contract.model";
@@ -26,13 +25,14 @@ export class LeaseContractFormComponent implements OnInit {
   public owners$: Observable<OwnerBusinessModel[]> = this.ownerService.getOwners();
   public leaseContractFormGroup!: FormGroup;
   public propertyId!: string;
+  public title = "Création du contrat de location";
+  public subtitle = "Rappel du bien concerné"
 
   constructor(
     private _formBuilder: FormBuilder,
     private activatedRoute: ActivatedRoute,
     private tenantService: TenantService,
     private ownerService: OwnerService,
-    private propertyService: PropertyService,
     private datePipe: DatePipe,
   ) {
   }
@@ -45,7 +45,6 @@ export class LeaseContractFormComponent implements OnInit {
       // Creation
       this.propertyId = this.activatedRoute.snapshot.params['id_bien'];
     }
-    this.getProperty();
     this.leaseContractFormGroup = this._formBuilder.group({
       rentAmount: [this.leaseContract?.rentAmount, Validators.required],
       requiredDeposit: [this.leaseContract?.requiredDeposit, Validators.required],
@@ -57,21 +56,8 @@ export class LeaseContractFormComponent implements OnInit {
     })
   }
 
-  private getProperty(): void {
-    this.propertyService.getProperty(this.propertyId).subscribe({
-      next: (property: PropertyBusinessModel) => {
-        this.property = property;
-      },
-      error: () => {
-        // Todo handle error
-      }
-    });
-  }
-
   public onSubmit(): void {
-    console.warn(this.leaseContractFormGroup.value.dateContractSignature);
     const formattedDate: string = this.datePipe.transform(this.leaseContractFormGroup.value.dateContractSignature, 'YYYY-MM-dd', '', '') || "";
-    console.warn(formattedDate);
     const contractFormData: PostLeaseContractModel = {
       tenantId: this.leaseContractFormGroup.value.tenant,
       ownerId: this.leaseContractFormGroup.value.owner,
@@ -82,7 +68,6 @@ export class LeaseContractFormComponent implements OnInit {
       paidDeposit: this.leaseContractFormGroup.value.paidDeposit,
       dateContractSignature: new Date(formattedDate),
     } as PostLeaseContractModel;
-    console.warn(contractFormData);
     this.onFormSubmit.emit(contractFormData);
   }
 }

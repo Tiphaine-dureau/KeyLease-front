@@ -1,0 +1,5 @@
+<app-fixture-inventory-form (onFormSubmit)="onSubmit($event)"></app-fixture-inventory-form>
+
+<ng-container *ngIf="isLoading">
+  <app-spinner></app-spinner>
+</ng-container>

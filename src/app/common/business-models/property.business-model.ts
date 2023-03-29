@@ -8,4 +8,5 @@ export interface PropertyBusinessModel {
   type: string;
   address: AddressBusinessModel;
   leaseContractId: string;
+  fixtureInventoryId: string;
 }

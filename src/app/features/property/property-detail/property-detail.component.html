@@ -1,6 +1,7 @@
 <button mat-raised-button color="primary" routerLink="/biens">Dashboard biens</button>
 
 <div class="property-cards-container">
+  <!-- PROPERTY CHARACTERISTICS CARD -->
   <mat-card class="property-characteristics-card">
     <mat-card-header>
       <mat-card-title>Caractéristiques du bien</mat-card-title>
@@ -24,6 +25,7 @@
     </mat-card-content>
   </mat-card>
 
+  <!-- ADDRESS CARD -->
   <mat-card class="address-card">
     <mat-card-header>
       <mat-card-title>Adresse</mat-card-title>
@@ -54,64 +56,102 @@
     </mat-card-content>
   </mat-card>
 
-  <ng-container *ngIf="property?.leaseContractId; then withContract else withoutContract"></ng-container>
-  <ng-template #withContract>
-    <div class="property-detail-button-and-lease-contract-container">
-      <div class="property-detail-button-container">
-        <button mat-raised-button color="primary" routerLink="/biens/{{propertyId}}/modification"
-                class="property-detail-button">Modifier
-        </button>
-        <button mat-raised-button color="warn" (click)="deleteProperty()" class="property-detail-button">Supprimer
-        </button>
-      </div>
-      <mat-card class="lease-contract-card">
-        <mat-card-header>
-          <mat-card-title>Contrat de location</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <div>
-            Un contrat de location est actif sur le bien
-          </div>
-        </mat-card-content>
-        <mat-card-actions align="end">
-          <button mat-stroked-button color="primary" routerLink="/contrats-location/{{property?.leaseContractId}}">
-            Détails
-            du
-            contrat
-          </button>
-        </mat-card-actions>
-      </mat-card>
-    </div>
-  </ng-template>
-  <ng-template #withoutContract>
-    <div class="property-detail-button-and-lease-contract-container">
-      <div class="property-detail-button-container">
-        <button mat-raised-button color="primary" routerLink="/biens/{{propertyId}}/modification"
-                class="property-detail-button">Modifier
-        </button>
-        <button mat-raised-button color="warn" (click)="deleteProperty()" class="property-detail-button">Supprimer
-        </button>
-      </div>
-      <mat-card class="lease-contract-card">
-        <mat-card-header>
-          <mat-card-title>Contrat de location</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <div>
-            Aucun contrat de location n'est actif sur le bien
-          </div>
-        </mat-card-content>
-        <mat-card-actions align="end">
-          <button mat-stroked-button color="primary" routerLink="/contrats-location/creation/{{propertyId}}">
-            Ajouter un contrat
-          </button>
-        </mat-card-actions>
-      </mat-card>
-    </div>
-  </ng-template>
-
+  <!-- BUTTONS TO MODIFY OR DELETE PROPERTY -->
+  <div class="property-detail-button-container">
+    <button mat-raised-button color="primary" routerLink="/biens/{{propertyId}}/modification"
+            class="property-detail-button">Modifier
+    </button>
+    <button mat-raised-button color="warn" (click)="deleteProperty()" class="property-detail-button">Supprimer
+    </button>
+  </div>
 </div>
 
+<div class="contract-and-inventory-container">
+  <!-- LEASE CONTRACT -->
+  <ng-container *ngIf="property?.leaseContractId; then withContract else withoutContract"></ng-container>
+  <!-- FIXTURE INVENTORY -->
+  <ng-container
+    *ngIf="property?.fixtureInventoryId; then withFixtureInventory else withoutFixtureInventory"></ng-container>
+</div>
+
+<!-- WITH LEASE CONTRACT TEMPLATE -->
+<ng-template #withContract>
+  <mat-card class="lease-contract-card">
+    <mat-card-header>
+      <mat-card-title>Contrat de location</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div>
+        Un contrat de location est actif sur le bien
+      </div>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-stroked-button color="primary" routerLink="/contrats-location/{{property?.leaseContractId}}">
+        Détails
+        du
+        contrat
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</ng-template>
+<!-- WITHOUT LEASE CONTRACT TEMPLATE -->
+<ng-template #withoutContract>
+  <mat-card class="lease-contract-card">
+    <mat-card-header>
+      <mat-card-title>Contrat de location</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div>
+        Aucun contrat de location n'est actif sur le bien
+      </div>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-stroked-button color="primary" routerLink="/contrats-location/creation/{{propertyId}}">
+        Ajouter un contrat
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</ng-template>
+
+<!-- WITH FIXTURE INVENTORY TEMPLATE -->
+<ng-template #withFixtureInventory>
+  <mat-card class="fixture-inventory-card">
+    <mat-card-header>
+      <mat-card-title>État des lieux</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div>
+        Un état des lieux a été réalisé sur le bien
+      </div>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-stroked-button color="primary" routerLink="/etats-des-lieux/{{property?.fixtureInventoryId}}">
+        Détails de l'état des lieux
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</ng-template>
+<!-- WITHOUT FIXTURE INVENTORY TEMPLATE-->
+<ng-template #withoutFixtureInventory>
+  <mat-card class="fixture-inventory-card">
+    <mat-card-header>
+      <mat-card-title>État des lieux</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div>
+        Aucun état des lieux n'a été réalisé sur le bien
+      </div>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-stroked-button color="primary" routerLink="/etats-des-lieux/creation/{{propertyId}}">
+        Ajouter un état des lieux
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</ng-template>
+
+
+<!-- SPINNER -->
 <ng-container *ngIf="isLoading">
   <app-spinner></app-spinner>
 </ng-container>
