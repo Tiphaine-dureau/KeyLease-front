@@ -29,7 +29,10 @@
       },
       "partnerLastName": "Doe",
       "partnerFirstName": "John",
-      "partnerPhoneNumber": "0912345678"
+      "partnerPhoneNumber": "0912345678",
+      "leaseContractIdList": [
+        "1"
+      ]
     },
     {
       "id": "2",
@@ -46,7 +49,8 @@
       },
       "partnerLastName": "",
       "partnerFirstName": "",
-      "partnerPhoneNumber": ""
+      "partnerPhoneNumber": "",
+      "leaseContractIdList": []
     }
   ],
   "owners": [
@@ -123,7 +127,9 @@
         "zipCode": "64500",
         "town": "Ciboure"
       },
-      "type": "Appartement"
+      "type": "Appartement",
+      "leaseContractId": null,
+      "fixtureInventoryId": null
     }
   ],
   "lease-contracts": [
@@ -164,7 +170,10 @@
         },
         "partnerLastName": "Doe",
         "partnerFirstName": "John",
-        "partnerPhoneNumber": "0912345678"
+        "partnerPhoneNumber": "0912345678",
+        "leaseContractIdList": [
+          "1"
+        ]
       },
       "property": {
         "id": "1",
@@ -178,8 +187,65 @@
           "town": "Bordeaux"
         },
         "type": "Maison",
-        "leaseContractId": "1"
-      }
+        "leaseContractId": "1",
+        "fixtureInventoryId": "1"
+      },
+      "payments": [
+        {
+          "id": "2022-10",
+          "paidRent": 1250.00,
+          "rentPaymentDate": "2022-10-04",
+          "leaseContractId": "1"
+        },
+        {
+          "id": "2023-01",
+          "paidRent": 1000.00,
+          "rentPaymentDate": "2023-01-04",
+          "leaseContractId": "1"
+        },
+        {
+          "id": "2022-08",
+          "paidRent": 1250.00,
+          "rentPaymentDate": "2022-08-04",
+          "leaseContractId": "1"
+        },
+        {
+          "id": "2023-03",
+          "paidRent": 1000.00,
+          "rentPaymentDate": "2023-03-04",
+          "leaseContractId": "1"
+        },
+        {
+          "id": "2022-11",
+          "paidRent": 1250.00,
+          "rentPaymentDate": "2022-11-04",
+          "leaseContractId": "1"
+        },
+        {
+          "id": "2022-09",
+          "paidRent": 1250.00,
+          "rentPaymentDate": "2022-09-04",
+          "leaseContractId": "1"
+        },
+        {
+          "id": "2022-07",
+          "paidRent": 1250.00,
+          "rentPaymentDate": "2022-07-04",
+          "leaseContractId": "1"
+        },
+        {
+          "id": "2022-12",
+          "paidRent": 1250.00,
+          "rentPaymentDate": "2022-12-04",
+          "leaseContractId": "1"
+        },
+        {
+          "id": "2023-02",
+          "paidRent": 1250.00,
+          "rentPaymentDate": "2023-02-04",
+          "leaseContractId": "1"
+        }
+      ]
     }
   ],
   "fixtures-inventory": [
@@ -204,6 +270,62 @@
         "leaseContractId": "1",
         "fixtureInventoryId": "1"
       }
+    }
+  ],
+  "payments": [
+    {
+      "id": "2022-10",
+      "paidRent": 1250.00,
+      "rentPaymentDate": "2022-10-04",
+      "leaseContractId": "1"
+    },
+    {
+      "id": "2023-01",
+      "paidRent": 1000.00,
+      "rentPaymentDate": "2023-01-04",
+      "leaseContractId": "1"
+    },
+    {
+      "id": "2022-08",
+      "paidRent": 1250.00,
+      "rentPaymentDate": "2022-08-04",
+      "leaseContractId": "1"
+    },
+    {
+      "id": "2023-03",
+      "paidRent": 1000.00,
+      "rentPaymentDate": "2023-03-04",
+      "leaseContractId": "1"
+    },
+    {
+      "id": "2022-11",
+      "paidRent": 1250.00,
+      "rentPaymentDate": "2022-11-04",
+      "leaseContractId": "1"
+    },
+    {
+      "id": "2022-09",
+      "paidRent": 1250.00,
+      "rentPaymentDate": "2022-09-04",
+      "leaseContractId": "1"
+    },
+    {
+      "id": "2022-07",
+      "paidRent": 1250.00,
+      "rentPaymentDate": "2022-07-04",
+      "leaseContractId": "1"
+    },
+    {
+      "id": "2022-12",
+      "paidRent": 1250.00,
+      "rentPaymentDate": "2022-12-04",
+      "leaseContractId": "1"
+    },
+    {
+      "id": "2023-02",
+      "paidRent": 1250.00,
+      "rentPaymentDate": "2023-02-04",
+      "leaseContractId": "1"
     }
   ]
 }
