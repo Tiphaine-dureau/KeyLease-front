@@ -5,6 +5,7 @@ import {map, Observable} from "rxjs";
 import {StepperOrientation} from "@angular/material/stepper";
 import {BreakpointObserver} from "@angular/cdk/layout";
 import {AddressBusinessModel} from "../../../common/business-models/address.business-model";
+import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-owner-form',
@@ -22,6 +23,7 @@ export class OwnerFormComponent {
   constructor(
     private _formBuilder: FormBuilder,
     private breakpointObserver: BreakpointObserver,
+    private datePipe: DatePipe,
   ) {
   }
 
@@ -32,7 +34,7 @@ export class OwnerFormComponent {
     this.identityFormGroup = this._formBuilder.group({
       firstName: [this.owner?.firstName, Validators.required],
       lastName: [this.owner?.lastName, Validators.required],
-      birthday: [this.owner?.birthday?.toISOString()],
+      birthday: [this.owner?.birthday],
     });
     this.postalAddressFormGroup = this._formBuilder.group({
       street: [this.owner?.address?.street, Validators.required],
@@ -53,8 +55,8 @@ export class OwnerFormComponent {
     const identityFormData = this.identityFormGroup.value;
     const postalAddressFormData = this.postalAddressFormGroup.value;
     const contactDetailsFormData = this.contactDetailsFormGroup.value;
-    const formBirthdate: string = this.identityFormGroup.value['birthday'] || "";
-    const birthdate: Date = new Date(formBirthdate);
+    const formattedBirthdate: string = this.datePipe.transform(this.identityFormGroup.value
+      .birthday, 'YYYY-MM-dd', '', '') || "";
 
     const addressFormData = {
       street: postalAddressFormData.street,
@@ -66,7 +68,7 @@ export class OwnerFormComponent {
     const ownerFormData = {
       firstName: identityFormData.firstName,
       lastName: identityFormData.lastName,
-      birthday: birthdate,
+      birthday: new Date(formattedBirthdate),
       phoneNumber: contactDetailsFormData.phone,
       email: contactDetailsFormData.email,
       iban: contactDetailsFormData.iban,
