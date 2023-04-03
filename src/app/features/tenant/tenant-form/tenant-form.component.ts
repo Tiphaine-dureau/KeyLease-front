@@ -5,6 +5,7 @@ import {StepperOrientation} from "@angular/material/stepper";
 import {BreakpointObserver} from "@angular/cdk/layout";
 import {AddressBusinessModel} from "../../../common/business-models/address.business-model";
 import {TenantBusinessModel} from "../../../common/business-models/tenant.business-model";
+import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-tenant-form',
@@ -22,6 +23,7 @@ export class TenantFormComponent implements OnInit {
   constructor(
     private _formBuilder: FormBuilder,
     private breakpointObserver: BreakpointObserver,
+    private datePipe: DatePipe,
   ) {
   }
 
@@ -33,7 +35,7 @@ export class TenantFormComponent implements OnInit {
     this.identityFormGroup = this._formBuilder.group({
       firstName: [this.tenant?.firstName, Validators.required],
       lastName: [this.tenant?.lastName, Validators.required],
-      birthday: [this.tenant?.birthday?.toISOString()],
+      birthday: [this.tenant?.birthday],
     });
     this.postalAddressFormGroup = this._formBuilder.group({
       street: [this.tenant?.address?.street, Validators.required],
@@ -56,8 +58,8 @@ export class TenantFormComponent implements OnInit {
     const identityFormData = this.identityFormGroup.value;
     const postalAddressFormData = this.postalAddressFormGroup.value;
     const contactDetailsFormData = this.contactDetailsFormGroup.value;
-    const formBirthdate: string = this.identityFormGroup.value['birthday'] || "";
-    const birthdate: Date = new Date(formBirthdate);
+    const formattedBirthdate: string = this.datePipe.transform(this.identityFormGroup.value
+      .birthday, 'YYYY-MM-dd', '', '') || "";
 
 
     const addressFormData = {
@@ -70,7 +72,7 @@ export class TenantFormComponent implements OnInit {
     const tenantFormData = {
       firstName: identityFormData.firstName,
       lastName: identityFormData.lastName,
-      birthday: birthdate,
+      birthday: new Date(formattedBirthdate),
       phoneNumber: contactDetailsFormData.phone,
       email: contactDetailsFormData.email,
       partnerFirstName: contactDetailsFormData.partnerFirstName,
