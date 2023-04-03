@@ -1,0 +1,46 @@
+<ng-container *ngIf="dataSource">
+  <!-- FILTRE DE RECHERCHE -->
+  <mat-form-field class="label-filter">
+    <mat-label>Rechercher</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
+  </mat-form-field>
+  <!--TABLE PAIEMENTS-->
+  <section tabindex="0" class="table-container">
+    <table mat-table [dataSource]="dataSource">
+      <!--COLONNE DATE-->
+      <ng-container matColumnDef="rentPaymentDate">
+        <th mat-header-cell *matHeaderCellDef>Date paiement</th>
+        <td mat-cell *matCellDef="let element">{{element.rentPaymentDate | date:'dd/MM/YYYY':'':'fr'}}</td>
+      </ng-container>
+      <!--COLONNE MONTANT PAYÉ-->
+      <ng-container matColumnDef="paidRent">
+        <th mat-header-cell *matHeaderCellDef>Montant payé</th>
+        <td mat-cell *matCellDef="let element">{{element.paidRent}}€</td>
+      </ng-container>
+      <!--COLONNE STATUT PAIEMENT-->
+      <ng-container matColumnDef="paymentLabel">
+        <th mat-header-cell *matHeaderCellDef>Statut paiement</th>
+        <td mat-cell *matCellDef="let element">
+          <span
+            [ngClass]="{'to-regulate': element.paymentState === 'not-paid'}">{{element.paymentLabel}}</span>
+        </td>
+      </ng-container>
+      <!--COLONNE ACTIONS -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let element">
+          <a routerLink="/payments/{{element.id}}/modification">
+            <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="edit" color="primary"></mat-icon>
+          </a>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <!--AFFICHAGE SI LE FILTRE NE MARCHE PAS-->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">Aucune donnée sur ce filtre"{{input.value}}"</td>
+      </tr>
+    </table>
+  </section>
+  <!--FIN TABLE PAIEMENTS-->
+</ng-container>
