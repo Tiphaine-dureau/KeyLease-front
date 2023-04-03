@@ -9,6 +9,7 @@ import {TenantRoutingModule} from "./features/tenant/tenant-routing.module";
 import {AuthGuard} from "./common/auth/auth-guard";
 import {LeaseContractRoutingModule} from "./features/lease-contract/lease-contract-routing.module";
 import {FixtureInventoryRoutingModule} from "./features/fixture-inventory/fixture-inventory-routing.module";
+import {PaymentRoutingModule} from "./features/payment/payment-routing.module";
 
 const routes: Routes = [
   {
@@ -38,7 +39,11 @@ const routes: Routes = [
       {
         path: 'etats-des-lieux',
         loadChildren: () => FixtureInventoryRoutingModule,
-      }
+      },
+      {
+        path: 'payments',
+        loadChildren: () => PaymentRoutingModule,
+      },
     ]
   },
   {

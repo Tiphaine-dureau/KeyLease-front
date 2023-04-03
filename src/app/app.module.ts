@@ -21,6 +21,7 @@ import {AuthGuard} from "./common/auth/auth-guard";
 import {TOKEN_KEY} from "./features/login/services/login.service";
 import {LeaseContractModule} from "./features/lease-contract/lease-contract.module";
 import {FixtureInventoryModule} from "./features/fixture-inventory/fixture-inventory.module";
+import { PaymentRoutingModule } from './features/payment/payment-routing.module';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import {FixtureInventoryModule} from "./features/fixture-inventory/fixture-inven
       key: TOKEN_KEY
     }),
     LeaseContractModule,
-    FixtureInventoryModule
+    FixtureInventoryModule,
+    PaymentRoutingModule
   ],
   providers: [
     AuthGuard,
