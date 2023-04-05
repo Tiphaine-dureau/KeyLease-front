@@ -15,7 +15,7 @@ const routes: Routes = [
     component: CreateOwnerComponent
   },
   {
-    path: ':id_owner',
+    path: ':id_proprietaire',
     children: [
       {
         path: '',

@@ -29,7 +29,7 @@ export class TenantDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.tenantID = this.activatedRoute.snapshot.params['id_tenant'];
+    this.tenantID = this.activatedRoute.snapshot.params['id_locataire'];
     this.getTenant();
   }
 

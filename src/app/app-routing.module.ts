@@ -41,7 +41,7 @@ const routes: Routes = [
         loadChildren: () => FixtureInventoryRoutingModule,
       },
       {
-        path: 'payments',
+        path: 'paiements',
         loadChildren: () => PaymentRoutingModule,
       },
     ]

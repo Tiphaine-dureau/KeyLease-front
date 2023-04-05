@@ -22,7 +22,7 @@ export class OwnerDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.ownerId = this.activatedRoute.snapshot.params['id_owner'];
+    this.ownerId = this.activatedRoute.snapshot.params['id_proprietaire'];
     this.getOwner();
   }
 

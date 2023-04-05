@@ -21,7 +21,7 @@ export class UpdateTenantComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.tenantId = this.activatedRoute.snapshot.params['id_tenant'];
+    this.tenantId = this.activatedRoute.snapshot.params['id_locataire'];
     this.tenantService.getTenant(this.tenantId).subscribe({
       next: (tenant: TenantBusinessModel) => {
         this.tenant = tenant;

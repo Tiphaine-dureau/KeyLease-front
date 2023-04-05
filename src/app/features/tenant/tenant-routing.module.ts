@@ -15,7 +15,7 @@ const routes: Routes = [
     component: CreateTenantComponent
   },
   {
-    path: ':id_tenant',
+    path: ':id_locataire',
     children: [
       {
         path: '',

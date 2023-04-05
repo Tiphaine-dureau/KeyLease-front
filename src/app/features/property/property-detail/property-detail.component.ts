@@ -21,7 +21,7 @@ export class PropertyDetailComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.propertyId = this.activatedRoute.snapshot.params['id_property'];
+    this.propertyId = this.activatedRoute.snapshot.params['id_bien'];
     this.getProperty();
   }
 
