@@ -3,6 +3,7 @@ import {MatTableDataSource} from "@angular/material/table";
 import {PaymentBusinessModel} from "../../../common/business-models/payment.business-model";
 import {LeaseContractBusinessModel} from "../../../common/business-models/lease-contract.business-model";
 import {PaymentDataModel} from "./payment-data.model";
+import {PaymentService} from "../services/payment.service";
 
 @Component({
   selector: 'app-payments-dashboard',
@@ -15,10 +16,17 @@ export class PaymentsDashboardComponent implements OnInit {
   @Input() leaseContractId!: string;
   public displayedColumns = ['rentPaymentDate', 'paidRent', 'paymentLabel', 'actions']
   public dataSource!: MatTableDataSource<PaymentDataModel>;
+  public isLoading = false;
+
+  constructor(
+    private paymentService: PaymentService,
+  ) {
+  }
 
   ngOnInit(): void {
     const models: PaymentDataModel[] | undefined = this.data?.map((businessModel: PaymentBusinessModel) => {
       return {
+        id: businessModel.id,
         rentPaymentDate: businessModel.rentPaymentDate,
         paidRent: businessModel.paidRent,
         paymentState: this.leaseContract.rentAmount === businessModel.paidRent ? 'paid' : 'not-paid',
@@ -28,10 +36,15 @@ export class PaymentsDashboardComponent implements OnInit {
     this.dataSource = new MatTableDataSource(models);
   }
 
-  public applyFilter(event: Event): void {
-    const filterValue = (event.target as HTMLInputElement).value;
-    if (this.dataSource) {
-      this.dataSource.filter = filterValue.trim().toLowerCase();
-    }
+  public deletePayment(id: string): void {
+    this.isLoading = true;
+    this.paymentService.deletePayment(id).subscribe({
+      next: () => {
+        this.isLoading = false;
+        window.location.reload();
+      }, error: () => {
+        // TODO handle error
+      }
+    })
   }
 }

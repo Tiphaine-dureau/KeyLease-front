@@ -10,11 +10,11 @@ const routes: Routes = [
     component: PaymentsDashboardComponent
   },
   {
-    path: 'creation',
+    path: 'creation/:id_contrat',
     component: CreatePaymentComponent
   },
   {
-    path: ':id_payment',
+    path: ':id_paiement/:id_contrat',
     children: [
       {
         path: 'modification',

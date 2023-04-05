@@ -1,1 +1,22 @@
-<p>payment-form works!</p>
+<mat-card class="payment-form-container">
+  <mat-card-content>
+    <form [formGroup]="paymentFormGroup">
+      <!--PAYMENT DATE-->
+      <mat-form-field appearance="fill" class="payment-form-field">
+        <mat-label>Date de paiement</mat-label>
+        <input matInput type="text" formControlName="rentPaymentDate" [matDatepicker]="picker">
+        <mat-hint>jour/mois/année</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <!--PAID RENT-->
+      <mat-form-field appearance="fill" class="payment-form-field">
+        <mat-label>Montant du loyer payé</mat-label>
+        <input matInput type="number" formControlName="paidRent">
+      </mat-form-field>
+      <mat-card-actions align="end">
+        <button mat-raised-button color="primary" (click)="onSubmit()">Valider le paiement</button>
+      </mat-card-actions>
+    </form>
+  </mat-card-content>
+</mat-card>

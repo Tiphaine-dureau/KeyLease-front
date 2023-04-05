@@ -18,6 +18,15 @@
   font-weight: bold;
 }
 
+.add-payment-icon {
+  padding-top: 10px;
+}
+
+.add-payment-link {
+  display: flex;
+  justify-content: space-around;
+}
+
 @media screen and (min-width: $layout-breakpoint-medium) {
   .label-filter {
     max-width: 60%;

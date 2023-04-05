@@ -1,9 +1,4 @@
 <ng-container *ngIf="dataSource">
-  <!-- FILTRE DE RECHERCHE -->
-  <mat-form-field class="label-filter">
-    <mat-label>Rechercher</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
-  </mat-form-field>
   <!--TABLE PAIEMENTS-->
   <section tabindex="0" class="table-container">
     <table mat-table [dataSource]="dataSource">
@@ -29,18 +24,31 @@
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef>Actions</th>
         <td mat-cell *matCellDef="let element">
-          <a routerLink="/payments/{{element.id}}/modification">
-            <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="edit" color="primary"></mat-icon>
+          <a routerLink="/paiements/{{element.id}}/{{leaseContractId}}/modification">
+            <mat-icon aria-hidden="false" aria-label="edit icon" fontIcon="edit" color="primary"></mat-icon>
+          </a>
+          <button mat-icon-button color="warn" (click)="deletePayment(element.id)">
+            <mat-icon aria-hidden="false" aria-label="delete icon" fontIcon="delete"></mat-icon>
+          </button>
+        </td>
+      </ng-container>
+      <!-- FOOTER ROW -->
+      <ng-container matColumnDef="footer">
+        <td mat-footer-cell *matFooterCellDef colspan="4">
+          <a routerLink="/paiements/creation/{{leaseContractId}}" class="add-payment-link">
+            <mat-icon aria-hidden="false" aria-label="edit icon" fontIcon="add_card" color="primary"
+                      class="add-payment-icon"></mat-icon>
           </a>
         </td>
       </ng-container>
       <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      <!--AFFICHAGE SI LE FILTRE NE MARCHE PAS-->
-      <tr class="mat-row" *matNoDataRow>
-        <td class="mat-cell" colspan="4">Aucune donnée sur ce filtre"{{input.value}}"</td>
-      </tr>
+      <tr mat-footer-row *matFooterRowDef="['footer']"></tr>
     </table>
   </section>
   <!--FIN TABLE PAIEMENTS-->
+</ng-container>
+
+<ng-container *ngIf="isLoading">
+  <app-spinner></app-spinner>
 </ng-container>
