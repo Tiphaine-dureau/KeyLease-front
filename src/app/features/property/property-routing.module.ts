@@ -15,7 +15,7 @@ const routes: Routes = [
     component: CreatePropertyComponent
   },
   {
-    path: ':id_property',
+    path: ':id_bien',
     children: [
       {
         path: '',

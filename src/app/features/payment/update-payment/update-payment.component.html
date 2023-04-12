@@ -1,0 +1,24 @@
+<button mat-raised-button color="primary" routerLink="{{backRoute}}">Retour</button>
+
+<mat-card class="reminder-card-container">
+  <mat-card-header>
+    <mat-card-title>Paiement de {{contract?.tenant?.firstName}} {{contract?.tenant?.lastName}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>Destinataire du paiement
+      : {{contract?.owner?.firstName}} {{contract?.owner?.lastName}}</p>
+    <p>Bien concerné
+      :  {{contract?.property?.address?.street}} {{contract?.property?.address?.additionalAddress}} {{contract?.property?.address?.zipCode}} {{contract?.property?.address?.town}}</p>
+    <p>Montant attendu
+      : {{contract?.rentAmount}}€
+    </p>
+  </mat-card-content>
+</mat-card>
+
+<ng-container *ngIf="payment">
+  <app-payment-form [payment]="payment" (onFormSubmit)="onSubmit($event)"></app-payment-form>
+</ng-container>
+
+<ng-container *ngIf="isLoading">
+  <app-spinner></app-spinner>
+</ng-container>

@@ -17,6 +17,7 @@ import {TenantFormComponent} from './tenant-form/tenant-form.component';
 import {MatIconModule} from "@angular/material/icon";
 import {ComponentsModule} from "../../common/components/components.module";
 import {MatCardModule} from "@angular/material/card";
+import {PaymentModule} from "../payment/payment.module";
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import {MatCardModule} from "@angular/material/card";
     MatIconModule,
     ComponentsModule,
     MatCardModule,
+    PaymentModule,
   ]
 })
 export class TenantModule {

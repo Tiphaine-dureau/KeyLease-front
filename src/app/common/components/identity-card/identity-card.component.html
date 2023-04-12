@@ -6,7 +6,7 @@
   <mat-card-content>
     <div class="identity-span-container">
       <span class="identity-span-title">Né(e) le </span>
-      <span>{{data?.birthday}}</span>
+      <span>{{data?.birthday | date:'dd/MM/YYYY':'':'fr'}}</span>
     </div>
     <mat-divider></mat-divider>
     <div class="identity-span-container">

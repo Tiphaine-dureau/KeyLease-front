@@ -21,7 +21,7 @@ export class UpdatePropertyComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.propertyId = this.activatedRoute.snapshot.params['id_property'];
+    this.propertyId = this.activatedRoute.snapshot.params['id_bien'];
     this.propertyService.getProperty(this.propertyId).subscribe({
       next: (property: PropertyBusinessModel) => {
         this.property = property;
