@@ -12,4 +12,5 @@ export interface LeaseContractBusinessModel {
   owner: OwnerBusinessModel;
   tenant: TenantBusinessModel;
   property: PropertyBusinessModel;
+  payments: PropertyBusinessModel[];
 }

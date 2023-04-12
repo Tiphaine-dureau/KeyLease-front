@@ -1,0 +1,24 @@
+@import "src/styles/variables.scss";
+
+.reminder-card-container {
+  max-width: 90%;
+  margin: 20px auto 0;
+}
+
+@media screen and (min-width: $layout-breakpoint-small) {
+  .reminder-card-container {
+    max-width: 70%;
+  }
+}
+
+@media screen and (min-width: $layout-breakpoint-medium) {
+  .reminder-card-container {
+    max-width: 50%;
+  }
+}
+
+@media screen and (min-width: $layout-breakpoint-extra-large) {
+  .reminder-card-container {
+    max-width: 40%;
+  }
+}

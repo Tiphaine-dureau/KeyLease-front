@@ -22,7 +22,7 @@ export class UpdateOwnerComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.ownerId = this.activatedRoute.snapshot.params['id_owner'];
+    this.ownerId = this.activatedRoute.snapshot.params['id_proprietaire'];
     this.ownerService.getOwner(this.ownerId).subscribe({
       next: (owner: OwnerBusinessModel) => {
         this.owner = owner;

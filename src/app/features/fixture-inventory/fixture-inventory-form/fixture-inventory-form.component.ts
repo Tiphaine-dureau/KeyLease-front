@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FixtureInventoryBusinessModel} from "../../../common/business-models/fixture-inventory.business-model";
 import {PropertyBusinessModel} from "../../../common/business-models/property.business-model";
 import {PostFixtureInventoryModel} from "../services/post-fixture-inventory.model";
@@ -11,7 +11,7 @@ import {DatePipe} from "@angular/common";
   templateUrl: './fixture-inventory-form.component.html',
   styleUrls: ['./fixture-inventory-form.component.scss']
 })
-export class FixtureInventoryFormComponent {
+export class FixtureInventoryFormComponent implements OnInit {
   @Input() fixtureInventory?: FixtureInventoryBusinessModel;
   @Input() property?: PropertyBusinessModel;
   @Output() onFormSubmit: EventEmitter<PostFixtureInventoryModel> = new EventEmitter<PostFixtureInventoryModel>();

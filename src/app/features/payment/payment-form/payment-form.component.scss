@@ -1,0 +1,30 @@
+@import "src/styles/variables.scss";
+
+.payment-form-container {
+  max-width: 90%;
+  margin: 20px auto 0;
+}
+
+.payment-form-field {
+  display: flex;
+  padding-top: 20px;
+}
+
+@media screen and (min-width: $layout-breakpoint-small) {
+  .payment-form-container {
+    max-width: 70%;
+  }
+}
+
+@media screen and (min-width: $layout-breakpoint-medium) {
+  .payment-form-container {
+    max-width: 50%;
+  }
+}
+
+@media screen and (min-width: $layout-breakpoint-extra-large) {
+  .payment-form-container {
+    max-width: 40%;
+  }
+}
+

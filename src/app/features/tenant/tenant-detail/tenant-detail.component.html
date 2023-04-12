@@ -1,8 +1,11 @@
 <button mat-raised-button color="primary" routerLink="/locataires">Dashboard locataires</button>
+<!--SECTION INFORMATIONS LOCATAIRE-->
 <div class="cards-details-container">
+  <!--CARTE LOCATAIRE-->
   <div class="component-identity-card">
     <app-identity-card [data]="tenant" [subtitle]="subtitle"></app-identity-card>
   </div>
+  <!--CARTE CONJOINT-->
   <mat-card class="partner-card">
     <mat-card-header>
       <mat-card-title>Conjoint</mat-card-title>
@@ -24,7 +27,7 @@
       </div>
     </mat-card-content>
   </mat-card>
-
+  <!--BOUTONS MODIFIER ET SUPPRIMER LOCATAIRE-->
   <div class="button-tenant-detail-container">
     <button mat-raised-button color="primary" routerLink="/locataires/{{tenantID}}/modification"
             class="button-tenant-detail">Modifier
@@ -32,7 +35,19 @@
     <button mat-raised-button color="warn" (click)="delete()" class="button-tenant-detail">Supprimer</button>
   </div>
 </div>
+<!--FIN SECTION INFORMATIONS LOCATAIRE-->
 
+<!--TABLES PAIEMENTS-->
+<ng-container *ngIf="paymentSections">
+  <ng-container *ngFor="let section of paymentSections">
+    <h3 class="payments-contracts-titles">Paiements effectués à
+      {{section.contract.owner.firstName}} {{section.contract.owner.lastName}} : </h3>
+    <app-payments-dashboard [data]="section.payments" [leaseContract]="section.contract"
+                            [leaseContractId]="section.contract.id"></app-payments-dashboard>
+  </ng-container>
+</ng-container>
+
+<!--SPINNER-->
 <ng-container *ngIf="isLoading">
   <app-spinner></app-spinner>
 </ng-container>

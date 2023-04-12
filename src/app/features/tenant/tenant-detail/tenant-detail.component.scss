@@ -34,6 +34,11 @@ span {
   margin-bottom: 20px;
 }
 
+.payments-contracts-titles {
+  margin: 0 0 20px 20px;
+}
+
+
 @media screen and (min-width: $layout-breakpoint-small) {
   .cards-details-container {
     grid-template-columns: repeat(1, 1fr 1fr);

@@ -4,5 +4,5 @@ export interface TenantBusinessModel extends ClientBusinessModel {
   partnerLastName: string;
   partnerFirstName: string;
   partnerPhoneNumber: string;
-
+  leaseContractIdList: string[];
 }

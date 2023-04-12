@@ -1,3 +1,4 @@
 {
+  "/api/payments/lease-contract/*": "/payments",
   "/api/*": "/$1"
 }
