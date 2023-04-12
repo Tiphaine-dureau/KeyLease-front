@@ -16,7 +16,26 @@ Nomenclature :
 
 #### Added
 
-### [0.1.4] - 2023-02-29
+### [0.1.5] - 2023-04-12
+
+#### Updated
+
+- Updated db.json and routes with payment data to complete the simulated api
+- Updated lease-contract business model to integrate payments
+- Updated tenant business model to integrate a list of leases contracts id
+- Updated english routes : translate to french
+
+#### Fixed
+
+- Bf Birthday display
+
+#### Added
+
+- Added payment business model
+- Added payment service (CRUD)
+- Added display for payment feature (table and form related to CRUD)
+
+### [0.1.4] - 2023-03-29
 
 #### Added
 
@@ -28,7 +47,7 @@ Nomenclature :
 - Added DELETE /fixtures-inventory/:id
 - Added fixture-inventory and lease-contrat columns on properties-dashboard
 
-### [0.1.3] - 2023-02-27
+### [0.1.3] - 2023-03-27
 
 #### Added
 
