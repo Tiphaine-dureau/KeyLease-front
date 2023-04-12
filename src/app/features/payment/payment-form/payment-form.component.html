@@ -14,6 +14,12 @@
         <mat-label>Montant du loyer payé</mat-label>
         <input matInput type="number" formControlName="paidRent">
       </mat-form-field>
+      <!--AMOUNT PAID FROM CAF TO OWNER-->
+      <mat-form-field appearance="fill" class="payment-form-field">
+        <mat-label>Montant payé par la CAF au propriétaire</mat-label>
+        <input matInput type="number" formControlName="amountPaidFromCafToOwner">
+      </mat-form-field>
+      <!--SUBMIT-->
       <mat-card-actions align="end">
         <button mat-raised-button color="primary" (click)="onSubmit()">Valider le paiement</button>
       </mat-card-actions>
