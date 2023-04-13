@@ -54,6 +54,9 @@
         </p>
         <p>Dépôt de garantie : <span class="detail">{{leaseContract?.paidDeposit}}/{{leaseContract?.requiredDeposit}}&nbsp;€</span>
         </p>
+        <p>Montant CAF alloué au propriétaire: <span
+          class="detail">{{leaseContract?.expectedAmountFromCafToOwner !== null ? leaseContract?.expectedAmountFromCafToOwner : 'n/a' }}
+          €</span></p>
         <p>Date de signature du contrat de location : <span
           class="detail">{{leaseContract?.dateContractSignature | date:'dd/MM/YYYY':'':'fr'}}</span></p>
       </div>

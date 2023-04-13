@@ -9,6 +9,7 @@ export interface LeaseContractBusinessModel {
   requiredDeposit: number;
   paidDeposit: number;
   dateContractSignature: Date;
+  expectedAmountFromCafToOwner: number;
   owner: OwnerBusinessModel;
   tenant: TenantBusinessModel;
   property: PropertyBusinessModel;

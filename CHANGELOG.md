@@ -5,7 +5,7 @@ Nomenclature :
 
 - Unreleased : pour les fonctionnalités non publiées sur main
 - Added : pour les nouvelles fonctionnalités
-- Changed : pour les changements de fonctionnalités existantes
+- Updated : pour les changements de fonctionnalités existantes
 - Deprecated : pour les fonctionnalités qui seront bientôt supprimées
 - Removed : pour les fonctionnalités supprimées
 - Fixed : pour les corrections de bugs
@@ -15,6 +15,13 @@ Nomenclature :
 ### Unreleased
 
 #### Added
+
+### [0.1.6] - 2023-04-13
+
+#### Added
+
+- Added expected amount from CAF to Owner in leaseContract feature
+- Added amount paid from CAF to Owner in payment feature
 
 ### [0.1.5] - 2023-04-12
 
