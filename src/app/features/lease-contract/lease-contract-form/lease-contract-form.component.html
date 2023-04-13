@@ -5,6 +5,7 @@
 
 <mat-card class="lease-contract-form-container">
   <form [formGroup]="leaseContractFormGroup">
+    <!--OWNER SELECTION-->
     <mat-form-field appearance="fill" class="lease-contract-form-field">
       <mat-label>Sélectionner un propriétaire pour ce bien</mat-label>
       <mat-select formControlName="owner">
@@ -13,6 +14,7 @@
       </mat-select>
     </mat-form-field>
 
+    <!--TENANT SELECTION-->
     <mat-form-field appearance="fill" class="lease-contract-form-field">
       <mat-label>Sélectionner un locataire pour ce bien</mat-label>
       <mat-select formControlName="tenant">
@@ -21,28 +23,38 @@
       </mat-select>
     </mat-form-field>
 
+    <!--RENT AMOUNT-->
     <mat-form-field appearance="fill" class="lease-contract-form-field">
       <mat-label>Montant du loyer</mat-label>
       <input matInput type="number" formControlName="rentAmount">
     </mat-form-field>
 
+    <!--RENT CHARGES-->
     <mat-form-field appearance="fill" class="lease-contract-form-field">
       <mat-label>Montant des charges locatives</mat-label>
       <input matInput type="number" formControlName="rentCharges">
       <mat-hint align="start">Charges inclues dans le prix du loyer</mat-hint>
     </mat-form-field>
 
+    <!--REQUIRED DEPOSIT-->
     <mat-form-field appearance="fill" class="lease-contract-form-field">
       <mat-label>Montant requis du dépôt de garantie</mat-label>
       <input matInput type="number" formControlName="requiredDeposit">
-      <mat-hint align="start">Montant requis du dépôt de garantie</mat-hint>
     </mat-form-field>
+
+    <!--PAID DEPOSIT-->
     <mat-form-field appearance="fill" class="lease-contract-form-field">
       <mat-label>Montant payé du dépôt de garantie</mat-label>
       <input matInput type="number" formControlName="paidDeposit">
-      <mat-hint align="start">Montant payé du dépôt de garantie</mat-hint>
     </mat-form-field>
 
+    <!--EXPECTED AMOUNT FROM CAF TO OWNER-->
+    <mat-form-field appearance="fill" class="lease-contract-form-field">
+      <mat-label>Montant CAF alloué au propriétaire</mat-label>
+      <input matInput type="number" formControlName="expectedAmountFromCafToOwner">
+    </mat-form-field>
+
+    <!--DATE CONTRACT SIGNATURE-->
     <mat-form-field appearance="fill" class="lease-contract-form-field">
       <mat-label>Signature du contrat</mat-label>
       <input matInput type="text" formControlName="dateContractSignature" [matDatepicker]="picker">
@@ -51,6 +63,7 @@
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 
+    <!--SUBMIT-->
     <mat-card-actions align="end">
       <button mat-raised-button color="primary" (click)="onSubmit()">Valider le contrat</button>
     </mat-card-actions>

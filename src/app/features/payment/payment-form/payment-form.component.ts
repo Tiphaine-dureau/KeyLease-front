@@ -11,6 +11,7 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class PaymentFormComponent implements OnInit {
   @Input() payment?: PaymentBusinessModel;
+  @Input() expectedAmountFromCafToOwner?: number;
   @Output() onFormSubmit: EventEmitter<PaymentBusinessModel> = new EventEmitter<PaymentBusinessModel>();
   public paymentFormGroup!: FormGroup;
 
@@ -25,6 +26,7 @@ export class PaymentFormComponent implements OnInit {
     this.paymentFormGroup = this._formBuilder.group({
       rentPaymentDate: [this.payment?.rentPaymentDate, Validators.required],
       paidRent: [this.payment?.paidRent, Validators.required],
+      amountPaidFromCafToOwner: [this.payment?.amountPaidFromCafToOwner || this.expectedAmountFromCafToOwner],
       leaseContractId: [this.payment?.leaseContractId, Validators.required],
     })
   }
@@ -34,6 +36,7 @@ export class PaymentFormComponent implements OnInit {
     const paymentFormData: PaymentBusinessModel = {
       rentPaymentDate: new Date(formattedDate),
       paidRent: this.paymentFormGroup.value.paidRent,
+      amountPaidFromCafToOwner: this.paymentFormGroup.value.amountPaidFromCafToOwner,
       leaseContractId: this.paymentFormGroup.value.leaseContractId,
     } as PaymentBusinessModel;
     this.onFormSubmit.emit(paymentFormData);

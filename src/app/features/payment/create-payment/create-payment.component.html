@@ -8,13 +8,16 @@
       : {{contract?.owner?.firstName}} {{contract?.owner?.lastName}}</p>
     <p>Bien concerné
       :  {{contract?.property?.address?.street}} {{contract?.property?.address?.additionalAddress}} {{contract?.property?.address?.zipCode}} {{contract?.property?.address?.town}}</p>
-    <p>Montant attendu
+    <p>Montant du loyer attendu
       : {{contract?.rentAmount}}€
     </p>
   </mat-card-content>
 
 </mat-card>
-<app-payment-form (onFormSubmit)="onSubmit($event)"></app-payment-form>
+<ng-container *ngIf="contract">
+  <app-payment-form [expectedAmountFromCafToOwner]="contract.expectedAmountFromCafToOwner"
+                    (onFormSubmit)="onSubmit($event)"></app-payment-form>
+</ng-container>
 
 <ng-container *ngIf="isLoading">
   <app-spinner></app-spinner>

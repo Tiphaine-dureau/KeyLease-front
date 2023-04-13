@@ -24,13 +24,13 @@ export class PaymentsDashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const models: PaymentDataModel[] | undefined = this.data?.map((businessModel: PaymentBusinessModel) => {
+    const models: PaymentDataModel[] | undefined = this.data?.map((paymentBusinessModel: PaymentBusinessModel) => {
       return {
-        id: businessModel.id,
-        rentPaymentDate: businessModel.rentPaymentDate,
-        paidRent: businessModel.paidRent,
-        paymentState: this.leaseContract.rentAmount === businessModel.paidRent ? 'paid' : 'not-paid',
-        paymentLabel: this.leaseContract.rentAmount === businessModel.paidRent ? 'Payé' : 'À régulariser'
+        id: paymentBusinessModel.id,
+        rentPaymentDate: paymentBusinessModel.rentPaymentDate,
+        paidRent: paymentBusinessModel.paidRent,
+        paymentState: this.leaseContract.rentAmount === paymentBusinessModel.paidRent + paymentBusinessModel.amountPaidFromCafToOwner ? 'paid' : 'not-paid',
+        paymentLabel: this.leaseContract.rentAmount === paymentBusinessModel.paidRent + paymentBusinessModel.amountPaidFromCafToOwner ? 'Payé' : 'À régulariser'
       } as PaymentDataModel
     })
     this.dataSource = new MatTableDataSource(models);
