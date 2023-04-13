@@ -16,6 +16,10 @@ Nomenclature :
 
 #### Added
 
+### [0.1.6] - 2023-04-13
+
+#### Added
+
 - Added expected amount from CAF to Owner in leaseContract feature
 - Added amount paid from CAF to Owner in payment feature
 
