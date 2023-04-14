@@ -15,6 +15,7 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatDividerModule} from "@angular/material/divider";
 import {MatInputModule} from "@angular/material/input";
 import {MatCardModule} from "@angular/material/card";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {MatCardModule} from "@angular/material/card";
     MatDatepickerModule,
     MatDividerModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    MatProgressBarModule
   ]
 })
 export class OwnerModule {

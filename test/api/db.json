@@ -50,7 +50,9 @@
       "partnerLastName": "",
       "partnerFirstName": "",
       "partnerPhoneNumber": "",
-      "leaseContractIdList": []
+      "leaseContractIdList": [
+        "2"
+      ]
     }
   ],
   "owners": [
@@ -67,7 +69,9 @@
         "zipCode": "64500",
         "town": "Saint-Jean-de-Luz"
       },
-      "iban": "FR76 0000 9999 8888 7777 6666 555"
+      "iban": "FR76 0000 9999 8888 7777 6666 555",
+      "expectedRentAmount": 10350,
+      "balance": 9890
     },
     {
       "id": "2",
@@ -82,22 +86,9 @@
         "zipCode": "33600",
         "town": "Pessac"
       },
-      "iban": "FR76 1111 1111 1111 1111 1111 112"
-    },
-    {
-      "id": "3",
-      "lastName": "Wang",
-      "firstName": "Yifan",
-      "birthday": null,
-      "phoneNumber": "0643568921",
-      "email": "yifan@example.com",
-      "address": {
-        "street": "5 rue des Noyers",
-        "additionalAddress": null,
-        "zipCode": "33600",
-        "town": "Pessac"
-      },
-      "iban": "FR76 9999 9999 9999 9999 9999 999"
+      "iban": "FR76 1111 1111 1111 1111 1111 112",
+      "expectedRentAmount": 1492,
+      "balance": 1492
     }
   ],
   "properties": [
@@ -128,7 +119,7 @@
         "town": "Ciboure"
       },
       "type": "Appartement",
-      "leaseContractId": null,
+      "leaseContractId": 2,
       "fixtureInventoryId": null
     }
   ],
@@ -139,6 +130,7 @@
       "rentCharges": 100,
       "requiredDeposit": 3000,
       "paidDeposit": 0,
+      "expectedAmountFromCafToOwner": null,
       "dateContractSignature": "2022-09-13",
       "owner": {
         "id": "1",
@@ -192,58 +184,142 @@
       },
       "payments": [
         {
-          "id": "2022-10",
+          "id": "1",
           "paidRent": 1250.00,
           "rentPaymentDate": "2022-10-04",
-          "leaseContractId": "1"
+          "leaseContractId": "1",
+          "amountPaidFromCafToOwner": null
         },
         {
-          "id": "2023-01",
+          "id": "2",
           "paidRent": 1000.00,
           "rentPaymentDate": "2023-01-04",
-          "leaseContractId": "1"
+          "leaseContractId": "1",
+          "amountPaidFromCafToOwner": null
         },
         {
-          "id": "2022-08",
+          "id": "3",
           "paidRent": 1250.00,
           "rentPaymentDate": "2022-08-04",
-          "leaseContractId": "1"
+          "leaseContractId": "1",
+          "amountPaidFromCafToOwner": null
         },
         {
-          "id": "2023-03",
+          "id": "4",
           "paidRent": 1000.00,
           "rentPaymentDate": "2023-03-04",
-          "leaseContractId": "1"
+          "leaseContractId": "1",
+          "amountPaidFromCafToOwner": null
         },
         {
-          "id": "2022-11",
+          "id": "5",
           "paidRent": 1250.00,
           "rentPaymentDate": "2022-11-04",
-          "leaseContractId": "1"
+          "leaseContractId": "1",
+          "amountPaidFromCafToOwner": null
         },
         {
-          "id": "2022-09",
+          "id": "6",
           "paidRent": 1250.00,
           "rentPaymentDate": "2022-09-04",
-          "leaseContractId": "1"
+          "leaseContractId": "1",
+          "amountPaidFromCafToOwner": null
         },
         {
-          "id": "2022-07",
+          "id": "7",
           "paidRent": 1250.00,
           "rentPaymentDate": "2022-07-04",
-          "leaseContractId": "1"
+          "leaseContractId": "1",
+          "amountPaidFromCafToOwner": null
         },
         {
-          "id": "2022-12",
+          "id": "8",
           "paidRent": 1250.00,
           "rentPaymentDate": "2022-12-04",
-          "leaseContractId": "1"
+          "leaseContractId": "1",
+          "amountPaidFromCafToOwner": null
         },
         {
-          "id": "2023-02",
+          "id": "9",
           "paidRent": 1250.00,
           "rentPaymentDate": "2023-02-04",
-          "leaseContractId": "1"
+          "leaseContractId": "1",
+          "amountPaidFromCafToOwner": null
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "rentAmount": 750,
+      "rentCharges": 50,
+      "requiredDeposit": 1500,
+      "paidDeposit": 1500,
+      "expectedAmountFromCafToOwner": 250,
+      "dateContractSignature": "2023-03-05",
+      "owner": {
+        "id": "2",
+        "lastName": "Texeira",
+        "firstName": "Yannick",
+        "birthday": null,
+        "phoneNumber": "0587239054",
+        "email": "yannick@example.com",
+        "address": {
+          "street": "6 rue des noyers",
+          "additionalAddress": null,
+          "zipCode": "33600",
+          "town": "Pessac"
+        },
+        "iban": "FR76 1111 1111 1111 1111 1111 112"
+      },
+      "tenant": {
+        "id": "2",
+        "lastName": "Cazals",
+        "firstName": "Jean-Jacques",
+        "birthday": null,
+        "phoneNumber": "0123456789",
+        "email": "jean-jacques@example.com",
+        "address": {
+          "street": "1 rue Emile Zola",
+          "additionalAddress": "",
+          "zipCode": "64100",
+          "town": "Bayonne"
+        },
+        "partnerLastName": "",
+        "partnerFirstName": "",
+        "partnerPhoneNumber": "",
+        "leaseContractIdList": [
+          "2"
+        ]
+      },
+      "property": {
+        "id": "2",
+        "area": "54",
+        "roomsNumber": "2",
+        "description": "Appartement de 2 pièces composé d'un séjour avec cuisine ouverte, d'une chambre, d'un bureau, d'une salle de bain avec WC séparé. Un joli balcon plein sud et une place de parking agrémentent le tout",
+        "address": {
+          "street": "1 rue des Roses",
+          "additionalAddress": "Bat C Apt 10",
+          "zipCode": "64500",
+          "town": "Ciboure"
+        },
+        "type": "Appartement",
+        "leaseContractId": 2,
+        "fixtureInventoryId": null
+      },
+      "payments": [
+        {
+          "id": "10",
+          "paidRent": 500.00,
+          "rentPaymentDate": "2022-03-04",
+          "leaseContractId": "2",
+          "amountPaidFromCafToOwner": 250
+        },
+        {
+          "id": "11",
+          "paidRent": 500.00,
+          "rentPaymentDate": "2022-04-04",
+          "leaseContractId": "2",
+          "amountPaidFromCafToOwner": 250
         }
       ]
     }
@@ -274,58 +350,81 @@
   ],
   "payments": [
     {
-      "id": "2022-10",
+      "id": "1",
       "paidRent": 1250.00,
       "rentPaymentDate": "2022-10-04",
-      "leaseContractId": "1"
+      "leaseContractId": "1",
+      "amountPaidFromCafToOwner": null
     },
     {
-      "id": "2023-01",
+      "id": "2",
       "paidRent": 1000.00,
       "rentPaymentDate": "2023-01-04",
-      "leaseContractId": "1"
+      "leaseContractId": "1",
+      "amountPaidFromCafToOwner": null
     },
     {
-      "id": "2022-08",
+      "id": "3",
       "paidRent": 1250.00,
       "rentPaymentDate": "2022-08-04",
-      "leaseContractId": "1"
+      "leaseContractId": "1",
+      "amountPaidFromCafToOwner": null
     },
     {
-      "id": "2023-03",
+      "id": "4",
       "paidRent": 1000.00,
       "rentPaymentDate": "2023-03-04",
-      "leaseContractId": "1"
+      "leaseContractId": "1",
+      "amountPaidFromCafToOwner": null
     },
     {
-      "id": "2022-11",
+      "id": "5",
       "paidRent": 1250.00,
       "rentPaymentDate": "2022-11-04",
-      "leaseContractId": "1"
+      "leaseContractId": "1",
+      "amountPaidFromCafToOwner": null
     },
     {
-      "id": "2022-09",
+      "id": "6",
       "paidRent": 1250.00,
       "rentPaymentDate": "2022-09-04",
-      "leaseContractId": "1"
+      "leaseContractId": "1",
+      "amountPaidFromCafToOwner": null
     },
     {
-      "id": "2022-07",
+      "id": "7",
       "paidRent": 1250.00,
       "rentPaymentDate": "2022-07-04",
-      "leaseContractId": "1"
+      "leaseContractId": "1",
+      "amountPaidFromCafToOwner": null
     },
     {
-      "id": "2022-12",
+      "id": "8",
       "paidRent": 1250.00,
       "rentPaymentDate": "2022-12-04",
-      "leaseContractId": "1"
+      "leaseContractId": "1",
+      "amountPaidFromCafToOwner": null
     },
     {
-      "id": "2023-02",
+      "id": "9",
       "paidRent": 1250.00,
       "rentPaymentDate": "2023-02-04",
-      "leaseContractId": "1"
+      "leaseContractId": "1",
+      "amountPaidFromCafToOwner": null
+    },
+    {
+      "id": "10",
+      "paidRent": 500.00,
+      "rentPaymentDate": "2022-03-04",
+      "leaseContractId": "2",
+      "amountPaidFromCafToOwner": 250
+    },
+    {
+      "id": "11",
+      "paidRent": 500.00,
+      "rentPaymentDate": "2022-04-04",
+      "leaseContractId": "2",
+      "amountPaidFromCafToOwner": 250
     }
   ]
 }

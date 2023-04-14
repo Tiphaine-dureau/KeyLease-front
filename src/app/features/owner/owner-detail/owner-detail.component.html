@@ -2,19 +2,38 @@
 
 <div class="cards-details-container">
   <div class="component-identity-card">
+    <!--IDENTITY CARD-->
     <app-identity-card [data]="owner" [subtitle]="subtitle"></app-identity-card>
   </div>
-  <mat-card class="iban-card">
-    <mat-card-header>
-      <mat-card-title>Relevé d'identité bancaire</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <div class="iban-span-container">
-        <span class="iban-span-title">IBAN</span>
-        <span>{{owner?.iban}}</span>
-      </div>
-    </mat-card-content>
-  </mat-card>
+
+  <div *ngIf="owner">
+    <!--IBAN CARD-->
+    <mat-card class="iban-card">
+      <mat-card-header>
+        <mat-card-title>Relevé d'identité bancaire</mat-card-title>
+        <mat-card-subtitle>IBAN</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{owner.iban}}</p>
+      </mat-card-content>
+    </mat-card>
+
+    <!--BALANCE CARD-->
+    <mat-card class="balance-card-container"
+              [ngClass]="{'red-card': owner.expectedRentAmount != null && owner.balance < owner.expectedRentAmount,
+              'green-card': owner.expectedRentAmount != null && owner.balance == owner.expectedRentAmount}">
+      <mat-card-header>
+        <mat-card-title>Solde *</mat-card-title>
+        <mat-card-subtitle>Montant attendu : {{owner.expectedRentAmount}} €</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Solde actuel : {{owner.balance}} €</p>
+      </mat-card-content>
+      <mat-card-footer>
+        <p class="balance-card-footer">*Après déduction des 8% de frais de gestion</p>
+      </mat-card-footer>
+    </mat-card>
+  </div>
 
   <div class="button-owner-detail-container">
     <button mat-raised-button color="primary" routerLink="/proprietaires/{{ownerId}}/modification"
