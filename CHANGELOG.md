@@ -16,6 +16,17 @@ Nomenclature :
 
 #### Added
 
+### [0.1.7] - 2023-04-14
+
+#### Updated
+
+- Updated owner business model to add balance and expectedRentAmount
+- Updated db.json to lock api
+
+#### Added
+
+- Added card on Owner detail to display balance and expectedRentAmount minus rental fees
+
 ### [0.1.6] - 2023-04-13
 
 #### Added
