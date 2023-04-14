@@ -8,20 +8,11 @@
   margin: auto;
 }
 
-.iban-card, .iban-span-container, .button-owner-detail-container {
+.iban-card, .button-owner-detail-container, .balance-card-container {
   margin: 20px;
 }
 
-.iban-span-title {
-  color: $black;
-  font-size: 1.125rem;
-}
-
-span {
-  margin-bottom: 10px;
-}
-
-.iban-span-container, .button-owner-detail-container {
+.button-owner-detail-container {
   display: flex;
   flex-direction: column;
 }
@@ -33,6 +24,20 @@ span {
 .button-owner-detail {
   width: 200px;
   margin-bottom: 20px;
+}
+
+.balance-card-footer {
+  font-size: 12px;
+  padding-left: 16px;
+  margin-bottom: 16px;
+}
+
+.red-card {
+  background-color: rgba(255, 0, 0, 0.35);
+}
+
+.green-card {
+  background: rgba(0, 128, 0, 0.35);
 }
 
 @media screen and (min-width: $layout-breakpoint-medium) {

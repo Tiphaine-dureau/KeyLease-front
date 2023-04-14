@@ -1,7 +1,7 @@
 # KeyLeaseFront
 
-Keylease (ici la partie front) est un logiciel de gestion locative réalisé avec Angular 15.1 et Angular Matérial.
-Il a été déployé sur Render via un docker file.
+Keylease (ici la partie front) est un logiciel de gestion locative réalisé avec Angular 15.1 et Angular Material.
+Il a été déployé sur Render : https://keylease.onrender.com
 
 ## Run
 
