@@ -1,4 +1,5 @@
-<div class="cards-container">
+<app-title [title]="'Bienvenue sur KeyLease'"></app-title>
+<div class="grid grid-cols-2 lg:grid-cols-3 gap-4">
   <app-card *ngFor="let card of cardList" [title]="card.title" [img]="card.img" [alt]="card.alt"
             [route]="card.route"></app-card>
 </div>

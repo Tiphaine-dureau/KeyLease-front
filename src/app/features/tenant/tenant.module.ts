@@ -3,7 +3,6 @@ import {CommonModule} from '@angular/common';
 import {TenantsDashboardComponent} from "./tenants-dashboard/tenants-dashboard.component";
 import {CreateTenantComponent} from "./create-tenant/create-tenant.component";
 import {MatButtonModule} from "@angular/material/button";
-import {RouterLink} from "@angular/router";
 import {UpdateTenantComponent} from './update-tenant/update-tenant.component';
 import {TenantDetailComponent} from './tenant-detail/tenant-detail.component';
 import {MatStepperModule} from "@angular/material/stepper";
@@ -18,6 +17,9 @@ import {MatIconModule} from "@angular/material/icon";
 import {ComponentsModule} from "../../common/components/components.module";
 import {MatCardModule} from "@angular/material/card";
 import {PaymentModule} from "../payment/payment.module";
+import {RouterModule} from "@angular/router";
+import {TitleComponent} from "../../common/components/title/title.component";
+import {LabelValueComponent} from "../../common/components/label-value/label-value.component";
 
 @NgModule({
   declarations: [
@@ -30,7 +32,7 @@ import {PaymentModule} from "../payment/payment.module";
   imports: [
     CommonModule,
     MatButtonModule,
-    RouterLink,
+    RouterModule,
     MatStepperModule,
     MatFormFieldModule,
     ReactiveFormsModule,
@@ -42,6 +44,8 @@ import {PaymentModule} from "../payment/payment.module";
     ComponentsModule,
     MatCardModule,
     PaymentModule,
+    TitleComponent,
+    LabelValueComponent
   ]
 })
 export class TenantModule {

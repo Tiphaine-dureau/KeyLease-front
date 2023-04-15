@@ -1,5 +1,6 @@
-<button mat-raised-button color="primary" routerLink="/biens/{{fixtureInventory?.property?.id}}">Détail du bien</button>
 <ng-container *ngIf="fixtureInventory">
+  <app-title [title]="'Modification de l\'état des lieux'"
+             [back]="'/etats-des-lieux/' + fixtureInventory.property.id"></app-title>
   <app-fixture-inventory-form (onFormSubmit)="onSubmit($event)"
                               [fixtureInventory]="fixtureInventory"></app-fixture-inventory-form>
 </ng-container>

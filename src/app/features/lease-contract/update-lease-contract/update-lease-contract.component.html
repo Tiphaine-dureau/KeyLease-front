@@ -1,6 +1,8 @@
-<button mat-raised-button color="primary" routerLink="/biens/{{leaseContract?.property?.id}}">Détail du bien</button>
 <ng-container *ngIf="leaseContract">
-  <app-lease-contract-form [leaseContract]="leaseContract" (onFormSubmit)="onSubmit($event)"></app-lease-contract-form>
+  <app-title [title]="'Modification du contrat'" [back]="'/contrats-location/' + leaseContract.id"></app-title>
+  <ng-container *ngIf="leaseContract">
+    <app-lease-contract-form [leaseContract]="leaseContract" (onFormSubmit)="onSubmit($event)"></app-lease-contract-form>
+  </ng-container>
 </ng-container>
 
 <ng-container *ngIf="isLoading">

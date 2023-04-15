@@ -1,49 +1,32 @@
-<button mat-raised-button color="primary" routerLink="/locataires">Dashboard locataires</button>
-<!--SECTION INFORMATIONS LOCATAIRE-->
-<div class="cards-details-container">
-  <!--CARTE LOCATAIRE-->
-  <div class="component-identity-card">
-    <app-identity-card [data]="tenant" [subtitle]="subtitle"></app-identity-card>
+<ng-container *ngIf="tenant">
+  <app-title [title]="'Détails du locataire'" [back]="'/locataires'"></app-title>
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 pb-3">
+      <app-identity-card [data]="tenant" [subtitle]="subtitle"></app-identity-card>
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Conjoint</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <app-label-value [label]="'Nom'" [value]="tenant.partnerLastName"></app-label-value>
+          <app-label-value [label]="'Prénom'" [value]="tenant.partnerFirstName"></app-label-value>
+          <app-label-value [label]="'Téléphone'" [value]="tenant.partnerPhoneNumber" [divider]="false"></app-label-value>
+        </mat-card-content>
+      </mat-card>
   </div>
-  <!--CARTE CONJOINT-->
-  <mat-card class="partner-card">
-    <mat-card-header>
-      <mat-card-title>Conjoint</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <div class="partner-span-container">
-        <span class="partner-span-title">Nom</span>
-        <span>{{tenant?.partnerLastName}}</span>
-      </div>
-      <mat-divider></mat-divider>
-      <div class="partner-span-container">
-        <span class="partner-span-title">Prénom</span>
-        <span>{{tenant?.partnerFirstName}}</span>
-      </div>
-      <mat-divider></mat-divider>
-      <div class="partner-span-container">
-        <span class="partner-span-title">Téléphone</span>
-        <span>{{tenant?.partnerPhoneNumber}}</span>
-      </div>
-    </mat-card-content>
-  </mat-card>
-  <!--BOUTONS MODIFIER ET SUPPRIMER LOCATAIRE-->
-  <div class="button-tenant-detail-container">
-    <button mat-raised-button color="primary" routerLink="/locataires/{{tenantID}}/modification"
-            class="button-tenant-detail">Modifier
+  <div class="flex">
+    <button mat-raised-button color="accent" routerLink="/locataires/{{tenantID}}/modification" class="me-3">
+      Modifier
     </button>
-    <button mat-raised-button color="warn" (click)="delete()" class="button-tenant-detail">Supprimer</button>
+    <button mat-raised-button color="warn" (click)="delete()">Supprimer</button>
   </div>
-</div>
-<!--FIN SECTION INFORMATIONS LOCATAIRE-->
-
-<!--TABLES PAIEMENTS-->
-<ng-container *ngIf="paymentSections">
-  <ng-container *ngFor="let section of paymentSections">
-    <h3 class="payments-contracts-titles">Paiements effectués à
-      {{section.contract.owner.firstName}} {{section.contract.owner.lastName}} : </h3>
-    <app-payments-dashboard [data]="section.payments" [leaseContract]="section.contract"
-                            [leaseContractId]="section.contract.id"></app-payments-dashboard>
+  <!--TABLES PAIEMENTS-->
+  <ng-container *ngIf="paymentSections">
+    <ng-container *ngFor="let section of paymentSections">
+      <app-title
+        [title]="'Paiements effectués à ' + section.contract.owner.firstName + ' ' + section.contract.owner.lastName"></app-title>
+      <app-payments-dashboard [data]="section.payments" [leaseContract]="section.contract"
+                              [leaseContractId]="section.contract.id"></app-payments-dashboard>
+    </ng-container>
   </ng-container>
 </ng-container>
 

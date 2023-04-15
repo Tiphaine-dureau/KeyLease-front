@@ -1,6 +1,5 @@
-<button mat-raised-button color="primary" routerLink="/locataires">Dashboard locataires</button>
-
 <ng-container *ngIf="tenant">
+  <app-title [title]="'Modifier un locataire'" [back]="'/locataires/' + tenant.id"></app-title>
   <app-tenant-form [tenant]="tenant" (onFormSubmit)="onSubmit($event)"></app-tenant-form>
 </ng-container>
 <ng-container *ngIf="isLoading">

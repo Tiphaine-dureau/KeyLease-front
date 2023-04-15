@@ -1,11 +1,3 @@
-@import "src/styles/variables";
-
-.property-cards-container, .contract-and-inventory-container {
-  display: grid;
-  width: 100%;
-  margin: auto;
-}
-
 .property-cards-container {
   align-items: start;
 }
@@ -20,7 +12,7 @@
 }
 
 .property-span-title {
-  color: $black;
+  color: #000;
   font-size: 1.125rem;
 }
 
@@ -37,20 +29,3 @@ span {
   width: 200px;
   margin-bottom: 20px;
 }
-
-.lease-contract-card, .fixture-inventory-card {
-  margin: 0 20px 20px 20px;
-}
-
-@media screen and (min-width: $layout-breakpoint-medium) {
-  .property-cards-container, .contract-and-inventory-container {
-    grid-template-columns: repeat(1, 1fr 1fr);
-  }
-}
-
-@media screen and (min-width: $layout-breakpoint-extra-large) {
-  .property-cards-container, .contract-and-inventory-container {
-    width: 80%;
-  }
-}
-

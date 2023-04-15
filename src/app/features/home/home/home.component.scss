@@ -1,17 +1,17 @@
-@import "src/styles/variables";
+@import "src/assets/styles/breakpoints";
 
 .cards-container {
   justify-content: center;
   display: grid;
 }
 
-@media screen and (min-width: $layout-breakpoint-small) {
+@media screen and (min-width: $screen-sm-min) {
   .cards-container {
     grid-template-columns: repeat(2, 300px);
   }
 }
 
-@media screen and (min-width: $layout-breakpoint-large) {
+@media screen and (min-width: $screen-lg-min) {
   .cards-container {
     grid-template-columns: repeat(3, 300px);
   }

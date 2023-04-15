@@ -8,7 +8,7 @@ import {MatTableModule} from "@angular/material/table";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
-import {RouterLink} from "@angular/router";
+import {RouterModule} from "@angular/router";
 import {MatCardModule} from "@angular/material/card";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatDatepickerModule} from "@angular/material/datepicker";
@@ -16,6 +16,8 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatButtonModule} from "@angular/material/button";
 import {ComponentsModule} from "../../common/components/components.module";
 import {MatDividerModule} from "@angular/material/divider";
+import {TitleComponent} from "../../common/components/title/title.component";
+import {LabelValueComponent} from "../../common/components/label-value/label-value.component";
 
 @NgModule({
   declarations: [
@@ -28,12 +30,12 @@ import {MatDividerModule} from "@angular/material/divider";
     PaymentsDashboardComponent
   ],
   imports: [
+    RouterModule,
     CommonModule,
     MatTableModule,
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
-    RouterLink,
     MatCardModule,
     ReactiveFormsModule,
     MatDatepickerModule,
@@ -41,6 +43,8 @@ import {MatDividerModule} from "@angular/material/divider";
     MatButtonModule,
     ComponentsModule,
     MatDividerModule,
+    TitleComponent,
+    LabelValueComponent
   ]
 })
 export class PaymentModule {

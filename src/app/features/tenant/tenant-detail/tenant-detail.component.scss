@@ -1,4 +1,4 @@
-@import "src/styles/variables";
+@import "src/assets/styles/breakpoints";
 
 .cards-details-container {
   display: grid;
@@ -17,7 +17,7 @@
 }
 
 .partner-span-title {
-  color: $black;
+  color: #000;
   font-size: 1.125rem;
 }
 
@@ -39,19 +39,19 @@ span {
 }
 
 
-@media screen and (min-width: $layout-breakpoint-small) {
+@media screen and (min-width: $screen-sm-min) {
   .cards-details-container {
     grid-template-columns: repeat(1, 1fr 1fr);
   }
 }
 
-@media screen and (min-width: $layout-breakpoint-large) {
+@media screen and (min-width: $screen-lg-min) {
   .cards-details-container {
     grid-template-columns: repeat(1, 2fr 1fr);
   }
 }
 
-@media screen and (min-width: $layout-breakpoint-extra-large) {
+@media screen and (min-width: $screen-xl-min) {
   .cards-details-container {
     width: 80%;
   }
