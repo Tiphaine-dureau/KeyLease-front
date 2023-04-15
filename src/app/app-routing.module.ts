@@ -10,6 +10,7 @@ import {AuthGuard} from "./common/auth/auth-guard";
 import {LeaseContractRoutingModule} from "./features/lease-contract/lease-contract-routing.module";
 import {FixtureInventoryRoutingModule} from "./features/fixture-inventory/fixture-inventory-routing.module";
 import {PaymentRoutingModule} from "./features/payment/payment-routing.module";
+import {AccountComponent} from "./features/login/account/account.component";
 
 const routes: Routes = [
   {
@@ -43,6 +44,10 @@ const routes: Routes = [
       {
         path: 'paiements',
         loadChildren: () => PaymentRoutingModule,
+      },
+      {
+        path: 'compte',
+        component: AccountComponent
       },
     ]
   },

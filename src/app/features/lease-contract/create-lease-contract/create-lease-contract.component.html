@@ -1,3 +1,4 @@
+<app-title [title]="'Création du contrat'" [back]="'/biens/' + propertyId"></app-title>
 <app-lease-contract-form (onFormSubmit)="onSubmit($event)"></app-lease-contract-form>
 <ng-container *ngIf="isLoading">
   <app-spinner></app-spinner>

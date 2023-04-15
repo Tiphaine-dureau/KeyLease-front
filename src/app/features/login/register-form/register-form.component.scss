@@ -1,13 +1,7 @@
-@import "src/styles/variables";
-@import "src/styles/mixins";
-
-.register-form-container {
-  @include flex-center;
-}
+@import "src/assets/styles/breakpoints";
 
 .register-form-group {
-  @include padding-margin-20px;
-  background: $white;
+  background: #fff;
   border-radius: 4px;
 }
 
@@ -37,25 +31,25 @@
   font-family: Nunito, "Helvetica Neue", sans-serif;
 }
 
-@media (max-width: $layout-breakpoint-small) {
+@media (max-width: $screen-sm-min) {
   .register-form-group {
     min-width: 65vw;
   }
 }
 
-@media (min-width: 577px) and (max-width: $layout-breakpoint-medium) {
+@media (min-width: 577px) and (max-width: $screen-md-min) {
   .register-form-group {
     min-width: 55vw;
   }
 }
 
-@media (min-width: 769px) and (max-width: $layout-breakpoint-large) {
+@media (min-width: 769px) and (max-width: $screen-lg-min) {
   .register-form-group {
     min-width: 50vw;
   }
 }
 
-@media (min-width: 993px) and (max-width: $layout-breakpoint-extra-extra-large) {
+@media (min-width: 993px) and (max-width: $screen-xl-min) {
   .register-form-group {
     min-width: 40vw;
   }

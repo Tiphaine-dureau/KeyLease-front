@@ -1,7 +1,6 @@
 import {LOCALE_ID, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
-import {RouterLink} from "@angular/router";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {LoginModule} from "./features/login/login.module";
@@ -22,14 +21,15 @@ import {TOKEN_KEY} from "./features/login/services/login.service";
 import {LeaseContractModule} from "./features/lease-contract/lease-contract.module";
 import {FixtureInventoryModule} from "./features/fixture-inventory/fixture-inventory.module";
 import { PaymentRoutingModule } from './features/payment/payment-routing.module';
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
+    RouterModule,
     BrowserModule,
-    RouterLink,
     HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,

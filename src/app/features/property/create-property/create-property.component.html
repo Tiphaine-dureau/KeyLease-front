@@ -1,4 +1,4 @@
-<button mat-raised-button color="primary" routerLink="/biens">Dashboard biens</button>
+<app-title [title]="'Créer un bien'" [back]="'/biens'"></app-title>
 <app-property-form (onFormSubmit)="onSubmit($event)"></app-property-form>
 <ng-container *ngIf="isLoading">
   <app-spinner></app-spinner>

@@ -1,131 +1,129 @@
-<div class="stepper-container">
-  <mat-stepper class="tenant-stepper" [orientation]="(stepperOrientation | async)!" linear>
-    <!--FIRST STEP-->
-    <mat-step [stepControl]="identityFormGroup" label="Identité">
-      <form [formGroup]="identityFormGroup">
-        <div class="form-group-container">
-          <mat-form-field appearance="fill">
-            <mat-label>Nom</mat-label>
-            <input matInput type="text" placeholder="Nom" formControlName="lastName" required>
-          </mat-form-field>
-          <mat-form-field appearance="fill">
-            <mat-label>Prénom</mat-label>
-            <input matInput type="text" placeholder="Prénom" formControlName="firstName" required>
-          </mat-form-field>
-        </div>
+<mat-stepper class="tenant-stepper" [orientation]="(stepperOrientation | async)!" linear>
+  <!--FIRST STEP-->
+  <mat-step [stepControl]="identityFormGroup" label="Identité">
+    <form [formGroup]="identityFormGroup">
+      <div class="form-group-container">
         <mat-form-field appearance="fill">
-          <mat-label>Date de naissance</mat-label>
-          <input matInput type="text" formControlName="birthday" [matDatepicker]="picker">
-          <mat-hint>jour/mois/année</mat-hint>
-          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
+          <mat-label>Nom</mat-label>
+          <input matInput type="text" placeholder="Nom" formControlName="lastName" required>
         </mat-form-field>
-        <div class="form-group-button">
-          <button mat-raised-button color="primary" matStepperNext>Suivant</button>
-        </div>
-      </form>
-    </mat-step>
-
-    <!--SECOND STEP-->
-    <mat-step [stepControl]="postalAddressFormGroup" label="Adresse postale">
-      <form [formGroup]="postalAddressFormGroup">
-        <div class="form-group-container">
-          <mat-form-field appearance="fill">
-            <mat-label>Numéro et nom de rue</mat-label>
-            <input matInput type="text" formControlName="street" placeholder="Numéro et nom de rue" required>
-          </mat-form-field>
-          <mat-form-field appearance="fill">
-            <mat-label>Complément d'adresse</mat-label>
-            <input matInput type="text" formControlName="additionalAddress"
-                   placeholder=" Résidence - Bâtiment - N°Appartement ">
-          </mat-form-field>
-          <mat-form-field appearance="fill">
-            <mat-label>Code Postal</mat-label>
-            <input matInput type="text" formControlName="zipCode" placeholder="Code postal" required>
-          </mat-form-field>
-          <mat-form-field appearance="fill">
-            <mat-label>Ville</mat-label>
-            <input matInput type="text" formControlName="town" placeholder="Ville" required>
-          </mat-form-field>
-        </div>
-        <div class="form-group-buttons">
-          <button mat-raised-button matStepperPrevious>Retour</button>
-          <button mat-raised-button color="primary" matStepperNext>Suivant</button>
-        </div>
-      </form>
-    </mat-step>
-
-    <!--THIRD STEP-->
-    <mat-step [stepControl]="contactDetailsFormGroup" label="Coordonnées">
-      <form [formGroup]="contactDetailsFormGroup">
-        <div class="form-group-container">
-          <mat-form-field appearance="fill">
-            <mat-label>Téléphone</mat-label>
-            <input matInput type="tel" formControlName="phone" placeholder="Téléphone" required>
-          </mat-form-field>
-          <mat-form-field appearance="fill">
-            <mat-label>Email</mat-label>
-            <input matInput type="email" formControlName="email" placeholder="Email">
-          </mat-form-field>
-
-          <mat-divider class="details-divider"></mat-divider>
-          <mat-form-field appearance="fill">
-            <mat-label>Nom du conjoint</mat-label>
-            <input matInput type="text" formControlName="partnerLastName" placeholder="Nom du conjoint">
-          </mat-form-field>
-          <mat-form-field appearance="fill">
-            <mat-label>Prénom du conjoint</mat-label>
-            <input matInput type="text" formControlName="partnerFirstName" placeholder="Prénom du conjoint">
-          </mat-form-field>
-          <mat-form-field appearance="fill">
-            <mat-label>Téléphone du conjoint</mat-label>
-            <input matInput type="tel" formControlName="partnerPhone" placeholder="Téléphone du conjoint">
-          </mat-form-field>
-        </div>
-        <div class="form-group-buttons">
-          <button mat-raised-button matStepperPrevious>Retour</button>
-          <button mat-raised-button color="primary" matStepperNext>Suivant</button>
-        </div>
-      </form>
-    </mat-step>
-
-    <!--LAST STEP-->
-    <mat-step>
-      <ng-template matStepLabel>Récapitulatif et validation</ng-template>
-      <div>
-        <h3>Identité du locataire</h3>
-        <p>Nom : <span class="result-form">{{identityFormGroup.value.firstName}}</span></p>
-        <p>Prénom : <span class="result-form">{{identityFormGroup.value.lastName}}</span></p>
-        <p>Date de naissance : <span class="result-form">{{identityFormGroup.value.birthday | date:'dd/MM/yyyy'}}</span>
-        </p>
+        <mat-form-field appearance="fill">
+          <mat-label>Prénom</mat-label>
+          <input matInput type="text" placeholder="Prénom" formControlName="firstName" required>
+        </mat-form-field>
       </div>
-      <mat-divider></mat-divider>
-      <div>
-        <h3>Adresse postale</h3>
-        <p>Numéro et nom de rue : <span class="result-form">{{postalAddressFormGroup.value.street}}</span></p>
-        <p>Complément d'adresse : <span class="result-form">{{postalAddressFormGroup.value.additionalAddress}}</span>
-        </p>
-        <p>Code postal : <span class="result-form">{{postalAddressFormGroup.value.zipCode}}</span></p>
-        <p>Ville: <span class="result-form">{{postalAddressFormGroup.value.town}}</span></p>
+      <mat-form-field appearance="fill">
+        <mat-label>Date de naissance</mat-label>
+        <input matInput type="text" formControlName="birthday" [matDatepicker]="picker">
+        <mat-hint>jour/mois/année</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <div class="form-group-button">
+        <button mat-raised-button color="primary" matStepperNext>Suivant</button>
       </div>
-      <mat-divider></mat-divider>
-      <div>
-        <h3>Coordonnées</h3>
-        <p>Téléphone : <span class="result-form">{{contactDetailsFormGroup.value.phone}}</span></p>
-        <p>Email : <span class="result-form">{{contactDetailsFormGroup.value.email}}</span></p>
+    </form>
+  </mat-step>
+
+  <!--SECOND STEP-->
+  <mat-step [stepControl]="postalAddressFormGroup" label="Adresse postale">
+    <form [formGroup]="postalAddressFormGroup">
+      <div class="form-group-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Numéro et nom de rue</mat-label>
+          <input matInput type="text" formControlName="street" placeholder="Numéro et nom de rue" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Complément d'adresse</mat-label>
+          <input matInput type="text" formControlName="additionalAddress"
+                 placeholder=" Résidence - Bâtiment - N°Appartement ">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Code Postal</mat-label>
+          <input matInput type="text" formControlName="zipCode" placeholder="Code postal" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Ville</mat-label>
+          <input matInput type="text" formControlName="town" placeholder="Ville" required>
+        </mat-form-field>
       </div>
-      <mat-divider></mat-divider>
-      <div>
-        <h3>Coordonnées du conjoint</h3>
-        <p>Nom : <span class="result-form">{{contactDetailsFormGroup.value.partnerLastName}}</span></p>
-        <p>Prénom : <span class="result-form">{{contactDetailsFormGroup.value.partnerFirstName}}</span></p>
-        <p>Téléphone : <span class="result-form">{{contactDetailsFormGroup.value.partnerPhone}}</span></p>
-      </div>
-      <mat-divider></mat-divider>
       <div class="form-group-buttons">
-        <button mat-raised-button matStepperPrevious>Modifier</button>
-        <button mat-raised-button color="primary" (click)="onSubmit()">Valider</button>
+        <button mat-raised-button matStepperPrevious>Retour</button>
+        <button mat-raised-button color="primary" matStepperNext>Suivant</button>
       </div>
-    </mat-step>
-  </mat-stepper>
-</div>
+    </form>
+  </mat-step>
+
+  <!--THIRD STEP-->
+  <mat-step [stepControl]="contactDetailsFormGroup" label="Coordonnées">
+    <form [formGroup]="contactDetailsFormGroup">
+      <div class="form-group-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Téléphone</mat-label>
+          <input matInput type="tel" formControlName="phone" placeholder="Téléphone" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" formControlName="email" placeholder="Email">
+        </mat-form-field>
+
+        <mat-divider class="details-divider"></mat-divider>
+        <mat-form-field appearance="fill">
+          <mat-label>Nom du conjoint</mat-label>
+          <input matInput type="text" formControlName="partnerLastName" placeholder="Nom du conjoint">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Prénom du conjoint</mat-label>
+          <input matInput type="text" formControlName="partnerFirstName" placeholder="Prénom du conjoint">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Téléphone du conjoint</mat-label>
+          <input matInput type="tel" formControlName="partnerPhone" placeholder="Téléphone du conjoint">
+        </mat-form-field>
+      </div>
+      <div class="form-group-buttons">
+        <button mat-raised-button matStepperPrevious>Retour</button>
+        <button mat-raised-button color="primary" matStepperNext>Suivant</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <!--LAST STEP-->
+  <mat-step>
+    <ng-template matStepLabel>Récapitulatif et validation</ng-template>
+    <div>
+      <h3>Identité du locataire</h3>
+      <p>Nom : <span class="result-form">{{identityFormGroup.value.firstName}}</span></p>
+      <p>Prénom : <span class="result-form">{{identityFormGroup.value.lastName}}</span></p>
+      <p>Date de naissance : <span class="result-form">{{identityFormGroup.value.birthday | date:'dd/MM/yyyy'}}</span>
+      </p>
+    </div>
+    <mat-divider></mat-divider>
+    <div>
+      <h3>Adresse postale</h3>
+      <p>Numéro et nom de rue : <span class="result-form">{{postalAddressFormGroup.value.street}}</span></p>
+      <p>Complément d'adresse : <span class="result-form">{{postalAddressFormGroup.value.additionalAddress}}</span>
+      </p>
+      <p>Code postal : <span class="result-form">{{postalAddressFormGroup.value.zipCode}}</span></p>
+      <p>Ville: <span class="result-form">{{postalAddressFormGroup.value.town}}</span></p>
+    </div>
+    <mat-divider></mat-divider>
+    <div>
+      <h3>Coordonnées</h3>
+      <p>Téléphone : <span class="result-form">{{contactDetailsFormGroup.value.phone}}</span></p>
+      <p>Email : <span class="result-form">{{contactDetailsFormGroup.value.email}}</span></p>
+    </div>
+    <mat-divider></mat-divider>
+    <div>
+      <h3>Coordonnées du conjoint</h3>
+      <p>Nom : <span class="result-form">{{contactDetailsFormGroup.value.partnerLastName}}</span></p>
+      <p>Prénom : <span class="result-form">{{contactDetailsFormGroup.value.partnerFirstName}}</span></p>
+      <p>Téléphone : <span class="result-form">{{contactDetailsFormGroup.value.partnerPhone}}</span></p>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="form-group-buttons">
+      <button mat-raised-button matStepperPrevious>Modifier</button>
+      <button mat-raised-button color="primary" (click)="onSubmit()">Valider</button>
+    </div>
+  </mat-step>
+</mat-stepper>

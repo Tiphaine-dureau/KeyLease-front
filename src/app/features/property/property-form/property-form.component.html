@@ -1,4 +1,4 @@
-<div class="stepper-container">
+<div>
   <mat-stepper class="property-stepper" [orientation]="(stepperOrientation | async)!" linear>
     <!--FIRST STEP-->
     <mat-step [stepControl]="descriptionFormGroup" label="Caractéristiques du bien">
@@ -13,11 +13,11 @@
             *ngIf="descriptionFormGroup.get('propertyType')?.invalid && !descriptionFormGroup.pristine">
             Vous devez sélectionner un type de bien.
           </mat-error>
-          <mat-form-field appearance="fill">
+          <mat-form-field appearance="fill" class="w-full md:w-1/3">
             <mat-label>Surface habitable</mat-label>
             <input matInput type="text" placeholder="Surface habitable" formControlName="area">
           </mat-form-field>
-          <mat-form-field appearance="fill">
+          <mat-form-field appearance="fill" class="w-full md:w-1/3">
             <mat-label>Nombre de pièces</mat-label>
             <input matInput type="text" placeholder="Nombre de pièces" formControlName="roomsNumber">
           </mat-form-field>

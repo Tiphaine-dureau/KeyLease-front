@@ -75,7 +75,6 @@ export class AuthState {
     })
     return this.authService.login(action.payload).pipe(
       tap((result: LoginBusinessModel) => {
-        console.warn("patch state");
         ctx.patchState({
           token: result.token,
           username: action.payload.email,

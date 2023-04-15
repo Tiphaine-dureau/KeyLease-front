@@ -1,5 +1,5 @@
-<button mat-raised-button color="primary" routerLink="/biens">Dashboard biens</button>
 <ng-container *ngIf="property">
+  <app-title [title]="'Modification du bien'" [back]="'/biens/' + property.id"></app-title>
   <app-property-form [property]="property" (onFormSubmit)="onSubmit($event)"></app-property-form>
 </ng-container>
 

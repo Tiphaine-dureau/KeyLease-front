@@ -1,7 +1,4 @@
-<button mat-raised-button color="primary" routerLink="/locataires" xmlns="http://www.w3.org/1999/html">Dashboard
-  locataires
-</button>
-
+<app-title [title]="'Créer un locataire'" [back]="'/locataires'"></app-title>
 <app-tenant-form (onFormSubmit)="onSubmit($event)"></app-tenant-form>
 <ng-container *ngIf="isLoading">
   <app-spinner></app-spinner>

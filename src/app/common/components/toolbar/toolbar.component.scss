@@ -1,5 +1,3 @@
-@import "src/styles/variables";
-
 .title-toolbar, .link-toolbar {
   font-family: Nunito, "Helvetica Neue", sans-serif;
   color: #FFFFFF;
@@ -20,7 +18,7 @@
 }
 
 .link-toolbar:hover {
-  text-decoration-color: $pink;
+  text-decoration-color: #000;
 }
 
 .spacer {

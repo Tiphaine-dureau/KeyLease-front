@@ -6,13 +6,15 @@ import {UpdateFixtureInventoryComponent} from "./update-fixture-inventory/update
 import {MatCardModule} from "@angular/material/card";
 import {MatDividerModule} from "@angular/material/divider";
 import {MatButtonModule} from "@angular/material/button";
-import {RouterLink} from "@angular/router";
+import {RouterModule} from "@angular/router";
 import {FixtureInventoryFormComponent} from './fixture-inventory-form/fixture-inventory-form.component';
 import {ComponentsModule} from "../../common/components/components.module";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
+import {TitleComponent} from "../../common/components/title/title.component";
+import {LabelValueComponent} from "../../common/components/label-value/label-value.component";
 
 @NgModule({
   declarations: [
@@ -26,12 +28,14 @@ import {ReactiveFormsModule} from "@angular/forms";
     MatCardModule,
     MatDividerModule,
     MatButtonModule,
-    RouterLink,
+    RouterModule,
     ComponentsModule,
     MatFormFieldModule,
     MatDatepickerModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TitleComponent,
+    LabelValueComponent
   ]
 })
 export class FixtureInventoryModule {

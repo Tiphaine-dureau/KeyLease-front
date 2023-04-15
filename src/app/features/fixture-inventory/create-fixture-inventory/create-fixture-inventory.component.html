@@ -1,5 +1,5 @@
+<app-title [title]="'Création de l\'état des lieux'" [back]="'/biens/' + propertyId"></app-title>
 <app-fixture-inventory-form (onFormSubmit)="onSubmit($event)"></app-fixture-inventory-form>
-
 <ng-container *ngIf="isLoading">
   <app-spinner></app-spinner>
 </ng-container>

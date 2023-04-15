@@ -1,23 +1,21 @@
-<button mat-raised-button color="primary" routerLink="{{backRoute}}">Retour</button>
-<mat-card class="reminder-card-container">
+<app-title [title]="'Ajouter un paiement'" [back]="backRoute"></app-title>
+<mat-card>
   <mat-card-header>
     <mat-card-title>Paiement de {{contract?.tenant?.firstName}} {{contract?.tenant?.lastName}}</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <p>Destinataire du paiement
-      : {{contract?.owner?.firstName}} {{contract?.owner?.lastName}}</p>
-    <p>Bien concerné
-      :  {{contract?.property?.address?.street}} {{contract?.property?.address?.additionalAddress}} {{contract?.property?.address?.zipCode}} {{contract?.property?.address?.town}}</p>
-    <p>Montant du loyer attendu
-      : {{contract?.rentAmount}}€
-    </p>
+    <app-label-value [label]="'Destinataire du paiement'"
+                     [value]="contract?.owner?.firstName + ' ' + contract?.owner?.lastName"></app-label-value>
+    <app-label-value [label]="'Bien concerné'"
+                     [value]="contract?.property?.address?.street + ' ' + contract?.property?.address?.additionalAddress + ' ' + contract?.property?.address?.zipCode + ' ' + contract?.property?.address?.town"></app-label-value>
+    <app-label-value [label]="'Montant du loyer attendu'"
+                     [value]="contract?.rentAmount + '€'" [divider]="false"></app-label-value>
   </mat-card-content>
-
 </mat-card>
-<ng-container *ngIf="contract">
+<div class="pt-3" *ngIf="contract">
   <app-payment-form [expectedAmountFromCafToOwner]="contract.expectedAmountFromCafToOwner"
                     (onFormSubmit)="onSubmit($event)"></app-payment-form>
-</ng-container>
+</div>
 
 <ng-container *ngIf="isLoading">
   <app-spinner></app-spinner>
