@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {TenantBusinessModel} from "../../../common/business-models/tenant.business-model";
 import {environment} from "../../../../environments/environment";
@@ -30,5 +30,17 @@ export class TenantService {
 
   public deleteTenant(tenantId: string): Observable<TenantBusinessModel> {
     return this.http.delete<TenantBusinessModel>(`${environment.apiUrl}/tenants/${tenantId}`);
+  }
+
+  public getRentReceipt(): Observable<any> {
+    let headers: HttpHeaders = new HttpHeaders();
+    headers = headers
+      .set('Accept', 'application/pdf')
+      .set('Content-Type', 'application/pdf');
+    return this.http.get(`${environment.apiUrl}/receipt`, {
+      headers: headers,
+      responseType: 'blob',
+      observe: 'response' as 'body'
+    });
   }
 }
