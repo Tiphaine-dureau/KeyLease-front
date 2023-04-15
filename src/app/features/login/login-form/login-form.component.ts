@@ -13,8 +13,7 @@ import {AuthState} from "../../../common/auth/auth-state";
 
 @Component({
   selector: 'app-form-login',
-  templateUrl: './login-form.component.html',
-  styleUrls: ['./login-form.component.scss']
+  templateUrl: './login-form.component.html'
 })
 export class LoginFormComponent implements OnInit {
   public hidePassword = true;

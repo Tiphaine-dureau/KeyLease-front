@@ -1,12 +1,48 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@import "src/assets/styles/colors";
+@import "src/assets/styles/containers";
 
-html, body {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: #{mat.get-color-from-palette($uc-primary)};
+    --color-accent: #{mat.get-color-from-palette($uc-accent)};
+    --color-warn: #{mat.get-color-from-palette($uc-warn)};
+    --color-success: #{$success};
+    --color-danger: #{$danger};
+  }
+
+  .dark-theme {
+    --color-primary: #{mat.get-color-from-palette($uc-primary-dark)};
+    --color-accent: #{mat.get-color-from-palette($uc-accent-dark)};
+    --color-warn: #{mat.get-color-from-palette($uc-warn-dark)};
+    --color-success: #{$success};
+    --color-danger: #{$danger};
+  }
+}
+
+.overflow-w-any {
+  overflow-wrap: anywhere;
+}
+
+html {
   height: 100%;
 }
 
 body {
   margin: 0;
-  font-family: Nunito, "Helvetica Neue", sans-serif;
-  background: #DCDCDC;
+  height: 100%;
+  font-family: Roboto, Helvetica, sans-serif;
 }
 
+.kl-form-input {
+  width: 100%;
+}
+
+/* Center icon in mat button */
+button .mat-icon {
+  display: flex !important;
+}

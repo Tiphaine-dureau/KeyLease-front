@@ -1,5 +1,4 @@
-<button mat-raised-button color="primary" routerLink="/proprietaires">Dashboard propriétaires</button>
-
+<app-title [title]="'Créer un propriétaire'" [back]="'/proprietaires'"></app-title>
 <app-owner-form (onFormSubmit)="onSubmit($event)"></app-owner-form>
 <ng-container *ngIf="isLoading">
   <app-spinner></app-spinner>

@@ -8,21 +8,26 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {HttpClientModule} from "@angular/common/http";
 import {RegisterFormComponent} from "./register-form/register-form.component";
-import {RouterLink} from "@angular/router";
+import {RouterModule} from "@angular/router";
 import {ComponentsModule} from "../../common/components/components.module";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatCardModule} from "@angular/material/card";
+import {AccountComponent} from "./account/account.component";
+import {TitleComponent} from "../../common/components/title/title.component";
 
 @NgModule({
   declarations: [
+    AccountComponent,
     LoginFormComponent,
     RegisterFormComponent
   ],
   exports: [
+    AccountComponent,
     LoginFormComponent,
     RegisterFormComponent
   ],
   imports: [
+    RouterModule,
     CommonModule,
     MatFormFieldModule,
     ReactiveFormsModule,
@@ -30,11 +35,11 @@ import {MatCardModule} from "@angular/material/card";
     MatButtonModule,
     MatIconModule,
     HttpClientModule,
-    RouterLink,
     ComponentsModule,
     MatSnackBarModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    TitleComponent
   ],
   providers: [],
 })

@@ -6,8 +6,7 @@ import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-property-card',
-  templateUrl: './property-card.component.html',
-  styleUrls: ['./property-card.component.scss']
+  templateUrl: './property-card.component.html'
 })
 export class PropertyCardComponent implements OnInit {
   @Input() title!: string;

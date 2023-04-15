@@ -1,38 +1,34 @@
-<button mat-raised-button color="primary" routerLink="/biens/{{fixtureInventory?.property?.id}}">Détail du bien
-</button>
-
-<mat-card class="inventory-detail-container">
-  <mat-card-header>
-    <mat-card-title>État des lieux</mat-card-title>
-    <mat-card-subtitle>Rappel du bien concerné :</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-    <div>
-      <p>Type de bien : <span class="inventory-detail">{{fixtureInventory?.property?.type}}</span></p>
-      <p>Surface habitable : <span class="inventory-detail">{{fixtureInventory?.property?.area}}</span></p>
-      <p>Nombre de pièces : <span class="inventory-detail">{{fixtureInventory?.property?.roomsNumber}}</span></p>
-      <p>Adresse : <span
-        class="inventory-detail">{{fixtureInventory?.property?.address?.street}} {{fixtureInventory?.property?.address?.additionalAddress}}&nbsp;
-        {{fixtureInventory?.property?.address?.zipCode}} {{fixtureInventory?.property?.address?.town}}</span></p>
-    </div>
-    <mat-divider></mat-divider>
-    <div>
-      <p class="subtitle">Détails des états des lieux : </p>
-      <p>Date de l'état des lieux d'entrée : <span
-        class="inventory-detail">{{fixtureInventory?.arrivalFixtureInventoryDate | date:'dd/MM/YYYY':'':'fr'}}</span>
-      </p>
-      <p>Observations : <span
-        class="inventory-detail">{{fixtureInventory?.arrivalComments}}</span></p>
-
-      <p>Date de l'état des lieux de sortie : <span
-        class="inventory-detail">{{fixtureInventory?.exitFixtureInventoryDate | date:'dd/MM/YYYY':'':'fr'}}</span></p>
-      <p>Observations : <span class="inventory-detail">{{fixtureInventory?.exitComments}}</span>
-      </p>
-    </div>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button color="primary" (click)="goToModification()">Modifier</button>
+<ng-container *ngIf="fixtureInventory">
+  <app-title [title]="'État des lieux'" [back]="'/biens/' + fixtureInventory.property.id"></app-title>
+  <mat-card class="mt-3">
+    <mat-card-header>
+      <mat-card-title>Rappel du bien concerné</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <app-label-value [label]="'Type de bien'" [value]="fixtureInventory.property.type"></app-label-value>
+      <app-label-value [label]="'Surface habitable'" [value]="fixtureInventory.property.area"></app-label-value>
+      <app-label-value [label]="'Nombre de pièces'" [value]="fixtureInventory.property.roomsNumber"></app-label-value>
+      <app-label-value [label]="'Adresse'"
+                       [value]="fixtureInventory.property.address.street + ' ' + fixtureInventory.property.address.additionalAddress + ' ' + fixtureInventory.property.address.zipCode + ' ' + fixtureInventory.property.address.town"
+                       [divider]="false"></app-label-value>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="mt-3">
+    <mat-card-header>
+      <mat-card-title>Détails de l'état des lieux</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <app-label-value [label]="'Date de l\'état des lieux d\'entrée'"
+                       [value]="fixtureInventory.arrivalFixtureInventoryDate | date:'dd/MM/YYYY':'':'fr'"></app-label-value>
+      <app-label-value [label]="'Observations'" [value]="fixtureInventory.arrivalComments"></app-label-value>
+      <app-label-value [label]="'Date de l\'état des lieux de sortie'"
+                       [value]="fixtureInventory.exitFixtureInventoryDate | date:'dd/MM/YYYY':'':'fr'"></app-label-value>
+      <app-label-value [label]="'Observations'" [value]="fixtureInventory.exitComments"
+                       [divider]="false"></app-label-value>
+    </mat-card-content>
+  </mat-card>
+  <div class="flex justify-end pt-3">
+    <button class="me-3" mat-raised-button color="accent" (click)="goToModification()">Modifier</button>
     <button mat-raised-button color="warn" (click)="delete()">Supprimer</button>
-  </mat-card-actions>
-</mat-card>
-
+  </div>
+</ng-container>

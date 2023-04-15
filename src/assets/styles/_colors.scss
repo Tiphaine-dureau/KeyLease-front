@@ -1,0 +1,120 @@
+@use '@angular/material' as mat;
+
+$dark-text: rgba(black, 0.87);
+$light-text: white;
+
+$tera-cota: (
+  50: #be5a4b,
+  100: #be5a4b,
+  200: #be5a4b,
+  300: #be5a4b,
+  400: #be5a4b,
+  500: #be5a4b,
+  600: #be5a4b,
+  700: #be5a4b,
+  800: #be5a4b,
+  900: #be5a4b,
+  A100: #be5a4b,
+  A200: #be5a4b,
+  A400: #be5a4b,
+  A700: #be5a4b,
+  contrast: (
+    50: $dark-text,
+    100: $dark-text,
+    200: $dark-text,
+    300: $dark-text,
+    400: $dark-text,
+    500: $light-text,
+    600: $light-text,
+    700: $light-text,
+    800: $light-text,
+    900: $light-text,
+    A100: $dark-text,
+    A200: $dark-text,
+    A400: $dark-text,
+    A700: $light-text,
+  )
+);
+
+$custom-accent: (
+  50: #fecf6b,
+  100: #fecf6b,
+  200: #fecf6b,
+  300: #fecf6b,
+  400: #fecf6b,
+  500: #fecf6b,
+  600: #fecf6b,
+  700: #fecf6b,
+  800: #fecf6b,
+  900: #fecf6b,
+  A100: #fecf6b,
+  A200: #fecf6b,
+  A400: #fecf6b,
+  A700: #fecf6b,
+  contrast: (
+    50: $dark-text,
+    100: $dark-text,
+    200: $dark-text,
+    300: $dark-text,
+    400: $dark-text,
+    500: $dark-text,
+    600: $dark-text,
+    700: $dark-text,
+    800: $dark-text,
+    900: $dark-text,
+    A100: $dark-text,
+    A200: $dark-text,
+    A400: $dark-text,
+    A700: $dark-text,
+  )
+);
+
+$custom-warn: (
+  50: #e97c7e,
+  100: #e97c7e,
+  200: #e97c7e,
+  300: #e97c7e,
+  400: #e97c7e,
+  500: #e97c7e,
+  600: #e97c7e,
+  700: #e97c7e,
+  800: #e97c7e,
+  900: #e97c7e,
+  A100: #e97c7e,
+  A200: #e97c7e,
+  A400: #e97c7e,
+  A700: #e97c7e,
+  contrast: (
+    50: $dark-text,
+    100: $dark-text,
+    200: $dark-text,
+    300: $dark-text,
+    400: $dark-text,
+    500: $dark-text,
+    600: $dark-text,
+    700: $dark-text,
+    800: $dark-text,
+    900: $dark-text,
+    A100: $dark-text,
+    A200: $dark-text,
+    A400: $dark-text,
+    A700: $dark-text,
+  )
+);
+
+/* LIGHT THEME */
+$uc-primary: mat.define-palette($tera-cota, 500);
+$uc-accent: mat.define-palette($custom-accent, 500);
+$uc-warn: mat.define-palette($custom-warn, 500);
+
+/* DARK THEME */
+$uc-primary-dark: mat.define-palette($tera-cota, 500);
+$uc-accent-dark: mat.define-palette(mat.$blue-palette, 800);
+$uc-warn-dark: mat.define-palette(mat.$red-palette, 800);
+
+$success: #b2d4be;
+$danger: #f69265;
+
+.bg-primary-50 {
+  background-color: rgba(mat.get-color-from-palette($tera-cota, 500), 0.5);
+}

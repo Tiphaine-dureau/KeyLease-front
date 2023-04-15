@@ -1,82 +1,54 @@
-<button mat-raised-button color="primary" routerLink="/biens">Dashboard biens</button>
-
-<div class="property-cards-container">
-  <!-- PROPERTY CHARACTERISTICS CARD -->
-  <mat-card class="property-characteristics-card">
-    <mat-card-header>
-      <mat-card-title>Caractéristiques du bien</mat-card-title>
-      <mat-card-subtitle>{{property?.type}}</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <div class="property-span-container">
-        <span class="property-span-title">Nombre de pièce</span>
-        <span>{{property?.roomsNumber}}</span>
+<app-title [title]="'Détails du bien'" [back]="'/biens'"></app-title>
+<ng-container *ngIf="property">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+    <div class="flex flex-col">
+      <!-- PROPERTY CHARACTERISTICS CARD -->
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Caractéristiques du bien</mat-card-title>
+          <mat-card-subtitle>{{property.type}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <app-label-value [label]="'Nombre de pièce'" [value]="property.roomsNumber"></app-label-value>
+          <app-label-value [label]="'Surface habitable'" [value]="property.area + ' m²'"></app-label-value>
+          <app-label-value [label]="'Description'" [value]="property.description" [divider]="false"></app-label-value>
+        </mat-card-content>
+      </mat-card>
+      <!-- ADDRESS CARD -->
+      <mat-card class="mt-3">
+        <mat-card-header>
+          <mat-card-title>Adresse</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <app-label-value [label]="'Numéro et nom de rue'" [value]="property.address.street"></app-label-value>
+          <ng-container *ngIf="property.address.additionalAddress">
+            <app-label-value [label]="'Complément d\'adresse'"
+                             [value]="property.address.additionalAddress"></app-label-value>
+          </ng-container>
+          <app-label-value [label]="'Code postal'" [value]="property.address.zipCode"></app-label-value>
+          <app-label-value [label]="'Ville'" [value]="property.address.town" [divider]="false"></app-label-value>
+        </mat-card-content>
+      </mat-card>
+      <div class="flex pt-3">
+        <button mat-raised-button color="accent" routerLink="/biens/{{propertyId}}/modification"
+                class="me-3">Modifier
+        </button>
+        <button mat-raised-button color="warn" (click)="deleteProperty()">Supprimer</button>
       </div>
-      <mat-divider></mat-divider>
-      <div class="property-span-container">
-        <span class="property-span-title">Surface habitable</span>
-        <span>{{property?.area}}&nbsp;m²</span>
-      </div>
-      <mat-divider></mat-divider>
-      <div class="property-span-container">
-        <span class="property-span-title">Description</span>
-        <span>{{property?.description}}</span>
-      </div>
-    </mat-card-content>
-  </mat-card>
-
-  <!-- ADDRESS CARD -->
-  <mat-card class="address-card">
-    <mat-card-header>
-      <mat-card-title>Adresse</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <div class="property-span-container">
-        <span class="property-span-title">Numéro et nom de rue</span>
-        <span>{{property?.address?.street}}</span>
-      </div>
-      <mat-divider></mat-divider>
-      <ng-container *ngIf="property?.address?.additionalAddress">
-        <div class="property-span-container">
-          <span class="property-span-title">Complément d'adresse</span>
-          <span>{{property?.address?.additionalAddress}}</span>
-        </div>
-        <mat-divider></mat-divider>
-      </ng-container>
-      <div class="section-container">
-        <div class="property-span-container">
-          <span class="property-span-title">Code postal</span>
-          <span>{{property?.address?.zipCode}}</span>
-        </div>
-        <div class="property-span-container">
-          <span class="property-span-title">Ville</span>
-          <span>{{property?.address?.town}}</span>
-        </div>
-      </div>
-    </mat-card-content>
-  </mat-card>
-
-  <!-- BUTTONS TO MODIFY OR DELETE PROPERTY -->
-  <div class="property-detail-button-container">
-    <button mat-raised-button color="primary" routerLink="/biens/{{propertyId}}/modification"
-            class="property-detail-button">Modifier
-    </button>
-    <button mat-raised-button color="warn" (click)="deleteProperty()" class="property-detail-button">Supprimer
-    </button>
+    </div>
+    <div class="flex flex-col">
+      <!-- LEASE CONTRACT -->
+      <ng-container *ngIf="property.leaseContractId; then withContract else withoutContract"></ng-container>
+      <!-- FIXTURE INVENTORY -->
+      <ng-container
+        *ngIf="property.fixtureInventoryId; then withFixtureInventory else withoutFixtureInventory"></ng-container>
+    </div>
   </div>
-</div>
-
-<div class="contract-and-inventory-container">
-  <!-- LEASE CONTRACT -->
-  <ng-container *ngIf="property?.leaseContractId; then withContract else withoutContract"></ng-container>
-  <!-- FIXTURE INVENTORY -->
-  <ng-container
-    *ngIf="property?.fixtureInventoryId; then withFixtureInventory else withoutFixtureInventory"></ng-container>
-</div>
+</ng-container>
 
 <!-- WITH LEASE CONTRACT TEMPLATE -->
 <ng-template #withContract>
-  <mat-card class="lease-contract-card">
+  <mat-card class="mb-3">
     <mat-card-header>
       <mat-card-title>Contrat de location</mat-card-title>
     </mat-card-header>
@@ -96,7 +68,7 @@
 </ng-template>
 <!-- WITHOUT LEASE CONTRACT TEMPLATE -->
 <ng-template #withoutContract>
-  <mat-card class="lease-contract-card">
+  <mat-card class="mb-3">
     <mat-card-header>
       <mat-card-title>Contrat de location</mat-card-title>
     </mat-card-header>
@@ -112,7 +84,6 @@
     </mat-card-actions>
   </mat-card>
 </ng-template>
-
 <!-- WITH FIXTURE INVENTORY TEMPLATE -->
 <ng-template #withFixtureInventory>
   <mat-card class="fixture-inventory-card">
@@ -149,7 +120,6 @@
     </mat-card-actions>
   </mat-card>
 </ng-template>
-
 
 <!-- SPINNER -->
 <ng-container *ngIf="isLoading">

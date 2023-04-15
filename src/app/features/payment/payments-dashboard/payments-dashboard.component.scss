@@ -1,4 +1,5 @@
-@import "src/styles/variables";
+@import "src/assets/styles/breakpoints";
+@import "src/assets/styles/colors";
 
 .label-filter {
   display: flex;
@@ -14,7 +15,7 @@
 }
 
 .to-regulate {
-  color: $red;
+  color: $danger;
   font-weight: bold;
 }
 
@@ -27,19 +28,19 @@
   justify-content: space-around;
 }
 
-@media screen and (min-width: $layout-breakpoint-medium) {
+@media screen and (min-width: $screen-md-min) {
   .label-filter {
     max-width: 60%;
   }
 }
 
-@media screen and (min-width: $layout-breakpoint-large) {
+@media screen and (min-width: $screen-lg-min) {
   .label-filter {
     max-width: 50%;
   }
 }
 
-@media screen and (min-width: $layout-breakpoint-extra-large) {
+@media screen and (min-width: $screen-xl-min) {
   .label-filter {
     max-width: 40%;
   }

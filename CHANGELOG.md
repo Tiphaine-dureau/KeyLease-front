@@ -14,7 +14,15 @@ Nomenclature :
 
 ### Unreleased
 
+### [0.1.8] - 2023-04-15
+
+#### Updated
+
+- Updated all interface with Tailwind
+
 #### Added
+
+- Added new components
 
 ### [0.1.7] - 2023-04-14
 
