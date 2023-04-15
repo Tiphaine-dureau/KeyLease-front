@@ -1,3 +1,5 @@
-<button mat-raised-button color="primary" routerLink="/locataires/creation">Ajouter un locataire</button>
-
+<app-title [title]="'Liste des locataires'"></app-title>
+<div class="pb-3">
+  <button mat-raised-button color="primary" routerLink="/locataires/creation">Ajouter un locataire</button>
+</div>
 <app-client-list *ngIf="clientModels" [data]="clientModels"></app-client-list>

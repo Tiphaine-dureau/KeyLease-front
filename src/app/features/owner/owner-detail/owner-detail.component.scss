@@ -1,4 +1,5 @@
-@import "src/styles/variables";
+@import "src/assets/styles/breakpoints";
+@import "src/assets/styles/mixins";
 
 .cards-details-container {
   display: grid;
@@ -33,27 +34,27 @@
 }
 
 .red-card {
-  background-color: rgba(255, 0, 0, 0.35);
+  @include bg-danger;
 }
 
 .green-card {
-  background: rgba(0, 128, 0, 0.35);
+  @include bg-success;
 }
 
-@media screen and (min-width: $layout-breakpoint-medium) {
+@media screen and (min-width: $screen-md-min) {
   .cards-details-container {
     grid-template-columns: repeat(1, 1fr 1fr);
   }
 }
 
-@media screen and (min-width: $layout-breakpoint-large) {
+@media screen and (min-width: $screen-lg-min) {
   .cards-details-container {
     grid-template-columns: repeat(1, 1.5fr 1fr);
   }
 }
 
 
-@media screen and (min-width: $layout-breakpoint-extra-large) {
+@media screen and (min-width: $screen-xl-min) {
   .cards-details-container {
     grid-template-columns: repeat(1, 2fr 1fr);
     width: 80%;

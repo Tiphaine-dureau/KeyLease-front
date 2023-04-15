@@ -1,4 +1,7 @@
-<button mat-raised-button color="primary" routerLink="/biens/creation">Ajouter un bien</button>
+<app-title [title]="'Liste des biens'"></app-title>
+<div class="pb-3">
+  <button mat-raised-button color="primary" routerLink="/biens/creation">Ajouter un bien</button>
+</div>
 
 <ng-container *ngIf="properties">
   <!--Filtre -->
@@ -36,11 +39,11 @@
         <td mat-cell *matCellDef="let element">
           <ng-container *ngIf="element.leaseContractId; else noContract">
             <mat-icon aria-hidden="false" aria-label="présence d'un contrat" fontIcon="check"
-                      color="primary"></mat-icon>
+                      class="text-success"></mat-icon>
           </ng-container>
           <ng-template #noContract>
             <mat-icon aria-hidden="false" aria-label="absence de contrat" fontIcon="close"
-                      color="warn"></mat-icon>
+                      class="text-danger"></mat-icon>
           </ng-template>
         </td>
       </ng-container>
@@ -49,12 +52,10 @@
         <th mat-header-cell *matHeaderCellDef>État des lieux</th>
         <td mat-cell *matCellDef="let element">
           <ng-container *ngIf="element.fixtureInventoryId; else noFixtureInventory">
-            <mat-icon aria-hidden="false" aria-label="présence d'un état des lieux" fontIcon="check"
-                      color="primary"></mat-icon>
+            <mat-icon aria-label="présence d'un état des lieux" fontIcon="check" class="text-success"></mat-icon>
           </ng-container>
           <ng-template #noFixtureInventory>
-            <mat-icon aria-hidden="false" aria-label="absence d'état des lieux" fontIcon="close"
-                      color="warn"></mat-icon>
+            <mat-icon aria-label="absence d'état des lieux" fontIcon="close" class="text-danger"></mat-icon>
           </ng-template>
         </td>
       </ng-container>
@@ -62,11 +63,13 @@
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef>Actions</th>
         <td mat-cell *matCellDef="let element">
-          <a routerLink="{{element.id}}" class="first-action-link">
-            <mat-icon aria-hidden="false" aria-label="voir en détails" fontIcon="zoom_in" color="primary"></mat-icon>
+          <a routerLink="{{element.id}}" class="pe-3">
+            <mat-icon aria-label="voir en détails" fontIcon="zoom_in"
+                      color="accent" matTooltip="Voir en détails"></mat-icon>
           </a>
           <a routerLink="{{element.id}}/modification">
-            <mat-icon aria-hidden="false" aria-label="modifier" fontIcon="edit" color="primary"></mat-icon>
+            <mat-icon aria-hidden="false" aria-label="modifier" fontIcon="edit"
+                      color="accent" matTooltip="Modifier"></mat-icon>
           </a>
         </td>
       </ng-container>

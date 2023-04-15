@@ -26,11 +26,11 @@
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef>Actions</th>
         <td mat-cell *matCellDef="let element">
-          <a routerLink="{{element.id}}">
-            <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="zoom_in"></mat-icon>
+          <a routerLink="{{element.id}}" class="pe-3">
+            <mat-icon fontIcon="zoom_in" color="accent" matTooltip="Voir le détails"></mat-icon>
           </a>
           <a routerLink="{{element.id}}/modification">
-            <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="edit"></mat-icon>
+            <mat-icon fontIcon="edit" color="accent" matTooltip="Modifier"></mat-icon>
           </a>
         </td>
       </ng-container>

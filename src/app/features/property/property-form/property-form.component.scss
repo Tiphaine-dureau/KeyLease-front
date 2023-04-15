@@ -1,12 +1,3 @@
-@import "src/styles/mixins";
-@import "src/styles/variables";
-
-.stepper-container {
-  @include flex-center;
-  max-width: 730px;
-  margin: auto;
-}
-
 .property-stepper {
   margin-top: 8px;
 }
@@ -18,7 +9,7 @@
 
 .label-radio-group {
   font-size: 1.125rem;
-  color: $black;
+  color: #000;
 }
 
 .radio-group, .label-radio-group {
@@ -55,5 +46,5 @@
 .result-form {
   font-weight: bold;
   font-style: italic;
-  color: $pink;
+  color: #000;
 }
