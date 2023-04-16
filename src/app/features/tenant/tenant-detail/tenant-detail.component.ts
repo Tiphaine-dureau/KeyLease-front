@@ -6,7 +6,6 @@ import {PaymentBusinessModel} from "../../../common/business-models/payment.busi
 import {PaymentService} from "../../payment/services/payment.service";
 import {LeaseContractBusinessModel} from "../../../common/business-models/lease-contract.business-model";
 import {LeaseContractService} from "../../lease-contract/services/lease-contract.service";
-import {saveAs} from "file-saver";
 
 @Component({
   selector: 'app-tenant-detail',
@@ -32,7 +31,6 @@ export class TenantDetailComponent implements OnInit {
   ngOnInit(): void {
     this.tenantID = this.activatedRoute.snapshot.params['id_locataire'];
     this.getTenant();
-    this.getRentReceipt();
   }
 
   private getTenant(): void {
@@ -69,12 +67,5 @@ export class TenantDetailComponent implements OnInit {
         // TODO add toast
       }
     })
-  }
-
-  private getRentReceipt(): void {
-    this.tenantService.getRentReceipt().subscribe((data: any) => {
-      const blob = new Blob([data.body], {type: 'application/pdf'});
-      saveAs(blob, 'quittance.pdf')
-    });
   }
 }

@@ -14,6 +14,12 @@ Nomenclature :
 
 ### Unreleased
 
+### [0.1.9] - 2023-04-16
+
+#### Added
+
+- Added download RentReceipt on payments dashboard and display it if rent is paid
+
 ### [0.1.8] - 2023-04-15
 
 #### Updated
