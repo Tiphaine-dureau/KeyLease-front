@@ -4,6 +4,7 @@ import {PaymentBusinessModel} from "../../../common/business-models/payment.busi
 import {LeaseContractBusinessModel} from "../../../common/business-models/lease-contract.business-model";
 import {PaymentDataModel} from "./payment-data.model";
 import {PaymentService} from "../services/payment.service";
+import {saveAs} from "file-saver";
 
 @Component({
   selector: 'app-payments-dashboard',
@@ -14,7 +15,7 @@ export class PaymentsDashboardComponent implements OnInit {
   @Input() data?: PaymentBusinessModel[];
   @Input() leaseContract!: LeaseContractBusinessModel;
   @Input() leaseContractId!: string;
-  public displayedColumns = ['rentPaymentDate', 'paidRent', 'paymentLabel', 'actions']
+  public displayedColumns = ['rentPaymentDate', 'paidRent', 'paymentLabel', 'actions', 'rentReceipt']
   public dataSource!: MatTableDataSource<PaymentDataModel>;
   public isLoading = false;
 
@@ -46,5 +47,12 @@ export class PaymentsDashboardComponent implements OnInit {
         // TODO handle error
       }
     })
+  }
+
+  public getRentReceipt(leaseContractId: string, paymentId: string): void {
+    this.paymentService.getRentReceipt(leaseContractId, paymentId).subscribe((data: any) => {
+      const blob = new Blob([data.body], {type: 'application/pdf'});
+      saveAs(blob, 'quittance.pdf')
+    });
   }
 }
