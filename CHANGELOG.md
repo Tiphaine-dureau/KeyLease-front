@@ -14,6 +14,8 @@ Nomenclature :
 
 ### Unreleased
 
+- Updated and moved balance-card to a common component and used it in owner detail and tenant detail views.
+
 ### [0.1.9] - 2023-04-16
 
 #### Added

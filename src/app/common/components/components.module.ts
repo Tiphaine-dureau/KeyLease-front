@@ -22,6 +22,8 @@ import {AlertComponent} from "./alert/alert.component";
 import {RouterModule} from "@angular/router";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {LabelValueComponent} from "./label-value/label-value.component";
+import {BalanceCardComponent} from './balance-card/balance-card.component';
+import {MatProgressBarModule} from "@angular/material/progress-bar";
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import {LabelValueComponent} from "./label-value/label-value.component";
     HeaderComponent,
     ClientListComponent,
     IdentityCardComponent,
-    PropertyCardComponent
+    PropertyCardComponent,
+    BalanceCardComponent
   ],
   exports: [
     AlertComponent,
@@ -42,7 +45,8 @@ import {LabelValueComponent} from "./label-value/label-value.component";
     HeaderComponent,
     ClientListComponent,
     IdentityCardComponent,
-    PropertyCardComponent
+    PropertyCardComponent,
+    BalanceCardComponent
   ],
   imports: [
     CommonModule,
@@ -59,7 +63,8 @@ import {LabelValueComponent} from "./label-value/label-value.component";
     MatInputModule,
     MatDividerModule,
     MatTooltipModule,
-    LabelValueComponent
+    LabelValueComponent,
+    MatProgressBarModule
   ]
 })
 export class ComponentsModule {

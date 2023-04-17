@@ -1,0 +1,15 @@
+@import "src/assets/styles/mixins";
+
+.red-card {
+  @include bg-danger;
+}
+
+.green-card {
+  @include bg-success;
+}
+
+.balance-card-footer {
+  font-size: 12px;
+  padding-left: 16px;
+  margin-bottom: 16px;
+}
