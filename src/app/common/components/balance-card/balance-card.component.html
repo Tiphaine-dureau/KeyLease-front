@@ -1,0 +1,19 @@
+<mat-card class="h-full" [ngClass]="{'h-full': hFull}">
+  <mat-card-header class="rounded-t" [ngClass]="model.headerClass">
+    <mat-card-title>Solde</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="my-3 h-full">
+    <app-label-value [label]="model.expectedLabel" [value]="model.expectedValue"></app-label-value>
+    <app-label-value [label]="model.balanceLabel" [value]="model.balanceValue" [divider]="false"
+                     [bottomSpacing]="true"></app-label-value>
+    <mat-progress-bar mode="determinate" [value]="balance * 100 / expectedRentAmount"
+                      color="primary"></mat-progress-bar>
+    <div class="flex justify-between">
+      <div>0</div>
+      <div>100%</div>
+    </div>
+  </mat-card-content>
+  <mat-card-footer *ngIf="footer">
+    <p class="balance-card-footer">*Après déduction des 8% de frais de gestion</p>
+  </mat-card-footer>
+</mat-card>
