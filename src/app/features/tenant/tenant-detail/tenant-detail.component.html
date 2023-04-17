@@ -1,17 +1,23 @@
 <ng-container *ngIf="tenant">
   <app-title [title]="'Détails du locataire'" [back]="'/locataires'"></app-title>
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 pb-3">
-      <app-identity-card [data]="tenant" [subtitle]="subtitle"></app-identity-card>
-      <mat-card>
-        <mat-card-header>
-          <mat-card-title>Conjoint</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <app-label-value [label]="'Nom'" [value]="tenant.partnerLastName"></app-label-value>
-          <app-label-value [label]="'Prénom'" [value]="tenant.partnerFirstName"></app-label-value>
-          <app-label-value [label]="'Téléphone'" [value]="tenant.partnerPhoneNumber" [divider]="false"></app-label-value>
-        </mat-card-content>
-      </mat-card>
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 pb-3">
+    <!--IDENTITY CARD-->
+    <app-identity-card [data]="tenant" [subtitle]="subtitle"></app-identity-card>
+    <!--PARTNER CARD-->
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Conjoint</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <app-label-value [label]="'Nom'" [value]="tenant.partnerLastName"></app-label-value>
+        <app-label-value [label]="'Prénom'" [value]="tenant.partnerFirstName"></app-label-value>
+        <app-label-value [label]="'Téléphone'" [value]="tenant.partnerPhoneNumber"
+                         [divider]="false"></app-label-value>
+      </mat-card-content>
+    </mat-card>
+    <!--BALANCE CARD-->
+    <app-balance-card [expectedRentAmount]="tenant.expectedRentAmount" [balance]="tenant.balance"
+                      [footer]="false" [hFull]="false"></app-balance-card>
   </div>
   <div class="flex">
     <button mat-raised-button color="accent" routerLink="/locataires/{{tenantID}}/modification" class="me-3">
