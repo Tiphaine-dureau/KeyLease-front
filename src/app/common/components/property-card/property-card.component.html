@@ -4,10 +4,11 @@
     <mat-card-subtitle>{{subtitle}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content *ngIf="property$ | async as property">
-    <p>Type de bien : {{property.type}}</p>
-    <p>Surface habitable : {{property.area}}</p>
-    <p>Nombre de pièces : {{property.roomsNumber}}</p>
-    <p>Adresse : {{property.address.street}} {{property.address.additionalAddress}}&nbsp;
-      {{property.address.zipCode}} {{property.address.town}}</p>
+    <app-label-value [label]="'Type de bien'" [value]="property.type"></app-label-value>
+    <app-label-value [label]="'Surface habitable'" [value]="property.area"></app-label-value>
+    <app-label-value [label]="'Nombre de pièces'" [value]="property.roomsNumber"></app-label-value>
+    <app-label-value [label]="'Adresse'"
+                     [value]="property.address.street + ' ' + property.address.additionalAddress + ' ' + property.address.zipCode + ' ' + property.address.town"
+                     [divider]="false"></app-label-value>
   </mat-card-content>
 </mat-card>

@@ -8,9 +8,9 @@ import {BrowserModule} from "@angular/platform-browser";
   selector: 'app-label-value',
   imports: [BrowserModule, MatIconModule, MatDividerModule],
   template: `
-    <div [ngClass]="{'pb-5' : bottomSpacing}" class="flex flex-col pt-5">
+    <div [ngClass]="{'pb-3' : bottomSpacing}" class="flex flex-col pt-3">
       <div class="pb-3 text-lg text-zinc-500">{{label}}</div>
-      <div [ngClass]="{'pb-5' : divider}" class="text-xl text-neutral-800">{{value || 'N/A'}}</div>
+      <div [ngClass]="{'pb-3' : divider}" class="text-xl text-neutral-800">{{value || 'N/A'}}</div>
       <mat-divider *ngIf="divider"></mat-divider>
     </div>
   `,

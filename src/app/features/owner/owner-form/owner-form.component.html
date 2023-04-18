@@ -67,10 +67,10 @@
           <input matInput type="email" formControlName="email" placeholder="Email">
         </mat-form-field>
 
-        <mat-divider class="details-divider"></mat-divider>
         <mat-form-field appearance="fill">
           <mat-label>Relevé d'identité bancaire</mat-label>
           <input matInput type="text" formControlName="iban" placeholder="Iban">
+          <mat-hint>FR76 1234 5678 1234 5678 1234 567</mat-hint>
         </mat-form-field>
       </div>
       <div class="form-group-buttons">
@@ -84,34 +84,30 @@
   <mat-step>
     <ng-template matStepLabel>Récapitulatif et validation</ng-template>
     <div>
-      <h3>Identité du locataire</h3>
-      <p>Nom : <span class="result-form">{{identityFormGroup.value.firstName}}</span></p>
-      <p>Prénom : <span class="result-form">{{identityFormGroup.value.lastName}}</span></p>
-      <p>Date de naissance : <span class="result-form">{{identityFormGroup.value.birthday | date:'dd/MM/yyyy'}}</span>
-      </p>
+      <p class="text-xl italic text-primary">Identité du propriétaire</p>
+      <app-label-value [label]="'Prénom'" [value]="identityFormGroup.value.firstName"></app-label-value>
+      <app-label-value [label]="'Nom'" [value]="identityFormGroup.value.lastName"></app-label-value>
+      <app-label-value [label]="'Date de naissance'"
+                       [value]="identityFormGroup.value.birthday | date:'dd/MM/yyyy'"></app-label-value>
     </div>
-    <mat-divider></mat-divider>
     <div>
-      <h3>Adresse postale</h3>
-      <p>Numéro et nom de rue : <span class="result-form">{{postalAddressFormGroup.value.street}}</span></p>
-      <p>Complément d'adresse : <span class="result-form">{{postalAddressFormGroup.value.additionalAddress}}</span>
-      </p>
-      <p>Code postal : <span class="result-form">{{postalAddressFormGroup.value.zipCode}}</span></p>
-      <p>Ville: <span class="result-form">{{postalAddressFormGroup.value.town}}</span></p>
+      <p class="text-xl italic text-primary pt-3">Adresse postale</p>
+      <app-label-value [label]="'Numéro et nom de rue'" [value]="postalAddressFormGroup.value.street"></app-label-value>
+      <app-label-value [label]="'Complément d\'adresse'"
+                       [value]="postalAddressFormGroup.value.additionalAddress"></app-label-value>
+      <app-label-value [label]="'Code postal'" [value]="postalAddressFormGroup.value.zipCode"></app-label-value>
+      <app-label-value [label]="'Ville'" [value]="postalAddressFormGroup.value.town"></app-label-value>
     </div>
-    <mat-divider></mat-divider>
     <div>
-      <h3>Coordonnées</h3>
-      <p>Téléphone : <span class="result-form">{{contactDetailsFormGroup.value.phone}}</span></p>
-      <p>Email : <span class="result-form">{{contactDetailsFormGroup.value.email}}</span></p>
+      <p class="text-xl italic text-primary pt-3">Coordonnées</p>
+      <app-label-value [label]="'Téléphone'" [value]="contactDetailsFormGroup.value.phone"></app-label-value>
+      <app-label-value [label]="'Email'" [value]="contactDetailsFormGroup.value.email"></app-label-value>
     </div>
-    <mat-divider></mat-divider>
     <div>
-      <h3>Coordonnées bancaires</h3>
-      <p>Iban : <span class="result-form">{{contactDetailsFormGroup.value.iban}}</span></p>
-
+      <p class="text-xl italic text-primary pt-3">Coordonnées bancaires</p>
+      <app-label-value [label]="'Iban'" [value]="contactDetailsFormGroup.value.iban"
+                       [divider]="false"></app-label-value>
     </div>
-    <mat-divider></mat-divider>
     <div class="form-group-buttons">
       <button mat-raised-button matStepperPrevious>Modifier</button>
       <button mat-raised-button color="primary" (click)="onSubmit()">Valider</button>

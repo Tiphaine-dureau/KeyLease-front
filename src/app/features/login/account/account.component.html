@@ -1,16 +1,20 @@
-<h2 class="text-2xl">Votre compte</h2>
+<app-title [title]="'Votre compte'"></app-title>
 <ng-container *ngIf="user$ | async as user">
   <mat-card class="mt-3">
-    <mat-card-header>Vous êtes connecté(e) en tant que</mat-card-header>
     <mat-card-content>
-      <span class="text-primary">{{user.firstName}} {{user.lastName}} ({{user.email}})</span>
+      <app-label-value [label]="'Vous êtes connecté(e) en tant que'"
+                       [value]="user.firstName + ' ' + user.lastName"></app-label-value>
+      <app-label-value [label]="'Email de connexion'"
+                       [value]="user.email" [divider]="false"></app-label-value>
     </mat-card-content>
   </mat-card>
   <mat-card class="mt-3">
-    <mat-card-header>Vos rôles dans l'application</mat-card-header>
+    <mat-card-header>
+      <mat-card-title>Vos rôles dans l'application</mat-card-title>
+    </mat-card-header>
     <mat-card-content>
       <ul>
-        <li class="text-primary" *ngFor="let role of user.authorities">{{role}}</li>
+        <li class="text-primary text-lg pt-3" *ngFor="let role of user.authorities">{{role}}</li>
       </ul>
     </mat-card-content>
   </mat-card>
