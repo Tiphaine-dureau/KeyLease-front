@@ -1,15 +1,15 @@
 <app-title [title]="'Modifier un paiement'" [back]="backRoute"></app-title>
-<mat-card>
+<mat-card *ngIf="contract">
   <mat-card-header>
-    <mat-card-title>Paiement de {{contract?.tenant?.firstName}} {{contract?.tenant?.lastName}}</mat-card-title>
+    <mat-card-title>Paiement de {{contract.tenant.firstName}} {{contract.tenant.lastName}}</mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <app-label-value [label]="'Destinataire du paiement'"
-                     [value]="contract?.owner?.firstName + ' ' + contract?.owner?.lastName"></app-label-value>
+                     [value]="contract.owner.firstName + ' ' + contract.owner.lastName"></app-label-value>
     <app-label-value [label]="'Bien concerné'"
-                     [value]="contract?.property?.address?.street + ' ' + contract?.property?.address?.additionalAddress + ' ' + contract?.property?.address?.zipCode + ' ' + contract?.property?.address?.town"></app-label-value>
+                     [value]="contract.property.address.street + ' ' + contract.property.address.additionalAddress + ' ' + contract.property.address.zipCode + ' ' + contract.property.address.town"></app-label-value>
     <app-label-value [label]="'Montant du loyer attendu'"
-                     [value]="contract?.rentAmount + '€'" [divider]="false"></app-label-value>
+                     [value]="contract.rentAmount + '€'" [divider]="false"></app-label-value>
   </mat-card-content>
 </mat-card>
 

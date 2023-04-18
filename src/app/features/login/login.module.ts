@@ -14,6 +14,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatCardModule} from "@angular/material/card";
 import {AccountComponent} from "./account/account.component";
 import {TitleComponent} from "../../common/components/title/title.component";
+import {LabelValueComponent} from "../../common/components/label-value/label-value.component";
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import {TitleComponent} from "../../common/components/title/title.component";
     MatSnackBarModule,
     MatIconModule,
     MatCardModule,
-    TitleComponent
+    TitleComponent,
+    LabelValueComponent
   ],
   providers: [],
 })

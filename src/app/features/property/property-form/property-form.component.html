@@ -67,23 +67,23 @@
     <mat-step>
       <ng-template matStepLabel>Récapitulatif et validation</ng-template>
       <div>
-        <h3>Caractéristiques du bien</h3>
-        <p>Type : <span class="result-form">{{descriptionFormGroup.value.propertyType}}</span></p>
-        <p>Surface habitable : <span class="result-form">{{descriptionFormGroup.value.area}}</span></p>
-        <p>Nombre de pièces : <span class="result-form">{{descriptionFormGroup.value.roomsNumber}}</span>
-        <p>Description: <span class="result-form">{{descriptionFormGroup.value.description}}</span>
-        </p>
+        <p class="text-xl italic text-primary">Caractéristiques du bien</p>
+        <app-label-value [label]="'Type'" [value]="descriptionFormGroup.value.propertyType"></app-label-value>
+        <app-label-value [label]="'Surface habitable'" [value]="descriptionFormGroup.value.area"></app-label-value>
+        <app-label-value [label]="'Nombre de pièces'"
+                         [value]="descriptionFormGroup.value.roomsNumber"></app-label-value>
+        <app-label-value [label]="'Description'" [value]="descriptionFormGroup.value.description"></app-label-value>
       </div>
-      <mat-divider></mat-divider>
       <div>
-        <h3>Adresse postale</h3>
-        <p>Numéro et nom de rue : <span class="result-form">{{postalAddressFormGroup.value.street}}</span></p>
-        <p>Complément d'adresse : <span class="result-form">{{postalAddressFormGroup.value.additionalAddress}}</span>
-        </p>
-        <p>Code postal : <span class="result-form">{{postalAddressFormGroup.value.zipCode}}</span></p>
-        <p>Ville: <span class="result-form">{{postalAddressFormGroup.value.town}}</span></p>
+        <p class="text-xl italic text-primary pt-3">Adresse postale</p>
+        <app-label-value [label]="'Numéro et nom de rue'"
+                         [value]="postalAddressFormGroup.value.street"></app-label-value>
+        <app-label-value [label]="'Complément d\'adresse'"
+                         [value]="postalAddressFormGroup.value.additionalAddress"></app-label-value>
+        <app-label-value [label]="'Code postal'" [value]="postalAddressFormGroup.value.zipCode"></app-label-value>
+        <app-label-value [label]="'Ville'" [value]="postalAddressFormGroup.value.town"
+                         [divider]="false"></app-label-value>
       </div>
-      <mat-divider></mat-divider>
       <div class="form-group-buttons">
         <button mat-raised-button matStepperPrevious>Modifier</button>
         <button mat-raised-button color="primary" (click)="onSubmit()">Valider</button>

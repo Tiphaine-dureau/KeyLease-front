@@ -25,7 +25,7 @@ export class LeaseContractFormComponent implements OnInit {
   public owners$: Observable<OwnerBusinessModel[]> = this.ownerService.getOwners();
   public leaseContractFormGroup!: FormGroup;
   public propertyId!: string;
-  public title = "Création du contrat de location";
+  public title = "Contrat de location";
   public subtitle = "Rappel du bien concerné"
 
   constructor(

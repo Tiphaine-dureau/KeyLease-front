@@ -1,53 +1,68 @@
-<div class="flex justify-center">
-  <form [formGroup]="registerForm" class="p-3 m-3 register-form-group" (ngSubmit)="onSubmit()">
-    <p>Nom</p>
-    <mat-form-field class="register-form-input">
-      <mat-label>Nom</mat-label>
-      <input matInput type="text" formControlName="lastName">
-    </mat-form-field>
-    <p>Prénom</p>
-    <mat-form-field class="register-form-input">
-      <mat-label>Prénom</mat-label>
-      <input matInput type="text" formControlName="firstName">
-    </mat-form-field>
-    <p>Email</p>
-    <mat-form-field class="register-form-input">
-      <mat-label>Email</mat-label>
-      <input matInput type="email" formControlName="email">
-    </mat-form-field>
-    <p>Mot de passe</p>
-    <mat-form-field class="register-form-input">
-      <mat-label>Mot de passe</mat-label>
-      <input matInput formControlName="password" [type]="hide? 'password': 'text'">
-      <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-              [attr.aria-pressed]="hide">
-        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-      </button>
-    </mat-form-field>
-    <p class="password-rules">
-      <mat-icon color="primary" class="icon-list">vpn_key</mat-icon>
-      Contient entre 8 et 20 caractères
-    </p>
-    <p class="password-rules">
-      <mat-icon color="primary" class="icon-list">vpn_key</mat-icon>
-      Contient minimum un chiffre
-    </p>
-    <p class="password-rules">
-      <mat-icon color="primary" class="icon-list">vpn_key</mat-icon>
-      Peut contenir des caractères spéciaux
-    </p>
-    <p class="password-rules">
-      <mat-icon color="primary" class="icon-list">vpn_key</mat-icon>
-      Ne doit ni commencer par un chiffre ni par un caractère spécial
-    </p>
-    <div class="button-container">
-      <button mat-button color="primary" routerLink="/login">Se connecter à compte existant</button>
-      <button mat-raised-button color="primary" type="submit" [disabled]="!registerForm.valid || formSubmitted"
-              class="button">
-        S'enregistrer
-      </button>
-    </div>
-  </form>
+<div class="w-full flex justify-center">
+  <div class="w-full md:w-2/3 xl:w-2/4">
+    <app-title [title]="'Créer un compte'"></app-title>
+    <mat-card>
+      <mat-card-content>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <p>Nom</p>
+          <mat-form-field class="register-form-input">
+            <mat-label>Nom</mat-label>
+            <input matInput type="text" formControlName="lastName">
+          </mat-form-field>
+          <p>Prénom</p>
+          <mat-form-field class="register-form-input">
+            <mat-label>Prénom</mat-label>
+            <input matInput type="text" formControlName="firstName">
+          </mat-form-field>
+          <p>Email</p>
+          <mat-form-field class="register-form-input">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email">
+          </mat-form-field>
+          <p>Mot de passe</p>
+          <mat-form-field class="register-form-input">
+            <mat-label>Mot de passe</mat-label>
+            <input matInput formControlName="password" [type]="hide? 'password': 'text'">
+            <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+          <div class="password-rules">
+            <div>
+              <mat-icon color="primary" class="icon-list">vpn_key</mat-icon>
+            </div>
+            Contient entre 8 et 20 caractères
+          </div>
+          <div class="password-rules">
+            <div>
+              <mat-icon color="primary" class="icon-list">vpn_key</mat-icon>
+            </div>
+            Contient minimum un chiffre
+          </div>
+          <div class="password-rules">
+            <div>
+              <mat-icon color="primary" class="icon-list">vpn_key</mat-icon>
+            </div>
+            Peut contenir des caractères spéciaux
+          </div>
+          <div class="password-rules">
+            <div>
+              <mat-icon color="primary" class="icon-list">vpn_key</mat-icon>
+            </div>
+            Ne doit ni commencer par un chiffre ni par un caractère spécial
+          </div>
+          <div class="button-container">
+            <button mat-button color="primary" routerLink="/login">Se connecter à compte existant</button>
+            <button mat-raised-button color="primary" type="submit" [disabled]="!registerForm.valid || formSubmitted"
+                    class="button">
+              S'enregistrer
+            </button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>
 <ng-container *ngIf="isLoading">
   <app-spinner></app-spinner>
