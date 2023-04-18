@@ -14,6 +14,12 @@ Nomenclature :
 
 ### Unreleased
 
+### [0.1.11] - 2023-04-18
+
+#### Updated
+
+- Updated display interface
+
 ### [0.1.10] - 2023-04-17
 
 #### Updated

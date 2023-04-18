@@ -11,7 +11,8 @@
       <mat-card-content>
         <app-label-value [label]="'Nom'" [value]="leaseContract.owner.lastName"></app-label-value>
         <app-label-value [label]="'Prénom'" [value]="leaseContract.owner.firstName"></app-label-value>
-        <app-label-value [label]="'Date de naissance'" [value]="leaseContract.owner.birthday"></app-label-value>
+        <app-label-value [label]="'Date de naissance'"
+                         [value]="leaseContract.owner.birthday | date:'dd/MM/YYYY':'':'fr'"></app-label-value>
         <app-label-value [label]="'Adresse'"
                          [value]="leaseContract.owner.address.street + ' ' + leaseContract.owner.address.additionalAddress + ' ' + leaseContract.owner.address.zipCode + ' ' + leaseContract.owner.address.town"></app-label-value>
         <app-label-value [label]="'Email'" [value]="leaseContract.owner.email"></app-label-value>
@@ -26,7 +27,8 @@
       <mat-card-content>
         <app-label-value [label]="'Nom'" [value]="leaseContract.tenant.lastName"></app-label-value>
         <app-label-value [label]="'Prénom'" [value]="leaseContract.tenant.firstName"></app-label-value>
-        <app-label-value [label]="'Date de naissance'" [value]="leaseContract.tenant.birthday"></app-label-value>
+        <app-label-value [label]="'Date de naissance'"
+                         [value]="leaseContract.tenant.birthday | date:'dd/MM/YYYY':'':'fr'"></app-label-value>
         <app-label-value [label]="'Adresse'"
                          [value]="leaseContract.tenant.address.street + ' ' + leaseContract.tenant.address.additionalAddress + ' ' + leaseContract.tenant.address.zipCode + ' ' + leaseContract.tenant.address.town"></app-label-value>
         <app-label-value [label]="'Email'" [value]="leaseContract.tenant.email"></app-label-value>
