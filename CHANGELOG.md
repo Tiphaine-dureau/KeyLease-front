@@ -19,6 +19,7 @@ Nomenclature :
 #### Fixed
 
 -BF back navigation on update fixture
+-BF disabled submit button when required fields are empty
 
 ### [0.1.11] - 2023-04-18
 
