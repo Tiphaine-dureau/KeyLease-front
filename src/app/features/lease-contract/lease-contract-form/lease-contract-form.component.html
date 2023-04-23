@@ -66,7 +66,9 @@
 
       <!--SUBMIT-->
       <mat-card-actions align="end">
-        <button mat-raised-button color="primary" (click)="onSubmit()">Valider le contrat</button>
+        <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="!leaseContractFormGroup.valid">
+          Valider le contrat
+        </button>
       </mat-card-actions>
     </form>
   </mat-card-content>
