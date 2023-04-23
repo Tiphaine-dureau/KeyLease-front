@@ -14,6 +14,10 @@ Nomenclature :
 
 ### Unreleased
 
+#### Fixed
+
+-BF back navigation on update fixture
+
 ### [0.1.11] - 2023-04-18
 
 #### Updated
