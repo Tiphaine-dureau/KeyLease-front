@@ -14,6 +14,8 @@ Nomenclature :
 
 ### Unreleased
 
+### [0.1.12] - 2023-04-23
+
 #### Fixed
 
 -BF back navigation on update fixture
