@@ -14,12 +14,18 @@ Nomenclature :
 
 ### Unreleased
 
+### [0.1.13] - 2023-04-24
+
+#### Fixed
+
+- BF null display on identity-card (additional address)
+
 ### [0.1.12] - 2023-04-23
 
 #### Fixed
 
--BF back navigation on update fixture
--BF disabled submit button when required fields are empty
+- BF back navigation on update fixture
+- BF disabled submit button when required fields are empty
 
 ### [0.1.11] - 2023-04-18
 
