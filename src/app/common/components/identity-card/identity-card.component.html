@@ -6,7 +6,7 @@
   <mat-card-content>
     <app-label-value [label]="'Né(e) le'" [value]="data?.birthday | date:'dd/MM/YYYY':'':'fr'"></app-label-value>
     <app-label-value [label]="'Adresse'"
-                     [value]="data?.address?.street + ' ' + data?.address?.additionalAddress + ' ' + data?.address?.zipCode + ' ' + data?.address?.town"></app-label-value>
+                     [value]="data?.address?.street + ' ' + (data?.address?.additionalAddress ? ' ' + data?.address?.additionalAddress : '') + ' ' + data?.address?.zipCode + ' ' + data?.address?.town"></app-label-value>
     <app-label-value [label]="'E-mail'" [value]="data?.email"></app-label-value>
     <app-label-value [label]="'Téléphone'" [value]="data?.phoneNumber" [divider]="false"></app-label-value>
   </mat-card-content>
