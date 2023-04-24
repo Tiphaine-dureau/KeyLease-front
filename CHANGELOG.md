@@ -14,6 +14,8 @@ Nomenclature :
 
 ### Unreleased
 
+-Fixed Null display on identity-card (additional address)
+
 ### [0.1.12] - 2023-04-23
 
 #### Fixed
