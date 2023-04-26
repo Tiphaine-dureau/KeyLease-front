@@ -8,8 +8,7 @@ import {AddressBusinessModel} from "../../../common/business-models/address.busi
 
 @Component({
   selector: 'app-property-form',
-  templateUrl: './property-form.component.html',
-  styleUrls: ['./property-form.component.scss']
+  templateUrl: './property-form.component.html'
 })
 export class PropertyFormComponent implements OnInit {
   @Input() property?: PropertyBusinessModel;

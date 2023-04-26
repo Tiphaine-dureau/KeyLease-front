@@ -14,6 +14,8 @@ Nomenclature :
 
 ### Unreleased
 
+- Removed old CSS
+
 ### [0.1.13] - 2023-04-24
 
 #### Fixed

@@ -5,11 +5,11 @@
 
 <ng-container *ngIf="properties">
   <!--Filtre -->
-  <mat-form-field class="label-filter">
+  <mat-form-field class="flex m-auto w-full">
     <mat-label>Rechercher un bien</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
   </mat-form-field>
-  <section class="table-container" tabindex="0">
+  <section class="m-auto overflow-x-auto" tabindex="0">
     <!--Table-->
     <table mat-table [dataSource]="dataSource">
       <!--Colonne type de bien-->

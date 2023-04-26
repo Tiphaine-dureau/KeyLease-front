@@ -5,8 +5,7 @@ import {PostLeaseContractModel} from "../services/post-lease-contract.model";
 
 @Component({
   selector: 'app-create-lease-contract',
-  templateUrl: './create-lease-contract.component.html',
-  styleUrls: ['./create-lease-contract.component.scss']
+  templateUrl: './create-lease-contract.component.html'
 })
 export class CreateLeaseContractComponent implements OnInit {
   public isLoading = false;

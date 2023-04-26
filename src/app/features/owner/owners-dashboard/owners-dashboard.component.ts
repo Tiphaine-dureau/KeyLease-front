@@ -5,8 +5,7 @@ import {ClientListModel} from "../../../common/components/client-list/client-lis
 
 @Component({
   selector: 'app-owner',
-  templateUrl: './owners-dashboard.component.html',
-  styleUrls: ['./owners-dashboard.component.scss']
+  templateUrl: './owners-dashboard.component.html'
 })
 export class OwnersDashboardComponent implements OnInit {
   clientModels?: ClientListModel[];

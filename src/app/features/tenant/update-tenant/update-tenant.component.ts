@@ -5,8 +5,7 @@ import {TenantBusinessModel} from "../../../common/business-models/tenant.busine
 
 @Component({
   selector: 'app-update-tenant',
-  templateUrl: './update-tenant.component.html',
-  styleUrls: ['./update-tenant.component.scss']
+  templateUrl: './update-tenant.component.html'
 })
 export class UpdateTenantComponent implements OnInit {
   public tenantId!: string;

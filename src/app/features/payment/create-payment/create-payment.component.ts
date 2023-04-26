@@ -8,8 +8,7 @@ import {LeaseContractBusinessModel} from "../../../common/business-models/lease-
 
 @Component({
   selector: 'app-create-payment',
-  templateUrl: './create-payment.component.html',
-  styleUrls: ['./create-payment.component.scss']
+  templateUrl: './create-payment.component.html'
 })
 export class CreatePaymentComponent implements OnInit {
   public isLoading = false;

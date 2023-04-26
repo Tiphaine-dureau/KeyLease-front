@@ -3,8 +3,7 @@ import {ClientBusinessModel} from "../../business-models/client.business-model";
 
 @Component({
   selector: 'app-identity-card',
-  templateUrl: './identity-card.component.html',
-  styleUrls: ['./identity-card.component.scss']
+  templateUrl: './identity-card.component.html'
 })
 export class IdentityCardComponent implements OnInit {
   @Input() data?: ClientBusinessModel

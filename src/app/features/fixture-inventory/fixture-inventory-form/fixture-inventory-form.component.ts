@@ -9,7 +9,6 @@ import {DatePipe} from "@angular/common";
 @Component({
   selector: 'app-fixture-inventory-form',
   templateUrl: './fixture-inventory-form.component.html',
-  styleUrls: ['./fixture-inventory-form.component.scss']
 })
 export class FixtureInventoryFormComponent implements OnInit {
   @Input() fixtureInventory?: FixtureInventoryBusinessModel;

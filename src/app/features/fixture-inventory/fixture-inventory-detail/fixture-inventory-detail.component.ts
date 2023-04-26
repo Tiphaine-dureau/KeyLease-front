@@ -6,7 +6,6 @@ import {ActivatedRoute, Router} from "@angular/router";
 @Component({
   selector: 'app-fixture-inventory-detail',
   templateUrl: './fixture-inventory-detail.component.html',
-  styleUrls: ['./fixture-inventory-detail.component.scss']
 })
 export class FixtureInventoryDetailComponent implements OnInit {
   public fixtureInventory?: FixtureInventoryBusinessModel;

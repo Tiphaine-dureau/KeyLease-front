@@ -1,25 +1,25 @@
-<mat-stepper class="tenant-stepper" [orientation]="(stepperOrientation | async)!" linear>
+<mat-stepper class="mt-4" [orientation]="(stepperOrientation | async)!" linear>
   <!--FIRST STEP-->
   <mat-step [stepControl]="identityFormGroup" label="Identité">
     <form [formGroup]="identityFormGroup">
-      <div class="form-group-container">
-        <mat-form-field appearance="fill">
+      <div class="flex flex-col">
+        <mat-form-field appearance="fill" class="mt-4">
           <mat-label>Nom</mat-label>
           <input matInput type="text" placeholder="Nom" formControlName="lastName" required>
         </mat-form-field>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" class="mt-4">
           <mat-label>Prénom</mat-label>
           <input matInput type="text" placeholder="Prénom" formControlName="firstName" required>
         </mat-form-field>
       </div>
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="fill" class="mt-4">
         <mat-label>Date de naissance</mat-label>
         <input matInput type="text" formControlName="birthday" [matDatepicker]="picker">
         <mat-hint>jour/mois/année</mat-hint>
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
-      <div class="form-group-button">
+      <div class="flex justify-end">
         <button mat-raised-button color="primary" matStepperNext>Suivant</button>
       </div>
     </form>
@@ -28,26 +28,26 @@
   <!--SECOND STEP-->
   <mat-step [stepControl]="postalAddressFormGroup" label="Adresse postale">
     <form [formGroup]="postalAddressFormGroup">
-      <div class="form-group-container">
-        <mat-form-field appearance="fill">
+      <div class="flex flex-col">
+        <mat-form-field appearance="fill" class="mt-4">
           <mat-label>Numéro et nom de rue</mat-label>
           <input matInput type="text" formControlName="street" placeholder="Numéro et nom de rue" required>
         </mat-form-field>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" class="mt-4">
           <mat-label>Complément d'adresse</mat-label>
           <input matInput type="text" formControlName="additionalAddress"
                  placeholder=" Résidence - Bâtiment - N°Appartement ">
         </mat-form-field>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" class="mt-4">
           <mat-label>Code Postal</mat-label>
           <input matInput type="text" formControlName="zipCode" placeholder="Code postal" required>
         </mat-form-field>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" class="mt-4">
           <mat-label>Ville</mat-label>
           <input matInput type="text" formControlName="town" placeholder="Ville" required>
         </mat-form-field>
       </div>
-      <div class="form-group-buttons">
+      <div class="flex justify-between pt-8">
         <button mat-raised-button matStepperPrevious>Retour</button>
         <button mat-raised-button color="primary" matStepperNext>Suivant</button>
       </div>
@@ -57,23 +57,23 @@
   <!--THIRD STEP-->
   <mat-step [stepControl]="contactDetailsFormGroup" label="Coordonnées">
     <form [formGroup]="contactDetailsFormGroup">
-      <div class="form-group-container">
-        <mat-form-field appearance="fill">
+      <div class="flex flex-col">
+        <mat-form-field appearance="fill" class="mt-4">
           <mat-label>Téléphone</mat-label>
           <input matInput type="tel" formControlName="phone" placeholder="Téléphone" required>
         </mat-form-field>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" class="mt-4">
           <mat-label>Email</mat-label>
           <input matInput type="email" formControlName="email" placeholder="Email">
         </mat-form-field>
 
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" class="mt-4">
           <mat-label>Relevé d'identité bancaire</mat-label>
           <input matInput type="text" formControlName="iban" placeholder="Iban">
           <mat-hint>FR76 1234 5678 1234 5678 1234 567</mat-hint>
         </mat-form-field>
       </div>
-      <div class="form-group-buttons">
+      <div class="flex justify-between pt-8">
         <button mat-raised-button matStepperPrevious>Retour</button>
         <button mat-raised-button color="primary" matStepperNext>Suivant</button>
       </div>
@@ -108,7 +108,7 @@
       <app-label-value [label]="'Iban'" [value]="contactDetailsFormGroup.value.iban"
                        [divider]="false"></app-label-value>
     </div>
-    <div class="form-group-buttons">
+    <div class="flex justify-between pt-8">
       <button mat-raised-button matStepperPrevious>Modifier</button>
       <button mat-raised-button color="primary" (click)="onSubmit()">Valider</button>
     </div>
