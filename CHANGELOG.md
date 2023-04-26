@@ -14,6 +14,8 @@ Nomenclature :
 
 ### Unreleased
 
+- Updated Toolbar : responsive
+
 ### [0.1.14] - 2023-04-26
 
 #### Removed

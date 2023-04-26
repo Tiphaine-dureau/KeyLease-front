@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <a class="text-white tracking-wider no-underline" routerLink="/">KeyLease</a>
+    <a class="text-white tracking-wider no-underline font-mono" routerLink="/">KeyLease</a>
     <span class="flex-1"></span>
 
     <ng-container *ngIf="isAuthenticated$ | async">
@@ -9,6 +9,18 @@
       </button>
     </ng-container>
     <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="/biens">
+        <mat-icon>home_work</mat-icon>
+        <span>Biens</span>
+      </button>
+      <button mat-menu-item routerLink="/proprietaires">
+        <mat-icon>group</mat-icon>
+        <span>Propriétaires</span>
+      </button>
+      <button mat-menu-item routerLink="/locataires">
+        <mat-icon>group</mat-icon>
+        <span>Locataires</span>
+      </button>
       <button mat-menu-item routerLink="/compte">
         <mat-icon>settings</mat-icon>
         <span>Compte</span>
@@ -21,23 +33,24 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<ng-container *ngIf="isAuthenticated$ | async">
-  <mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <a class="text-white text-base font-normal tracking-wider no-underline pr-8 link-toolbar"
-         routerLink="/"
-         routerLinkActive="link-active"
-         [routerLinkActiveOptions]="{exact:true}">Accueil</a>
-      <a class="text-white text-base font-normal tracking-wider no-underline pr-8 link-toolbar"
-         routerLink="/biens"
-         routerLinkActive="link-active">Biens</a>
-      <a class="text-white text-base font-normal tracking-wider no-underline pr-8 link-toolbar"
-         routerLink="/proprietaires"
-         routerLinkActive="link-active">Propriétaires</a>
-      <a class="text-white text-base font-normal tracking-wider no-underline pr-8 link-toolbar"
-         routerLink="/locataires"
-         routerLinkActive="link-active">Locataires</a>
-    </mat-toolbar-row>
-  </mat-toolbar>
-</ng-container>
-
+<div class="sm:block hidden">
+  <ng-container *ngIf="isAuthenticated$ | async">
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <a class="text-white text-base font-normal tracking-wider no-underline pr-8 link-toolbar"
+           routerLink="/"
+           routerLinkActive="link-active"
+           [routerLinkActiveOptions]="{exact:true}">Accueil</a>
+        <a class="text-white text-base font-normal tracking-wider no-underline pr-8 link-toolbar"
+           routerLink="/biens"
+           routerLinkActive="link-active">Biens</a>
+        <a class="text-white text-base font-normal tracking-wider no-underline pr-8 link-toolbar"
+           routerLink="/proprietaires"
+           routerLinkActive="link-active">Propriétaires</a>
+        <a class="text-white text-base font-normal tracking-wider no-underline pr-8 link-toolbar"
+           routerLink="/locataires"
+           routerLinkActive="link-active">Locataires</a>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </ng-container>
+</div>
