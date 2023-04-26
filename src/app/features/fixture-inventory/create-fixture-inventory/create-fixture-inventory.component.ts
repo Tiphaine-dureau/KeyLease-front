@@ -6,7 +6,6 @@ import {PostFixtureInventoryModel} from "../services/post-fixture-inventory.mode
 @Component({
   selector: 'app-create-fixture-inventory',
   templateUrl: './create-fixture-inventory.component.html',
-  styleUrls: ['./create-fixture-inventory.component.scss']
 })
 export class CreateFixtureInventoryComponent implements OnInit {
   public isLoading = false;

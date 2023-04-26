@@ -5,8 +5,7 @@ import {ClientListModel} from "../../../common/components/client-list/client-lis
 
 @Component({
   selector: 'app-tenant',
-  templateUrl: './tenants-dashboard.component.html',
-  styleUrls: ['./tenants-dashboard.component.scss']
+  templateUrl: './tenants-dashboard.component.html'
 })
 export class TenantsDashboardComponent implements OnInit {
   clientModels?: ClientListModel[];

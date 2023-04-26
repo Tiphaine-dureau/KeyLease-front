@@ -5,8 +5,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-lease-contracts-dashboard',
-  templateUrl: './lease-contract-detail.component.html',
-  styleUrls: ['./lease-contract-detail.component.scss']
+  templateUrl: './lease-contract-detail.component.html'
 })
 export class LeaseContractDetailComponent implements OnInit {
 

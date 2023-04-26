@@ -8,8 +8,7 @@ import {PropertyBusinessModel} from "../../../common/business-models/property.bu
 
 @Component({
   selector: 'app-create-property',
-  templateUrl: './create-property.component.html',
-  styleUrls: ['./create-property.component.scss']
+  templateUrl: './create-property.component.html'
 })
 export class CreatePropertyComponent implements OnInit {
   public isLoading = false;

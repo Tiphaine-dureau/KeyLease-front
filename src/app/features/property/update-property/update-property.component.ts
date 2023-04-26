@@ -5,8 +5,7 @@ import {PropertyService} from "../services/property.service";
 
 @Component({
   selector: 'app-update-property',
-  templateUrl: './update-property.component.html',
-  styleUrls: ['./update-property.component.scss']
+  templateUrl: './update-property.component.html'
 })
 export class UpdatePropertyComponent implements OnInit {
   public propertyId!: string;

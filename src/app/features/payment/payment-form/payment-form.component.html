@@ -1,8 +1,8 @@
-<mat-card>
+<mat-card class="p-3">
   <mat-card-content>
     <form [formGroup]="paymentFormGroup">
       <!--PAYMENT DATE-->
-      <mat-form-field appearance="fill" class="payment-form-field">
+      <mat-form-field appearance="fill" class="kl-form-input">
         <mat-label>Date de paiement</mat-label>
         <input matInput type="text" formControlName="rentPaymentDate" [matDatepicker]="picker">
         <mat-hint>jour/mois/année</mat-hint>
@@ -10,12 +10,12 @@
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
       <!--PAID RENT-->
-      <mat-form-field appearance="fill" class="payment-form-field">
+      <mat-form-field appearance="fill" class="kl-form-input pt-5">
         <mat-label>Montant du loyer payé</mat-label>
         <input matInput type="number" formControlName="paidRent">
       </mat-form-field>
       <!--AMOUNT PAID FROM CAF TO OWNER-->
-      <mat-form-field appearance="fill" class="payment-form-field">
+      <mat-form-field appearance="fill" class="kl-form-input pt-5">
         <mat-label>Montant payé par la CAF au propriétaire</mat-label>
         <input matInput type="number" formControlName="amountPaidFromCafToOwner">
       </mat-form-field>

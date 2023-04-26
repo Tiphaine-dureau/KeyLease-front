@@ -9,8 +9,7 @@ import {LeaseContractService} from "../../lease-contract/services/lease-contract
 
 @Component({
   selector: 'app-tenant-detail',
-  templateUrl: './tenant-detail.component.html',
-  styleUrls: ['./tenant-detail.component.scss']
+  templateUrl: './tenant-detail.component.html'
 })
 export class TenantDetailComponent implements OnInit {
   public tenant?: TenantBusinessModel;

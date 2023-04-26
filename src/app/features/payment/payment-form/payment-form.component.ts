@@ -6,8 +6,7 @@ import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-payment-form',
-  templateUrl: './payment-form.component.html',
-  styleUrls: ['./payment-form.component.scss']
+  templateUrl: './payment-form.component.html'
 })
 export class PaymentFormComponent implements OnInit {
   @Input() payment?: PaymentBusinessModel;

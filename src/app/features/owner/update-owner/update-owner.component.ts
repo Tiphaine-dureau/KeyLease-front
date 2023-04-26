@@ -5,8 +5,7 @@ import {OwnerService} from "../services/owner.service";
 
 @Component({
   selector: 'app-update-owner',
-  templateUrl: './update-owner.component.html',
-  styleUrls: ['./update-owner.component.scss']
+  templateUrl: './update-owner.component.html'
 })
 export class UpdateOwnerComponent implements OnInit {
 

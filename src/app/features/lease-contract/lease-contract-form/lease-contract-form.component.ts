@@ -13,8 +13,7 @@ import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-lease-contract-form',
-  templateUrl: './lease-contract-form.component.html',
-  styleUrls: ['./lease-contract-form.component.scss']
+  templateUrl: './lease-contract-form.component.html'
 })
 export class LeaseContractFormComponent implements OnInit {
   @Input() leaseContract?: LeaseContractBusinessModel;

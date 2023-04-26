@@ -9,8 +9,7 @@ import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-owner-form',
-  templateUrl: './owner-form.component.html',
-  styleUrls: ['./owner-form.component.scss']
+  templateUrl: './owner-form.component.html'
 })
 export class OwnerFormComponent {
   @Input() owner?: OwnerBusinessModel;
