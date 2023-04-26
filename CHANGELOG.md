@@ -14,6 +14,10 @@ Nomenclature :
 
 ### Unreleased
 
+### [0.1.16] - 2023-04-26
+
+#### Updated
+
 - Updated Observable on delete fonctions (tenant, owner, property)
 
 ### [0.1.15] - 2023-04-26
