@@ -30,7 +30,7 @@ export class PropertyService {
     return this.http.put<PropertyBusinessModel>(`${environment.apiUrl}/properties/${propertyId}`, propertyBusinessModel);
   }
 
-  public deleteProperty(propertyId: string): Observable<PropertyBusinessModel> {
-    return this.http.delete<PropertyBusinessModel>(`${environment.apiUrl}/properties/${propertyId}`);
+  public deleteProperty(propertyId: string): Observable<void> {
+    return this.http.delete<void>(`${environment.apiUrl}/properties/${propertyId}`);
   }
 }
