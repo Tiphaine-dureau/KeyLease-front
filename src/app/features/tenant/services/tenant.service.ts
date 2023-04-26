@@ -28,7 +28,7 @@ export class TenantService {
     return this.http.put<TenantBusinessModel>(`${environment.apiUrl}/tenants/${tenantId}`, tenantBusinessModel);
   }
 
-  public deleteTenant(tenantId: string): Observable<TenantBusinessModel> {
-    return this.http.delete<TenantBusinessModel>(`${environment.apiUrl}/tenants/${tenantId}`);
+  public deleteTenant(tenantId: string): Observable<void> {
+    return this.http.delete<void>(`${environment.apiUrl}/tenants/${tenantId}`);
   }
 }

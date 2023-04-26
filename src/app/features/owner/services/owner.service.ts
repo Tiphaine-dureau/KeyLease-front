@@ -28,7 +28,7 @@ export class OwnerService {
     return this.http.put<OwnerBusinessModel>(`${environment.apiUrl}/owners/${ownerId}`, ownerBusinessModel);
   }
 
-  public deleteOwner(ownerId: string): Observable<OwnerBusinessModel> {
-    return this.http.delete<OwnerBusinessModel>(`${environment.apiUrl}/owners/${ownerId}`);
+  public deleteOwner(ownerId: string): Observable<void> {
+    return this.http.delete<void>(`${environment.apiUrl}/owners/${ownerId}`);
   }
 }
