@@ -1,10 +1,10 @@
 <ng-container *ngIf="dataSource">
   <!-- Filtre -->
-  <mat-form-field class="label-filter">
+  <mat-form-field class="flex m-auto w-full">
     <mat-label>Rechercher</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex: Mia" #input>
   </mat-form-field>
-  <section tabindex="0" class="table-container">
+  <section tabindex="0" class="m-auto overflow-x-auto">
     <!--Table-->
     <table mat-table [dataSource]="dataSource">
       <ng-container matColumnDef="lastName">

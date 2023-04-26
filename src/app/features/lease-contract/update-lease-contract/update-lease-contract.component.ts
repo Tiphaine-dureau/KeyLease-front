@@ -6,8 +6,7 @@ import {PostLeaseContractModel} from "../services/post-lease-contract.model";
 
 @Component({
   selector: 'app-update-lease-contract',
-  templateUrl: './update-lease-contract.component.html',
-  styleUrls: ['./update-lease-contract.component.scss']
+  templateUrl: './update-lease-contract.component.html'
 })
 export class UpdateLeaseContractComponent implements OnInit {
   private leaseContractId!: string;

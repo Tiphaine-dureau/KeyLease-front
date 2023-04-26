@@ -8,8 +8,7 @@ import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-create-tenant',
-  templateUrl: './create-tenant.component.html',
-  styleUrls: ['./create-tenant.component.scss']
+  templateUrl: './create-tenant.component.html'
 })
 export class CreateTenantComponent implements OnInit {
   public isLoading = false;

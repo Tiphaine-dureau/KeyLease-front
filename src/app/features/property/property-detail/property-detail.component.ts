@@ -5,8 +5,7 @@ import {PropertyBusinessModel} from "../../../common/business-models/property.bu
 
 @Component({
   selector: 'app-property-detail',
-  templateUrl: './property-detail.component.html',
-  styleUrls: ['./property-detail.component.scss']
+  templateUrl: './property-detail.component.html'
 })
 export class PropertyDetailComponent implements OnInit {
   public propertyId!: string;

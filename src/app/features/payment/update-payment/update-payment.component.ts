@@ -7,8 +7,7 @@ import {LeaseContractService} from "../../lease-contract/services/lease-contract
 
 @Component({
   selector: 'app-update-payment',
-  templateUrl: './update-payment.component.html',
-  styleUrls: ['./update-payment.component.scss']
+  templateUrl: './update-payment.component.html'
 })
 export class UpdatePaymentComponent implements OnInit {
   public paymentId!: string;

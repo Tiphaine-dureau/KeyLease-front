@@ -9,8 +9,7 @@ import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-tenant-form',
-  templateUrl: './tenant-form.component.html',
-  styleUrls: ['./tenant-form.component.scss']
+  templateUrl: './tenant-form.component.html'
 })
 export class TenantFormComponent implements OnInit {
   @Input() tenant?: TenantBusinessModel;

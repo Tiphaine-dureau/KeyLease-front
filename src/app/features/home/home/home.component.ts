@@ -3,8 +3,7 @@ import {HomeCardComponent} from "../../../common/components/home-card/home-card.
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  templateUrl: './home.component.html'
 })
 export class HomeComponent {
 

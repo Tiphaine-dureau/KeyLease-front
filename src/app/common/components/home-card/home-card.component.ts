@@ -2,8 +2,7 @@ import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-card',
-  templateUrl: './home-card.component.html',
-  styleUrls: ['./home-card.component.scss']
+  templateUrl: './home-card.component.html'
 })
 export class HomeCardComponent {
   @Input() public title: string | undefined;

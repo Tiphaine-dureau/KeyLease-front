@@ -1,47 +1,6 @@
-@import "src/assets/styles/breakpoints";
 @import "src/assets/styles/colors";
-
-.label-filter {
-  display: flex;
-  margin: auto;
-  max-width: 70%;
-}
-
-.table-container {
-  max-width: 90%;
-  margin: auto;
-  overflow-x: auto;
-  padding-bottom: 20px;
-}
 
 .to-regulate {
   color: $danger;
   font-weight: bold;
-}
-
-.add-payment-icon {
-  padding-top: 10px;
-}
-
-.add-payment-link {
-  display: flex;
-  justify-content: space-around;
-}
-
-@media screen and (min-width: $screen-md-min) {
-  .label-filter {
-    max-width: 60%;
-  }
-}
-
-@media screen and (min-width: $screen-lg-min) {
-  .label-filter {
-    max-width: 50%;
-  }
-}
-
-@media screen and (min-width: $screen-xl-min) {
-  .label-filter {
-    max-width: 40%;
-  }
 }

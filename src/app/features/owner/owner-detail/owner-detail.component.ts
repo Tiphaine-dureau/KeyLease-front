@@ -5,8 +5,7 @@ import {OwnerBusinessModel} from "../../../common/business-models/owner.business
 
 @Component({
   selector: 'app-owner-details',
-  templateUrl: './owner-detail.component.html',
-  styleUrls: ['./owner-detail.component.scss']
+  templateUrl: './owner-detail.component.html'
 })
 export class OwnerDetailComponent implements OnInit {
   public ownerId!: string;
