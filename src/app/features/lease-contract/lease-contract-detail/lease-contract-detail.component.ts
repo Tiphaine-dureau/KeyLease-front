@@ -8,9 +8,10 @@ import {ActivatedRoute, Router} from "@angular/router";
   templateUrl: './lease-contract-detail.component.html'
 })
 export class LeaseContractDetailComponent implements OnInit {
-
   public leaseContractId!: string
   public leaseContract?: LeaseContractBusinessModel;
+  public isLoading = false;
+  public backRoute?: string;
 
   constructor(
     private router: Router,
@@ -26,9 +27,12 @@ export class LeaseContractDetailComponent implements OnInit {
 
 
   private getLeaseContract(): void {
+    this.isLoading = true;
     this.leaseContractService.getLeaseContract(this.leaseContractId).subscribe({
       next: (leaseContract: LeaseContractBusinessModel) => {
+        this.isLoading = false;
         this.leaseContract = leaseContract;
+        this.backRoute = `/biens/${leaseContract.property.id}`
       },
       error: () => {
         // Todo handle error
@@ -41,8 +45,10 @@ export class LeaseContractDetailComponent implements OnInit {
   }
 
   public delete(): void {
+    this.isLoading = true;
     this.leaseContractService.deleteLeaseContract(this.leaseContractId).subscribe({
       next: () => {
+        this.isLoading = false;
         this.router.navigate(['/biens/' + this.leaseContract?.property.id]);
       },
       error: () => {

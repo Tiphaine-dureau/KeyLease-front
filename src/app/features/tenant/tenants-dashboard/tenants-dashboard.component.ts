@@ -9,6 +9,7 @@ import {ClientListModel} from "../../../common/components/client-list/client-lis
 })
 export class TenantsDashboardComponent implements OnInit {
   clientModels?: ClientListModel[];
+  public isLoading = false;
 
   constructor(
     private tenantService: TenantService,
@@ -20,7 +21,9 @@ export class TenantsDashboardComponent implements OnInit {
   }
 
   private getTenants(): void {
+    this.isLoading = true;
     this.tenantService.getTenants().subscribe((tenants: TenantBusinessModel[]) => {
+      this.isLoading = false;
       this.clientModels = tenants.map((tenant: TenantBusinessModel) => {
         return {
           id: tenant.id,

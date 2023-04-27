@@ -12,6 +12,7 @@ export class PropertiesDashboardComponent implements OnInit {
   properties?: PropertyBusinessModel[];
   dataSource!: MatTableDataSource<PropertyBusinessModel>;
   public displayedColumns = ['type', 'area', 'roomsNumber', 'address', 'leaseContractId', 'fixtureInventoryId', 'actions'];
+  public isLoading = false;
 
   constructor(
     private propertyService: PropertyService,
@@ -23,7 +24,9 @@ export class PropertiesDashboardComponent implements OnInit {
   }
 
   private getProperties(): void {
+    this.isLoading = true;
     this.propertyService.getProperties().subscribe((properties: PropertyBusinessModel[]) => {
+      this.isLoading = false;
       this.properties = properties;
       this.dataSource = new MatTableDataSource(this.properties);
     })

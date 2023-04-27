@@ -10,6 +10,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class FixtureInventoryDetailComponent implements OnInit {
   public fixtureInventory?: FixtureInventoryBusinessModel;
   public fixtureInventoryId!: string;
+  public isLoading = false;
+  public backRoute?: string;
 
   constructor(
     private fixtureInventoryService: FixtureInventoryService,
@@ -24,9 +26,12 @@ export class FixtureInventoryDetailComponent implements OnInit {
   }
 
   private getFixtureInventory(): void {
+    this.isLoading = true;
     this.fixtureInventoryService.getFixtureInventory(this.fixtureInventoryId).subscribe({
       next: (fixtureInventory: FixtureInventoryBusinessModel) => {
+        this.isLoading = false;
         this.fixtureInventory = fixtureInventory;
+        this.backRoute = `/biens/${fixtureInventory.property.id}`
       },
       error: () => {
         // TODO handle error
@@ -39,8 +44,10 @@ export class FixtureInventoryDetailComponent implements OnInit {
   }
 
   public delete() {
+    this.isLoading = true;
     this.fixtureInventoryService.delete(this.fixtureInventoryId).subscribe({
       next: () => {
+        this.isLoading = false;
         this.router.navigate(['/biens/' + this.fixtureInventory?.property.id])
       }, error: () => {
         // TODO HANDLE ERROR

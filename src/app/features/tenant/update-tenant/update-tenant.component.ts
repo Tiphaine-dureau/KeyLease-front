@@ -11,6 +11,7 @@ export class UpdateTenantComponent implements OnInit {
   public tenantId!: string;
   public tenant?: TenantBusinessModel;
   public isLoading = false;
+  public backRoute?: string;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -20,10 +21,13 @@ export class UpdateTenantComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.tenantId = this.activatedRoute.snapshot.params['id_locataire'];
     this.tenantService.getTenant(this.tenantId).subscribe({
-      next: (tenant: TenantBusinessModel) => {
-        this.tenant = tenant;
+      next: (tenantModel: TenantBusinessModel) => {
+        this.isLoading = false;
+        this.tenant = tenantModel;
+        this.backRoute = `/locataires/${tenantModel.id}`
       },
       error: () => {
         // TODO handle error

@@ -1,6 +1,5 @@
+<app-title [title]="'Modification de l\'état des lieux'" [back]="backRoute"></app-title>
 <ng-container *ngIf="fixtureInventory">
-  <app-title [title]="'Modification de l\'état des lieux'"
-             [back]="'/etats-des-lieux/' + fixtureInventory.id"></app-title>
   <app-fixture-inventory-form (onFormSubmit)="onSubmit($event)"
                               [fixtureInventory]="fixtureInventory"></app-fixture-inventory-form>
 </ng-container>
