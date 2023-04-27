@@ -1,5 +1,5 @@
+<app-title [title]="'Contrat'" [back]="backRoute"></app-title>
 <ng-container *ngIf="leaseContract">
-  <app-title [title]="'Contrat'" [back]="'/biens/' + leaseContract.property.id"></app-title>
   <app-alert [title]="'Contrat de location'"
              [subtitle]="'Un contrat de location a été conclu entre les parties désignées ci-dessous concernant le bien ci-après'"
              [icon]="'description'"></app-alert>
@@ -77,4 +77,8 @@
     <button class="me-3" mat-raised-button color="accent" (click)="modify()">Modifier</button>
     <button mat-raised-button color="warn" (click)="delete()">Supprimer</button>
   </div>
+</ng-container>
+
+<ng-container *ngIf="isLoading">
+  <app-spinner></app-spinner>
 </ng-container>

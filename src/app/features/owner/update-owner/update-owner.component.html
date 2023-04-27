@@ -1,5 +1,5 @@
+<app-title [title]="'Modifier un propriétaire'" [back]="backRoute"></app-title>
 <ng-container *ngIf="owner">
-  <app-title [title]="'Modifier un propriétaire'" [back]="'/proprietaires/' + owner.id"></app-title>
   <app-owner-form [owner]="owner" (onFormSubmit)="onSubmit($event)"></app-owner-form>
 </ng-container>
 <ng-container *ngIf="isLoading">

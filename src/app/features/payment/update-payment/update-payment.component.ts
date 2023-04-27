@@ -26,10 +26,12 @@ export class UpdatePaymentComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.paymentId = this.activatedRoute.snapshot.params['id_paiement'];
     this.contractId = this.activatedRoute.snapshot.params['id_contrat'];
     this.leaseContractService.getLeaseContract(this.contractId).subscribe({
       next: (model: LeaseContractBusinessModel) => {
+        this.isLoading = false;
         this.contract = model;
         this.backRoute = `/locataires/${model.tenant.id}`
       },
@@ -50,7 +52,7 @@ export class UpdatePaymentComponent implements OnInit {
     this.isLoading = true;
     this.paymentService.updatePayment($event, this.paymentId).subscribe({
       next: () => {
-        this.isLoading = true;
+        this.isLoading = false;
         this.router.navigate(['locataires', this.contract?.tenant.id])
       }, error: () => {
         // TODO handle error

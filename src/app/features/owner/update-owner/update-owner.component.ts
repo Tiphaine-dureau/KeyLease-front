@@ -8,10 +8,10 @@ import {OwnerService} from "../services/owner.service";
   templateUrl: './update-owner.component.html'
 })
 export class UpdateOwnerComponent implements OnInit {
-
   public ownerId!: string;
   public owner?: OwnerBusinessModel;
   public isLoading = false;
+  public backRoute?: string
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -21,10 +21,13 @@ export class UpdateOwnerComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.ownerId = this.activatedRoute.snapshot.params['id_proprietaire'];
     this.ownerService.getOwner(this.ownerId).subscribe({
-      next: (owner: OwnerBusinessModel) => {
-        this.owner = owner;
+      next: (ownerModel: OwnerBusinessModel) => {
+        this.isLoading = false;
+        this.owner = ownerModel;
+        this.backRoute = `/proprietaires/${ownerModel.id}`
       },
       error: () => {
         // TODO handle error

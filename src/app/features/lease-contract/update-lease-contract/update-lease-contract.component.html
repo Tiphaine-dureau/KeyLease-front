@@ -1,7 +1,8 @@
+<app-title [title]="'Modification du contrat'" [back]="backRoute"></app-title>
 <ng-container *ngIf="leaseContract">
-  <app-title [title]="'Modification du contrat'" [back]="'/contrats-location/' + leaseContract.id"></app-title>
   <ng-container *ngIf="leaseContract">
-    <app-lease-contract-form [leaseContract]="leaseContract" (onFormSubmit)="onSubmit($event)"></app-lease-contract-form>
+    <app-lease-contract-form [leaseContract]="leaseContract"
+                             (onFormSubmit)="onSubmit($event)"></app-lease-contract-form>
   </ng-container>
 </ng-container>
 
