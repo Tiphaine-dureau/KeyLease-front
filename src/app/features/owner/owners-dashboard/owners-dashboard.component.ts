@@ -9,6 +9,7 @@ import {ClientListModel} from "../../../common/components/client-list/client-lis
 })
 export class OwnersDashboardComponent implements OnInit {
   clientModels?: ClientListModel[];
+  public isLoading = false;
 
   constructor(
     private ownerService: OwnerService) {
@@ -19,7 +20,9 @@ export class OwnersDashboardComponent implements OnInit {
   }
 
   private getOwners(): void {
+    this.isLoading = true;
     this.ownerService.getOwners().subscribe((owners: OwnerBusinessModel[]) => {
+      this.isLoading = false;
       this.clientModels = owners.map((owner: OwnerBusinessModel) => {
         return {
           id: owner.id,

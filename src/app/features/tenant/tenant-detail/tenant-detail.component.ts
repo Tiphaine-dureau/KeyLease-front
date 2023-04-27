@@ -33,6 +33,7 @@ export class TenantDetailComponent implements OnInit {
   }
 
   private getTenant(): void {
+    this.isLoading = true;
     this.tenantService.getTenant(this.tenantID).subscribe({
       next: (tenant: TenantBusinessModel) => {
         this.tenant = tenant;
@@ -45,6 +46,7 @@ export class TenantDetailComponent implements OnInit {
                 payments: payments
               };
               this.paymentSections?.push(paymentSection);
+              this.isLoading = false;
             });
           })
         })

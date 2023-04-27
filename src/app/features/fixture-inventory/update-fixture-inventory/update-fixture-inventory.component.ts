@@ -12,6 +12,7 @@ export class UpdateFixtureInventoryComponent implements OnInit {
   private fixtureInventoryId!: string;
   public fixtureInventory?: FixtureInventoryBusinessModel;
   public isLoading = false;
+  public backRoute?: string;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -21,10 +22,13 @@ export class UpdateFixtureInventoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.fixtureInventoryId = this.activatedRoute.snapshot.params['id_etat-des-lieux'];
     this.fixtureInventoryService.getFixtureInventory(this.fixtureInventoryId).subscribe({
       next: (fixtureBusinessModel: FixtureInventoryBusinessModel) => {
+        this.isLoading = false;
         this.fixtureInventory = fixtureBusinessModel;
+        this.backRoute = `/etats-des-lieux/${fixtureBusinessModel.id}`
       }, error: () => {
         // TODO HANDLE ERROR
       }

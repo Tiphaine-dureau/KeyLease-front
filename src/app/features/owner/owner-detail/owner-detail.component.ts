@@ -26,8 +26,10 @@ export class OwnerDetailComponent implements OnInit {
   }
 
   private getOwner(): void {
+    this.isLoading = true;
     this.ownerService.getOwner(this.ownerId).subscribe({
       next: (owner: OwnerBusinessModel) => {
+        this.isLoading = false;
         this.owner = owner;
       },
       error: () => {

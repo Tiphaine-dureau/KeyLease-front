@@ -1,5 +1,5 @@
+<app-title [title]="'Détails du locataire'" [back]="'/locataires'"></app-title>
 <ng-container *ngIf="tenant">
-  <app-title [title]="'Détails du locataire'" [back]="'/locataires'"></app-title>
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 pb-3">
     <!--IDENTITY CARD-->
     <app-identity-card [data]="tenant" [subtitle]="subtitle"></app-identity-card>

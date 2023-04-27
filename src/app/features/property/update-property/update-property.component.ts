@@ -11,6 +11,7 @@ export class UpdatePropertyComponent implements OnInit {
   public propertyId!: string;
   public property?: PropertyBusinessModel;
   public isLoading = false;
+  public backRoute?: string;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -24,8 +25,9 @@ export class UpdatePropertyComponent implements OnInit {
     this.propertyId = this.activatedRoute.snapshot.params['id_bien'];
     this.propertyService.getProperty(this.propertyId).subscribe({
       next: (property: PropertyBusinessModel) => {
-        this.property = property;
         this.isLoading = false;
+        this.property = property;
+        this.backRoute = `/biens/${property.id}`
       },
       error: () => {
         // TODO handle error

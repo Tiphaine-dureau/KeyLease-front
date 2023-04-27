@@ -3,3 +3,6 @@
   <button mat-raised-button color="primary" routerLink="/proprietaires/creation">Ajouter un propriétaire</button>
 </div>
 <app-client-list *ngIf="clientModels" [data]="clientModels"></app-client-list>
+<ng-container *ngIf="isLoading">
+  <app-spinner></app-spinner>
+</ng-container>

@@ -25,8 +25,10 @@ export class PropertyDetailComponent implements OnInit {
   }
 
   private getProperty(): void {
+    this.isLoading = true;
     this.propertyService.getProperty(this.propertyId).subscribe({
       next: (property: PropertyBusinessModel) => {
+        this.isLoading = false;
         this.property = property;
       },
       error: () => {
