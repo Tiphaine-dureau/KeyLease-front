@@ -16,6 +16,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {RouterModule} from "@angular/router";
 import {TitleComponent} from "../../common/components/title/title.component";
 import {LabelValueComponent} from "../../common/components/label-value/label-value.component";
+import {DialogComponent} from "../../common/components/dialog/dialog.component";
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import {LabelValueComponent} from "../../common/components/label-value/label-val
     MatDatepickerModule,
     MatIconModule,
     TitleComponent,
-    LabelValueComponent
+    LabelValueComponent,
+    DialogComponent
   ],
   providers: [
     DatePipe

@@ -20,6 +20,7 @@ import {PaymentModule} from "../payment/payment.module";
 import {RouterModule} from "@angular/router";
 import {TitleComponent} from "../../common/components/title/title.component";
 import {LabelValueComponent} from "../../common/components/label-value/label-value.component";
+import {DialogComponent} from "../../common/components/dialog/dialog.component";
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import {LabelValueComponent} from "../../common/components/label-value/label-val
     MatCardModule,
     PaymentModule,
     TitleComponent,
-    LabelValueComponent
+    LabelValueComponent,
+    DialogComponent
   ]
 })
 export class TenantModule {

@@ -15,6 +15,7 @@ import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
 import {TitleComponent} from "../../common/components/title/title.component";
 import {LabelValueComponent} from "../../common/components/label-value/label-value.component";
+import {DialogComponent} from "../../common/components/dialog/dialog.component";
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {LabelValueComponent} from "../../common/components/label-value/label-val
     MatInputModule,
     ReactiveFormsModule,
     TitleComponent,
-    LabelValueComponent
+    LabelValueComponent,
+    DialogComponent
   ]
 })
 export class FixtureInventoryModule {

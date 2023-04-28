@@ -20,6 +20,8 @@ import {MatTooltipModule} from "@angular/material/tooltip";
 import {TitleComponent} from "../../common/components/title/title.component";
 import {RouterModule} from "@angular/router";
 import {LabelValueComponent} from "../../common/components/label-value/label-value.component";
+import {DialogComponent} from "../../common/components/dialog/dialog.component";
+
 
 @NgModule({
   declarations: [
@@ -45,7 +47,8 @@ import {LabelValueComponent} from "../../common/components/label-value/label-val
     MatCardModule,
     MatTooltipModule,
     TitleComponent,
-    LabelValueComponent
+    LabelValueComponent,
+    DialogComponent
   ]
 })
 export class PropertyModule {

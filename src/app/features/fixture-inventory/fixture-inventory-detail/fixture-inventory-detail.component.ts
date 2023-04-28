@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FixtureInventoryBusinessModel} from "../../../common/business-models/fixture-inventory.business-model";
 import {FixtureInventoryService} from "../services/fixture-inventory.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {DialogComponent} from "../../../common/components/dialog/dialog.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-fixture-inventory-detail',
@@ -17,6 +19,7 @@ export class FixtureInventoryDetailComponent implements OnInit {
     private fixtureInventoryService: FixtureInventoryService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
+    private dialog: MatDialog
   ) {
   }
 
@@ -43,15 +46,23 @@ export class FixtureInventoryDetailComponent implements OnInit {
     this.router.navigate(['/etats-des-lieux/' + this.fixtureInventoryId + '/modification'])
   }
 
-  public delete() {
-    this.isLoading = true;
-    this.fixtureInventoryService.delete(this.fixtureInventoryId).subscribe({
-      next: () => {
-        this.isLoading = false;
-        this.router.navigate(['/biens/' + this.fixtureInventory?.property.id])
-      }, error: () => {
-        // TODO HANDLE ERROR
-      }
+  public deleteFixtureInventory() {
+    const message = `Vous êtes sur le point de supprimer l'état des lieux. Voulez-vous continuer ?`
+    const dialogRef = this.dialog.open(DialogComponent, {
+      data: {message},
+      autoFocus: 'dialog'
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === "cancel") return;
+      this.isLoading = true;
+      this.fixtureInventoryService.delete(this.fixtureInventoryId).subscribe({
+        next: () => {
+          this.isLoading = false;
+          this.router.navigate(['/biens/' + this.fixtureInventory?.property.id])
+        }, error: () => {
+          // TODO HANDLE ERROR
+        }
+      })
     })
   }
 }
