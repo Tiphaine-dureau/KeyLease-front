@@ -23,11 +23,11 @@ export class UpdatePropertyComponent implements OnInit {
   ngOnInit(): void {
     this.isLoading = true;
     this.propertyId = this.activatedRoute.snapshot.params['id_bien'];
+    this.backRoute = `/biens/${this.propertyId}`;
     this.propertyService.getProperty(this.propertyId).subscribe({
       next: (property: PropertyBusinessModel) => {
         this.isLoading = false;
         this.property = property;
-        this.backRoute = `/biens/${property.id}`
       },
       error: () => {
         // TODO handle error

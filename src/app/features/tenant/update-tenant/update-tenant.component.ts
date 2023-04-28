@@ -23,11 +23,11 @@ export class UpdateTenantComponent implements OnInit {
   ngOnInit(): void {
     this.isLoading = true;
     this.tenantId = this.activatedRoute.snapshot.params['id_locataire'];
+    this.backRoute = `/locataires/${this.tenantId}`;
     this.tenantService.getTenant(this.tenantId).subscribe({
       next: (tenantModel: TenantBusinessModel) => {
         this.isLoading = false;
         this.tenant = tenantModel;
-        this.backRoute = `/locataires/${tenantModel.id}`
       },
       error: () => {
         // TODO handle error
