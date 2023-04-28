@@ -19,6 +19,7 @@ import {MatDividerModule} from "@angular/material/divider";
 import {TitleComponent} from "../../common/components/title/title.component";
 import {LabelValueComponent} from "../../common/components/label-value/label-value.component";
 import {MatTooltipModule} from "@angular/material/tooltip";
+import {DialogComponent} from "../../common/components/dialog/dialog.component";
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import {MatTooltipModule} from "@angular/material/tooltip";
     MatDividerModule,
     TitleComponent,
     LabelValueComponent,
-    MatTooltipModule
+    MatTooltipModule,
+    DialogComponent
   ]
 })
 export class PaymentModule {
