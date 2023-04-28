@@ -23,11 +23,11 @@ export class UpdateOwnerComponent implements OnInit {
   ngOnInit(): void {
     this.isLoading = true;
     this.ownerId = this.activatedRoute.snapshot.params['id_proprietaire'];
+    this.backRoute = `/proprietaires/${this.ownerId}`;
     this.ownerService.getOwner(this.ownerId).subscribe({
       next: (ownerModel: OwnerBusinessModel) => {
         this.isLoading = false;
         this.owner = ownerModel;
-        this.backRoute = `/proprietaires/${ownerModel.id}`
       },
       error: () => {
         // TODO handle error
