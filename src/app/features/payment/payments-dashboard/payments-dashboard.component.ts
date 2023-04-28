@@ -5,6 +5,8 @@ import {LeaseContractBusinessModel} from "../../../common/business-models/lease-
 import {PaymentDataModel} from "./payment-data.model";
 import {PaymentService} from "../services/payment.service";
 import {saveAs} from "file-saver";
+import {DialogComponent} from "../../../common/components/dialog/dialog.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-payments-dashboard',
@@ -21,6 +23,7 @@ export class PaymentsDashboardComponent implements OnInit {
 
   constructor(
     private paymentService: PaymentService,
+    private dialog: MatDialog
   ) {
   }
 
@@ -38,14 +41,22 @@ export class PaymentsDashboardComponent implements OnInit {
   }
 
   public deletePayment(id: string): void {
-    this.isLoading = true;
-    this.paymentService.deletePayment(id).subscribe({
-      next: () => {
-        this.isLoading = false;
-        window.location.reload();
-      }, error: () => {
-        // TODO handle error
-      }
+    const message = `Vous êtes sur le point de supprimer le paiement, voulez-vous continuer ?`
+    const dialogRef = this.dialog.open(DialogComponent, {
+      data: {message},
+      autoFocus: 'dialog'
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === "cancel") return;
+      this.isLoading = true;
+      this.paymentService.deletePayment(id).subscribe({
+        next: () => {
+          this.isLoading = false;
+          window.location.reload();
+        }, error: () => {
+          // TODO handle error
+        }
+      })
     })
   }
 

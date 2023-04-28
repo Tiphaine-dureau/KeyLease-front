@@ -14,6 +14,12 @@ Nomenclature :
 
 ### Unreleased
 
+### [0.1.18] - 2023-04-28
+
+#### Added
+
+- Added dialog component and integrated it on all delete()
+
 ### [0.1.17] - 2023-04-27
 
 #### Updated

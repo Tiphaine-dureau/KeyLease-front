@@ -6,6 +6,8 @@ import {PaymentBusinessModel} from "../../../common/business-models/payment.busi
 import {PaymentService} from "../../payment/services/payment.service";
 import {LeaseContractBusinessModel} from "../../../common/business-models/lease-contract.business-model";
 import {LeaseContractService} from "../../lease-contract/services/lease-contract.service";
+import {MatDialog} from "@angular/material/dialog";
+import {DialogComponent} from "../../../common/components/dialog/dialog.component";
 
 @Component({
   selector: 'app-tenant-detail',
@@ -24,6 +26,7 @@ export class TenantDetailComponent implements OnInit {
     private tenantService: TenantService,
     private paymentService: PaymentService,
     private leaseContractService: LeaseContractService,
+    private dialog: MatDialog
   ) {
   }
 
@@ -58,15 +61,24 @@ export class TenantDetailComponent implements OnInit {
   }
 
   public delete(): void {
-    this.isLoading = true;
-    this.tenantService.deleteTenant(this.tenantID).subscribe({
-      next: () => {
-        this.isLoading = false;
-        this.router.navigate(["/locataires"]);
-      },
-      error: () => {
-        // TODO add toast
-      }
+    const message = `Supprimer le locataire ${this.tenant?.firstName} ${this.tenant?.lastName} engendrera s'il y a, la
+    suppression du contrat associé et les paiements liés à ce contrat`
+    const dialogRef = this.dialog.open(DialogComponent, {
+      data: {message},
+      autoFocus: 'dialog'
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === "cancel") return;
+      this.isLoading = true;
+      this.tenantService.deleteTenant(this.tenantID).subscribe({
+        next: () => {
+          this.isLoading = false;
+          this.router.navigate(["/locataires"]);
+        },
+        error: () => {
+          // TODO add toast
+        }
+      })
     })
   }
 }

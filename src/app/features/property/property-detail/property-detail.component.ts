@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {PropertyService} from "../services/property.service";
 import {PropertyBusinessModel} from "../../../common/business-models/property.business-model";
+import {MatDialog} from "@angular/material/dialog";
+import {DialogComponent} from "../../../common/components/dialog/dialog.component";
 
 @Component({
   selector: 'app-property-detail',
@@ -15,7 +17,8 @@ export class PropertyDetailComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private propertyService: PropertyService,
-    private router: Router
+    private router: Router,
+    private dialog: MatDialog
   ) {
   }
 
@@ -38,15 +41,24 @@ export class PropertyDetailComponent implements OnInit {
   }
 
   public deleteProperty(): void {
-    this.isLoading = true;
-    this.propertyService.deleteProperty(this.propertyId).subscribe({
-      next: () => {
-        this.isLoading = false;
-        this.router.navigateByUrl("/biens");
-      },
-      error: () => {
-        // TODO handle error
-      }
+    const message = `Supprimer le bien : ${this.property?.type} - ${this.property?.area}m² - ${this.property?.roomsNumber} pièces engendrera s'il y a, la
+    suppression du contrat associé et les paiements liés à ce contrat`
+    const dialogRef = this.dialog.open(DialogComponent, {
+      data: {message},
+      autoFocus: 'dialog'
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === "cancel") return;
+      this.isLoading = true;
+      this.propertyService.deleteProperty(this.propertyId).subscribe({
+        next: () => {
+          this.isLoading = false;
+          this.router.navigateByUrl("/biens");
+        },
+        error: () => {
+          // TODO handle error
+        }
+      })
     })
   }
 }
