@@ -18,6 +18,7 @@ import {MatCardModule} from "@angular/material/card";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {TitleComponent} from "../../common/components/title/title.component";
 import {LabelValueComponent} from "../../common/components/label-value/label-value.component";
+import {DialogComponent} from "../../common/components/dialog/dialog.component";
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import {LabelValueComponent} from "../../common/components/label-value/label-val
     MatCardModule,
     MatProgressBarModule,
     TitleComponent,
-    LabelValueComponent
+    LabelValueComponent,
+    DialogComponent
   ]
 })
 export class OwnerModule {
