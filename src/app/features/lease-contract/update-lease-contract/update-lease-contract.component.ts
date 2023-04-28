@@ -24,11 +24,11 @@ export class UpdateLeaseContractComponent implements OnInit {
   public ngOnInit(): void {
     this.isLoading = true;
     this.leaseContractId = this.activatedRoute.snapshot.params['id_contrat-location'];
+    this.backRoute = `/contrats-location/${this.leaseContractId}`;
     this.leaseContractService.getLeaseContract(this.leaseContractId).subscribe({
       next: (leaseContractBusinessModel: LeaseContractBusinessModel) => {
         this.isLoading = false;
         this.leaseContract = leaseContractBusinessModel;
-        this.backRoute = `/contrats-location/${leaseContractBusinessModel.id}`
       },
       error: () => {
         // TODO handle error
