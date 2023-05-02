@@ -14,6 +14,12 @@ Nomenclature :
 
 ### Unreleased
 
+### [0.1.20] - 2023-05-02
+
+#### Updated
+
+- Added alert component on login page
+
 ### [0.1.19] - 2023-04-28
 
 #### Updated

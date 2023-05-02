@@ -8,4 +8,6 @@ export class AlertComponent {
   @Input() title!: string;
   @Input() subtitle!: string;
   @Input() icon: string = 'info';
+  @Input() status: string = 'success';
 }
+
