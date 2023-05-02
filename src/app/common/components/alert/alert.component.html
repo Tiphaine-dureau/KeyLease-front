@@ -1,4 +1,5 @@
-<div class="flex p-5 bg-success border-alert border border-emerald-600 rounded-md">
+<div class="flex p-5 bg-success border-alert border  rounded-md"
+     [ngClass]="{'bg-success border-emerald-600': status === 'success', 'bg-accent border-yellow-500': status === 'accent'}">
   <div class="pe-3">
     <mat-icon class="text-black" fontIcon="{{icon}}"></mat-icon>
   </div>

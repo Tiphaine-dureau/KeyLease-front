@@ -1,7 +1,11 @@
 <div class="w-full flex justify-center">
   <div *ngIf="!(isLoading$ | async)" class="w-full md:w-2/3 xl:w-1/3">
     <app-title [title]="'Login'"></app-title>
-    <mat-card>
+    <app-alert [title]="'Attention !'"
+               [subtitle]="'Le site est hébergé sur Render en version gratuite. Le serveur est donc très lent au démarrage. Veuillez donc retenter jusqu\'à l\'établissement de la connexion.'"
+               [icon]="'warning'"
+               [status]="'accent'"></app-alert>
+    <mat-card class="mt-3">
       <mat-card-content>
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
           <!--EMAIL-->
