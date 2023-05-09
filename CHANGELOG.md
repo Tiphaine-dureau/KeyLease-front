@@ -14,6 +14,12 @@ Nomenclature :
 
 ### Unreleased
 
+### [0.1.21] - 2023-05-09
+
+#### Fixed
+
+- Fixed : Spinner on paymentTable (tenant detail)
+
 ### [0.1.20] - 2023-05-02
 
 #### Updated

@@ -39,10 +39,12 @@ export class TenantDetailComponent implements OnInit {
     this.isLoading = true;
     this.tenantService.getTenant(this.tenantID).subscribe({
       next: (tenant: TenantBusinessModel) => {
+        this.isLoading = false;
         this.tenant = tenant;
         this.paymentSections = [];
         this.tenant.leaseContractIdList.forEach((contractId: string) => {
           this.leaseContractService.getLeaseContract(contractId).subscribe((leaseContractBusinessModel: LeaseContractBusinessModel) => {
+            this.isLoading = true;
             this.paymentService.getPaymentsByLeaseContractId(contractId).subscribe((payments: PaymentBusinessModel[]) => {
               const paymentSection: { contract: LeaseContractBusinessModel, payments: PaymentBusinessModel[] } = {
                 contract: leaseContractBusinessModel,
