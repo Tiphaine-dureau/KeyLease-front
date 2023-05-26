@@ -45,7 +45,7 @@ export class OwnerFormComponent {
     this.contactDetailsFormGroup = this._formBuilder.group({
       // Matches 99.99% of e-mail addresses (excludes IP e-mails)
       email: [this.owner?.email, Validators.pattern('^[\\w-]+(?:\\.[\\w-]+)*@(?:[\\w-]+\\.)+[a-zA-Z]{2,7}$')],
-      phone: [this.owner?.phoneNumber, Validators.required],
+      phone: [this.owner?.phoneNumber, Validators.pattern('^0[1-9][0-9]{8}')],
       iban: [this.owner?.iban]
     });
   }

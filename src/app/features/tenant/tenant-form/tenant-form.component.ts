@@ -46,10 +46,10 @@ export class TenantFormComponent implements OnInit {
     this.contactDetailsFormGroup = this._formBuilder.group({
       // Matches 99.99% of e-mail addresses (excludes IP e-mails)
       email: [this.tenant?.email, Validators.pattern('^[\\w-]+(?:\\.[\\w-]+)*@(?:[\\w-]+\\.)+[a-zA-Z]{2,7}$')],
-      phone: [this.tenant?.phoneNumber, Validators.required],
+      phone: [this.tenant?.phoneNumber, Validators.pattern('^0[1-9][0-9]{8}')],
       partnerLastName: [this.tenant?.partnerLastName],
       partnerFirstName: [this.tenant?.partnerFirstName],
-      partnerPhone: [this.tenant?.partnerPhoneNumber]
+      partnerPhone: [this.tenant?.partnerPhoneNumber, Validators.pattern('^0[1-9][0-9]{8}')],
     });
   }
 
