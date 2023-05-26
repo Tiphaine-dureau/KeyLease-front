@@ -14,7 +14,7 @@
         <app-label-value [label]="'Date de naissance'"
                          [value]="leaseContract.owner.birthday | date:'dd/MM/YYYY':'':'fr'"></app-label-value>
         <app-label-value [label]="'Adresse'"
-                         [value]="leaseContract.owner.address.street + ' ' + leaseContract.owner.address.additionalAddress + ' ' + leaseContract.owner.address.zipCode + ' ' + leaseContract.owner.address.town"></app-label-value>
+                         [value]="leaseContract.owner.address.street + ' ' + (leaseContract.owner.address.additionalAddress ? ' ' + leaseContract.owner.address.additionalAddress : '') + ' ' + leaseContract.owner.address.zipCode + ' ' + leaseContract.owner.address.town"></app-label-value>
         <app-label-value [label]="'Email'" [value]="leaseContract.owner.email"></app-label-value>
         <app-label-value [label]="'Téléphone'" [value]="leaseContract.owner.phoneNumber"></app-label-value>
         <app-label-value [label]="'Iban'" [value]="leaseContract.owner.iban" [divider]="false"></app-label-value>
@@ -30,7 +30,7 @@
         <app-label-value [label]="'Date de naissance'"
                          [value]="leaseContract.tenant.birthday | date:'dd/MM/YYYY':'':'fr'"></app-label-value>
         <app-label-value [label]="'Adresse'"
-                         [value]="leaseContract.tenant.address.street + ' ' + leaseContract.tenant.address.additionalAddress + ' ' + leaseContract.tenant.address.zipCode + ' ' + leaseContract.tenant.address.town"></app-label-value>
+                         [value]="leaseContract.tenant.address.street + ' ' + (leaseContract.tenant.address.additionalAddress ? ' ' + leaseContract.tenant.address.additionalAddress : '') + ' ' + leaseContract.tenant.address.zipCode + ' ' + leaseContract.tenant.address.town"></app-label-value>
         <app-label-value [label]="'Email'" [value]="leaseContract.tenant.email"></app-label-value>
         <app-label-value [label]="'Téléphone'" [value]="leaseContract.tenant.phoneNumber"></app-label-value>
         <app-label-value [label]="'Nom du Conjoint'" [value]="leaseContract.tenant.partnerLastName"></app-label-value>
@@ -50,7 +50,7 @@
         <app-label-value [label]="'Nombre de pièces'" [value]="leaseContract.property.roomsNumber"></app-label-value>
         <app-label-value [label]="'Description'" [value]="leaseContract.property.description"></app-label-value>
         <app-label-value [label]="'Adresse'"
-                         [value]="leaseContract.property.address.street + ' ' + leaseContract.property.address.additionalAddress + ' ' + leaseContract.property.address.zipCode + ' ' + leaseContract.property.address.town"
+                         [value]="leaseContract.property.address.street + ' ' + (leaseContract.property.address.additionalAddress ? ' ' + leaseContract.property.address.additionalAddress : '') + ' ' + leaseContract.property.address.zipCode + ' ' + leaseContract.property.address.town"
                          [divider]="false"></app-label-value>
       </mat-card-content>
     </mat-card>
