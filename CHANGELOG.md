@@ -14,6 +14,11 @@ Nomenclature :
 
 ### Unreleased
 
+#### Fixed
+
+- Added phone regex
+- Fixed null display when there isn't additional address on lease-contract-detail
+
 ### [0.1.21] - 2023-05-09
 
 #### Fixed
