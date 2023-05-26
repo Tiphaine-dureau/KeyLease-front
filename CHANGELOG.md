@@ -14,6 +14,8 @@ Nomenclature :
 
 ### Unreleased
 
+### [0.1.22] - 2023-05-26
+
 #### Fixed
 
 - Added phone regex
